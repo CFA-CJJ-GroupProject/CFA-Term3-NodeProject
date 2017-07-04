@@ -26,8 +26,7 @@ Term 3 Node Project for All Needs Transport
 * Design, build, deploy and present an application built for a real world client.
 * Meet with the business owner or organisation manager to find out what challenges they face.
 * Solve their presented problem with an application your group will build.
-<br>
-<br>
+
 [Table of Contents](#table-of-contents)
 
 
@@ -64,10 +63,9 @@ Term 3 Node Project for All Needs Transport
 
 #### Driver 
 ***
-1. As a driver, I would like a list of my pickups for the day.
-2. As a driver, I would like a list of my deliviries for the day
-3. As a driver, I would like to be able to mark a job as complete, for my own use.
-4. As a driver, I would like to click on an address and be directed there.
+1. As a driver, I would like a list of all my jobs for the day.
+2. As a driver, I would like to be able to mark a job as complete, for my own use.
+3. As a driver, I would like to click on an address and be directed there.
 
 
 #### Admin/Clerk 
