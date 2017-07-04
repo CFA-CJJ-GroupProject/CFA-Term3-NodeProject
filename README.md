@@ -1,5 +1,6 @@
 # CFA-Term3-NodeProject
-Term 3 Node Project for All Needs Transport
+Term 3 MERN stack project.<br>
+A transport company job logging application.
 
 
 # Table of Contents
