@@ -33,6 +33,10 @@ Term 3 Node Project for All Needs Transport
 
 ## Stacks Used 
 ***
+* MongoDB: noSQL database for flexibility.
+* ExpressJs: back-end API.
+* ReactJs: Component based design, front end development.
+* NodeJs: Server-side application development.
 
 [Table of Contents](#table-of-contents)
 
