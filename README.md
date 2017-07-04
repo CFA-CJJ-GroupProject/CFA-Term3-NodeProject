@@ -22,11 +22,18 @@ Term 3 Node Project for All Needs Transport
 
 ## Project Brief
 ***
+#### Our task is to: 
+* Design, build, deploy and present an application built for a real world client.
+* Meet with the business owner or organisation manager to find out what challenges they face.
+* Solve their presented problem with an application your group will build.
+<br>
+<br>
 [Table of Contents](#table-of-contents)
 
 
 ## Stacks Used 
 ***
+
 [Table of Contents](#table-of-contents)
 
 ## Business Problem 
