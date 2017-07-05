@@ -1,0 +1,21 @@
+{
+  "name": "CFA-Project-Term3",
+  "version": "1.0.0",
+  "description": "Transport Job Logging Application",
+  "main": "index.js",
+  "repository": "https://github.com/CFA-CJJ-GroupProject/CFA-Term3-NodeProject.git",
+  "author": "Samseppiol <j_hage@live.com>",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "dotenv": "^4.0.0",
+    "express": "^4.15.3",
+    "mongoose": "^4.11.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0"
+  },
+  "scripts": {
+    "dev": "nodemon server.js"
+  }
+}
