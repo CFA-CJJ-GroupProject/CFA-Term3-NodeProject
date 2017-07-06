@@ -1,0 +1,14 @@
+GET http://localhost:8000/jobs
+
+###
+
+GET http://localhost:8000/jobs/595ddbb23b6d5a410d7c692f
+
+### 
+POST http://localhost:8000/jobs
+Content-Type: application/json
+
+{
+  "jobNumber": "TesterBester",
+  "pickupAddress": "TEST"
+}
