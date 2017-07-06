@@ -89,26 +89,16 @@ server.get('/userSetup', (req, res) => {
 
 server.get('/customerSetup', (req, res) => {
   const addCustomer = new customer({
-    businessName: 'business4',
-    pointOfContacts: { //used for multi contact details
-      name: 'rick',
-      contactType: 'phone',
-      value: '1234567890'
+  businessName: 'business4',
+    pointOfContacts: { 
+      department: "Dispatch",
+      phoneNumber: ['1234', ' get fucked'],
+      email: 'test@test.com',
+      fax: '122211111'
+      
     },
-    pointOfContacts: {
-      name: 'mick',
-      contactType: 'phone',
-      value: '1234567809'
-    },
-    address: "123 fake street",
-    notes: {
-      date: "02/04/17",
-      message: "this is a snote"
-    },
-    notes: {
-      date: "02/05/17",
-      message: "this is a note"
-    }
+    address: '123 fake street',
+    notes: ['13/10/17', 'this is a note']
   })
 
   console.log('Save')
