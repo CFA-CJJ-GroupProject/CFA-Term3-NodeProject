@@ -92,7 +92,7 @@ server.get('/customerSetup', (req, res) => {
   businessName: 'business4',
     pointOfContacts: { 
       department: "Dispatch",
-      phoneNumber: ['1234', ' get fucked'],
+      phoneNumber: ['1234', ' WHOOOOOOOPS'],
       email: 'test@test.com',
       fax: '122211111'
       
