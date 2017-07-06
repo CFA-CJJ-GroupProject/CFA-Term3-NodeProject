@@ -12,10 +12,7 @@ const customerSchema = mongoose.Schema({
       },
     },
   address: String,
-  notes: {
-    date: Date,
-    message: String
-  }
+  notes: []
 
 })
 
