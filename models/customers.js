@@ -4,10 +4,13 @@ const customerSchema = mongoose.Schema({
 
   businessName: String,
   pointOfContacts: { //used for multi contact details
-    name: String,
-    contactType: String,
-    value: String
-  },
+    department: String,
+    contactType: {
+      phoneNumber: [],
+      email: String,
+      fax: String
+      },
+    },
   address: String,
   notes: {
     date: Date,
