@@ -73,10 +73,9 @@ server.get('/setup', (req, res) => {
 
 server.get('/userSetup', (req, res) => {
   const addUser = new user({
-    userName: 'user1', //Must be unique
+    username: 'user1', //Must be unique
     password: 'guest',
-    duty: 'client', //type of user eg. admin,driver,client
-    clientProfile: 6
+    role: 'client' //type of user eg. admin,driver,client
   })
 
   console.log('Save')

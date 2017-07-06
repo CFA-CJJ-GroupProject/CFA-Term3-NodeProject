@@ -2,6 +2,7 @@ const mongoose = require('./init')
 
 const customerSchema = mongoose.Schema({
 
+  username: String, // Identifier for user.
   businessName: String,
   pointOfContacts: { //used for multi contact details
     department: String,
