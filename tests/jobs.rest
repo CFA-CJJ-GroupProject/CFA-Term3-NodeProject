@@ -9,6 +9,20 @@ POST http://localhost:8000/jobs
 Content-Type: application/json
 
 {
-  "jobNumber": "TesterBester",
-  "pickupAddress": "TEST"
+  "jobNumber": "FOXBOX",
+  "pickupAddress": "FOXES HOUSE YO"
 }
+
+
+###
+
+PUT http://localhost:8000/jobs/595eeda0d7304e4c7dac14c4
+Content-Type: application/json
+
+{
+  "deliveryAddress": "321 fake street"
+}
+
+###
+
+DELETE http://localhost:8000/jobs/595eeda0d7304e4c7dac14c4
