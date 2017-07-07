@@ -1,13 +1,26 @@
 GET http://localhost:8000/users
 
 ###
-GET http://localhost:8000/users/595dc81db6e7dc3b391dfbbb
+GET http://localhost:8000/users/595ee7a473484a4921f55940
 
 ###
 POST http://localhost:8000/users
 Content-Type: application/json
 
 {
-  "username": "test for rest",
-  "password": "test for rest password"
+  "username": "boxfox",
+  "password": "password"
 }
+
+###
+
+PUT http://localhost:8000/users/595ee7a473484a4921f55940
+Content-Type: application/json
+
+{
+  "password": "Test for update"
+}
+
+###
+
+DELETE http://localhost:8000/users/595ee7a473484a4921f55940
