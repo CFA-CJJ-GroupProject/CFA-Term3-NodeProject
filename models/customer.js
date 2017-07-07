@@ -9,13 +9,13 @@ const customerSchema = mongoose.Schema({
     phoneNumber: [],
     email: String,
     fax: String
-    
+
     },
   address: String,
   notes: []
 
 })
 
-const customer = mongoose.model('customer', customerSchema)
+const Customer = mongoose.model('customer', customerSchema)
 
-module.exports = customer
+module.exports = Customer

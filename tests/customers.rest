@@ -1,0 +1,13 @@
+GET http://localhost:8000/customers
+
+###
+GET http://localhost:8000/customers/595dc4f80bbf8f3a514fc737
+
+###
+POST http://localhost:8000/customers
+Content-Type: application/json
+
+{
+  "businessName": "test for rest",
+  "address": "test for rest password"
+}

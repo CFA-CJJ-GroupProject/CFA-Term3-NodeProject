@@ -1,0 +1,13 @@
+GET http://localhost:8000/users
+
+###
+GET http://localhost:8000/users/595dc81db6e7dc3b391dfbbb
+
+###
+POST http://localhost:8000/users
+Content-Type: application/json
+
+{
+  "username": "test for rest",
+  "password": "test for rest password"
+}
