@@ -43,6 +43,44 @@ router.post('/customers', (req, res) => {
     })
 })
 
+router
+.param('id', (req, res, next, id) => {
+    req.itemQuery = Customer.findById(id)
+    next()
+})
+
+router.route('/customers/:id')
+.get((req, res) => {
+    req.itemQuery
+        .then(customer => {
+            res.json(customer)
+        })
+        .catch(error => {
+            res.status(404).json({ error })
+        })
+})
+
+.put((req, res) => {
+    const newCustomer = req.body
+    req.itemQuery.update(newCustomer)
+        .then(() => {
+            res.json(newCustomer)
+        })
+        .catch(error => {
+            res.status(404).json({ error })
+        })
+})
+.delete((req, res) => {
+    req.itemQuery.remove()
+        .then(() => {
+            res.status(204).json({})
+        })
+        .catch(error => {
+            res.status(404).json({ error })
+        })
+})
+
+
 
 
 module.exports = router

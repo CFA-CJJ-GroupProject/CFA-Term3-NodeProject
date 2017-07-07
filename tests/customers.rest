@@ -8,6 +8,18 @@ POST http://localhost:8000/customers
 Content-Type: application/json
 
 {
-  "businessName": "test for rest",
-  "address": "test for rest password"
+  "businessName": "Alpha Bravo Charlie",
+  "address": "Whisky Tango Delta Foxtrot "
 }
+
+###
+
+PUT http://localhost:8000/customers/595eef01c3d7ff4d0234de1a
+Content-Type: application/json
+
+{
+  "address": "Tango SUCKER"
+}
+
+###
+DELETE http://localhost:8000/customers/595eef01c3d7ff4d0234de1a
