@@ -1,7 +1,9 @@
 GET http://localhost:8000/users
 
 ###
-GET http://localhost:8000/users/595ee7a473484a4921f55940
+
+GET http://localhost:8000/users/595dcaa732032b3bc37d0e60
+
 
 ###
 POST http://localhost:8000/users
@@ -14,7 +16,8 @@ Content-Type: application/json
 
 ###
 
-PUT http://localhost:8000/users/595ee7a473484a4921f55940
+
+PUT http://localhost:8000/users/595f1fdb0561e9521daa00db
 Content-Type: application/json
 
 {
