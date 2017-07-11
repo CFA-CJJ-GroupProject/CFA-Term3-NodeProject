@@ -4,12 +4,18 @@ const jobSchema = mongoose.Schema({
 
   jobNumber: String, //Must be unique
 
-  pickupAddress: String,
+  pickupStreet: String,
+  pickupSuburb: String,
+  pickupPostcode: Number,
+  pickupState: String,
   pickupDate: Date,
   pickupTime: Date,
   pickupInstructions: String,
 
-  deliveryAddress: String,
+  deliveryStreet: String,
+  deliverySuburb: String,
+  deliveryPostcode: Number,
+  deliveryState: String,
   deliveryDate: Date,
   deliveryTime: Date,
   deliveryInstructions: String,
@@ -26,7 +32,7 @@ const jobSchema = mongoose.Schema({
     height: Number,
     length: Number,
     width: Number
-  }, 
+  },
 
   weight: Number
 

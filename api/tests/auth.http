@@ -1,0 +1,17 @@
+POST http://localhost:8000/auth
+Content-Type: application/json
+
+{
+  "username": "store",
+  "password": "password123"
+}
+###
+
+POST http://localhost:8000/auth/register
+Content-Type: application/json
+
+{
+  "username": "store_two",
+  "password": "password123",
+  "role": "customer"
+}
