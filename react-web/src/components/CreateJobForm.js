@@ -1,7 +1,8 @@
 import React from 'react'
 import Field from './Field'
 import TextField from './TextField'
-import SelectField from './SelectField'
+import SelectStateField from './SelectStateField'
+import SelectDeliveryField from './SelectDeliveryField'
 
 import readAndClearForm from './readAndClearForm'
 
@@ -23,7 +24,7 @@ export default function CreateJobForm({
           <Field placeholder='Street...' name='pickupStreet' />
           <Field placeholder='Suburb...' name='pickupSuburb' />
           <Field placeholder='Postcode...' name='pickupPostcode' />
-          <SelectField placeholder='State...' name='pickupState' />
+          <SelectStateField />
           <Field type='date' name='pickupDate' />
           <Field type='time' name='pickupTime' />
           <TextField placeholder='Instructions..' name='pickupInstructions' />
@@ -38,7 +39,7 @@ export default function CreateJobForm({
           <Field placeholder='Street...' name='deliveryStreet' />
           <Field placeholder='Suburb...' name='deliverySuburb' />
           <Field placeholder='Postcode...' name='deliveryPostcode' />
-          <SelectField placeholder='State...' name='deliveryState' />
+          <SelectStateField />
           <Field type='date' name='deliveryDate' />
           <Field type='time' name='deliveryTime' />
           <TextField placeholder='Instructions..' name='deliveryInstructions' type=''/>
@@ -48,11 +49,7 @@ export default function CreateJobForm({
           <Field placeholder='size of mm' name='dimensions{height}' />
           <Field placeholder='size of mm' name='dimensions{width}' />
           <Field placeholder='kgs' name='weight' />
-          <SelectField placeholder='Delivery Type' name='deliveryType'>
-            <option value='truck(light)'>Truck(light)</option>
-            <option value='ute'>Ute</option>
-            <option value='truck(heavt)'>Truck(heavy)</option>
-          </SelectField>
+          <SelectDeliveryField />
         </div>
       </div>
         <button type='submit'>Create Job</button>
