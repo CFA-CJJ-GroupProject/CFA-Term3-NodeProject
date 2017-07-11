@@ -1,9 +1,7 @@
 GET http://localhost:8000/users
 
 ###
-
 GET http://localhost:8000/users/595dcaa732032b3bc37d0e60
-
 
 ###
 POST http://localhost:8000/users

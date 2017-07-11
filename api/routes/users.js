@@ -16,7 +16,6 @@ router.get('/users', (req, res) => {
 	.catch(error => {
     res.status(500).json({ error: error })
 	})
-
 })
 
 
@@ -53,7 +52,34 @@ router
 
 router.route('/users/:id')
 .get((req, res) => {
-
+  req.itemQuery
+    .populate('username.user')
+    .populate('password.user')
+    .then(user => {
+      res.json(user)
+    })
+    .catch(error => {
+      res.status(404).json({ error })
+    })
+})
+.put((req, res) => {
+  const newUser = req.body
+  req.itemQuery.update(newUser)
+    .then(() => {
+      res.json(newUser)
+    })
+    .catch(error => {
+      res.status(404).json({ error })
+    })
+})
+.delete((req, res) => {
+  req.itemQuery.remove()
+    .then(() => {
+      res.status(204).json({})
+    })
+    .catch(error => {
+      res.status(404).json({ error })
+    })
 })
 
 
