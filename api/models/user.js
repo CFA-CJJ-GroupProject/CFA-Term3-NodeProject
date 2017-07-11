@@ -8,7 +8,7 @@ const userSchema = mongoose.Schema({
 
 // Add email, password hash, salt, etc fields to our user schema
 userSchema.plugin(passportLocalMongoose, {
-  usernameLowerCase: true, // Emails are case-insensitive
+  usernameLowerCase: true, 
   session: false // Disable sessions as we’ll use JWTs
 })
 
