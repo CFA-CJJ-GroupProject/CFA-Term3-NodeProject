@@ -12,6 +12,9 @@ import JobConfirmationPage from './pages/JobConfirmationPage'
 import JobCard from './pages/JobCard'
 import CreateUserPage from './pages/CreateUserPage'
 import UsersPage from './pages/UsersPage'
+import CreateCustomerPage from './pages/CreateCustomerPage'
+import PrimaryNav from './components/PrimaryNav'
+import HomePage from './pages/HomePage'
 
 
 class App extends Component {
@@ -30,6 +33,13 @@ class App extends Component {
     return (
       <Router>
         <main>
+        <PrimaryNav />
+          <Route path='/' render={
+            () => (
+              <HomePage/>
+            )
+          } />
+
           <Route path='/createjob' render={
             () => (
               <CreateJobPage/>
@@ -54,18 +64,24 @@ class App extends Component {
             )
           } />
 
-          <Route path='/creatuser' render={
+          <Route path='/createuser' render={
             () => (
               <CreateUserPage/>
             )
           } />
 
-          <Route path='/userspage' render={
+          <Route path='/users' render={
             () => (
               <UsersPage/>
             )
           } />
-          
+
+          <Route path='/createcustomer' render={
+            () => (
+              <CreateCustomerPage/>
+            )
+          } />
+
         </main>
       </Router>
     )

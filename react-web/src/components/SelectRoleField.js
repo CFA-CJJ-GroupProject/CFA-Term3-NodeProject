@@ -1,6 +1,6 @@
 import React from 'react'
 
-  class SelectDeliveryField extends React.Component {
+  class SelectRoleField extends React.Component {
     constructor(props) {
       super(props);
       this.state = {value: ''};
@@ -15,12 +15,11 @@ import React from 'react'
     render() {
       return (
             <select value={this.state.value} onChange={this.handleChange}>
-              <option value="TruckLight">TruckLight</option>
-              <option value="Ute">Ute</option>
-              <option value="TruckCrane">TruckCrane</option>
+              <option value="Driver">Driver</option>
+              <option value="Customer">Customer</option>
             </select>
       );
     }
   }
 
-  export default SelectDeliveryField
+  export default SelectRoleField
