@@ -2,10 +2,12 @@ const express = require('express')
 const User = require('../models/user')
 const router = express.Router()
 
+const authMiddleware = require('../middleware/auth')
+
 
 
 // READ OF CRUD
-router.get('/users', (req, res) => {
+router.get('/users', authMiddleware.authenticateJWT, (req, res) => {
 
   User.find()
 // What we are wanting to be called

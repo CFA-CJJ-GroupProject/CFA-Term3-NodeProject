@@ -10,7 +10,7 @@ passport.use(
 )
 
 passport.use(
-  new passportJWT.JwtStrategy(
+  new passportJWT.Strategy(
     {
       secretOrKey: jwtSecret,
       jwtFromRequest: passportJWT.ExtractJwt.fromAuthHeader(),

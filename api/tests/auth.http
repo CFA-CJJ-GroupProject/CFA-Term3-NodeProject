@@ -2,7 +2,7 @@ POST http://localhost:8000/auth
 Content-Type: application/json
 
 {
-  "username": "store",
+  "username": "user_one",
   "password": "password123"
 }
 ###
@@ -11,7 +11,11 @@ POST http://localhost:8000/auth/register
 Content-Type: application/json
 
 {
-  "username": "store_two",
+  "username": "user_one",
   "password": "password123",
   "role": "customer"
 }
+
+###
+GET http://localhost:8000/users
+Authorization: JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI1OTY2Y2Q4OGI5MmY4MDE0YjA3MmY1NGUifQ.LqHIgl6WqwkGovlXYoah87pa7ueGMiCg65aVhIQxNr4
