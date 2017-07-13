@@ -85,7 +85,7 @@ button[type=submit]:hover {
 div .cj-right, .cj-left {
   width: 50%;
   padding: 10px;
-  display: inline-block;
+  display: inline-flex;
   vertical-align: top;
 }
 .cj-button {

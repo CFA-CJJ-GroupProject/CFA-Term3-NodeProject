@@ -4,8 +4,6 @@ import {
   Route,
   Switch
 } from 'react-router-dom'
-import logo from './logo.svg';
-import './App.css';
 import CreateJobPage from './pages/CreateJobPage'
 import JobsPage from './pages/JobsPage'
 import JobConfirmationPage from './pages/JobConfirmationPage'
@@ -34,7 +32,7 @@ class App extends Component {
       <Router>
         <main>
         <PrimaryNav />
-          <Route path='/' render={
+          <Route exact path='/' render={
             () => (
               <HomePage/>
             )
