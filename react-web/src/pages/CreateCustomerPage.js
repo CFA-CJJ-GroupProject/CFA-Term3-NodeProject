@@ -5,6 +5,7 @@ const CreateCustomerPage = ({
     onCreateCustomer
 }) => (
     <div>
+        <h1>Customer Details</h1>
         <CreateCustomerForm onCreate={ onCreateCustomer } />
     </div>
       )

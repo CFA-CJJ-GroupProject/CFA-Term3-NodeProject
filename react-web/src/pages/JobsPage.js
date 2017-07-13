@@ -2,7 +2,7 @@ import React from 'react'
 
 const JobsPage = () => (
     <div>
-        <h1>ALL JOBS PAGE</h1>
+        <h1>ALL JOBS</h1>
     </div>
       )
 

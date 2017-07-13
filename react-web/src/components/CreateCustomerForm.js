@@ -18,22 +18,22 @@ export default function CreateUserForm({
   return (
     <form onSubmit={ (event) => submitCreate(event, onCreate) }>
       <div className=''>
-          <Field placeholder='Username...' name='username' />
-          <Field placeholder='Business Name...' name='businessName' />
+          <Field required='true' placeholder='Username...' name='username' />
+          <Field required='true' placeholder='Business Name...' name='businessName' />
         <div className=''>
-          <Field placeholder='Contact department...' name='department' />
-          <Field placeholder='Phone Number...' name='phoneNumber' />
-          <Field placeholder='Email...' name='email' />
-          <Field placeholder='Fax...' name='fax' />
+          <Field required='true' placeholder='Contact department...' name='department' />
+          <Field required='true' placeholder='Phone Number...' name='phoneNumber' />
+          <Field required='true' placeholder='Email...' name='email' />
+          <Field required='false' placeholder='Fax...' name='fax' />
         </div>
         <div className=''>
-          <Field placeholder='Street...' name='pickupStreet' />
-          <Field placeholder='Suburb...' name='pickupSuburb' />
-          <Field placeholder='Postcode...' name='pickupPostcode' />
-          <SelectStateField />
+          <Field required='true' placeholder='Street...' name='pickupStreet' />
+          <Field required='true' placeholder='Suburb...' name='pickupSuburb' />
+          <Field required='true' placeholder='Postcode...' name='pickupPostcode' />
+          <SelectStateField required='true' />
         </div>
         <div className=''>
-          <TextField placeholder='Notes...' name='notes' />
+          <TextField required='false' placeholder='Notes...' name='notes' />
         </div>
       </div>
 

@@ -3,7 +3,7 @@ import React from 'react'
 class SelectStateField extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {value: 'QLD'};
+    this.state = {value: 'NSW'};
 
     this.handleChange = this.handleChange.bind(this);
   }

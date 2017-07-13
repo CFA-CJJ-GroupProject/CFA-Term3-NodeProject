@@ -3,7 +3,7 @@ import React from 'react'
   class SelectDeliveryField extends React.Component {
     constructor(props) {
       super(props);
-      this.state = {value: ''};
+      this.state = {value: 'NSW'};
 
       this.handleChange = this.handleChange.bind(this);
     }
@@ -15,9 +15,9 @@ import React from 'react'
     render() {
       return (
             <select value={this.state.value} onChange={this.handleChange}>
-              <option value="TruckLight">TruckLight</option>
+              <option value="TruckLight">Truck (light) </option>
               <option value="Ute">Ute</option>
-              <option value="TruckCrane">TruckCrane</option>
+              <option value="TruckCrane">Truck (crane)</option>
             </select>
       );
     }
