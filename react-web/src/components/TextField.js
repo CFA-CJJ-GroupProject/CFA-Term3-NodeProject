@@ -8,7 +8,7 @@ export default function TextField({
   return (
     <label>
         <span>{ label } </span>
-        <textarea name={ name } placeholder={ placeholder } />
+        <textarea name={ name } placeholder={ placeholder } required={ required }/>
     </label>
   )
 }

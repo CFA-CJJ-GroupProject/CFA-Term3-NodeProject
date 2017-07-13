@@ -5,6 +5,7 @@ const CreateJobPage = ({
     onCreateJob
 }) => (
     <div>
+      <h1>Create Job</h1>
         <CreateJobForm onCreate={ onCreateJob } />
     </div>
       )
