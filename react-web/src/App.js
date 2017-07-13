@@ -15,6 +15,9 @@ import UsersPage from './pages/UsersPage'
 import CreateCustomerPage from './pages/CreateCustomerPage'
 import PrimaryNav from './components/PrimaryNav'
 import HomePage from './pages/HomePage'
+import SignInForm from './components/SignInForm'
+// Importing everything from auth and calling it authapi
+import * as authAPI from './api/auth'
 
 
 class App extends Component {
@@ -22,17 +25,39 @@ class App extends Component {
   // Initial state
   state = {
     error: null,
+    token: null,
     // token: savedToken,
     jobs: null, // Null means not loaded yet
   }
 
+  handleSignIn = ({ email, password }) => {
+    authAPI.signIn({email, password })
+      .then(json => {
+        this.setState({ token: json.token })
+      })
+      .catch(error => {
+        this.setState({ error })
+      })
+  }
+
   render() {
-    const { error } = this.state
+    const { error, token, jobs } = this.state
 
 
     return (
+  
+      
       <Router>
         <main>
+           {
+            !!token ? (
+              <h1> Welcome to ANT jobs application </h1>
+            ) :  (
+              <SignInForm onSignIn={ this.handleSignIn } />
+            )
+          }
+          
+        
         <PrimaryNav />
           <Route path='/' render={
             () => (
