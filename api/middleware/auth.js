@@ -19,12 +19,18 @@ passport.use(
       const userID = jwtPayload.sub //User is the subject
       User.findById(userID) 
       .then(user => {
+        // Finds the user
         if (user) {
           done(null, user)
         }
+        // Doesnt find the user
         else {
           done(null, false)
         }
+      })
+      .catch(error => {
+        done(new Error(`Issue finding user with ID: ${userID}`),
+        false)
       })
     }
   )
@@ -50,5 +56,6 @@ function registerMiddleware(req, res, next) {
 module.exports = {
   register: registerMiddleware,
   authenticateSignIn: passport.authenticate('local', { session: false }),
+  authenticateJWT: passport.authenticate('jwt', { session: false }),
   initialize: passport.initialize(),
 }
