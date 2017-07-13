@@ -6,6 +6,34 @@ import SelectDeliveryField from './SelectDeliveryField'
 import readAndClearForm from './readAndClearForm'
 import '../style.css'
 
+// componentDidMount(){
+//   fetch('database goes here')
+//     .then(res => res.json())
+//     .then(data => {
+//       this.setState({
+//         pickupStreet: data.pickupStreet,
+//         pickupSuburb: data.pickupSuburb,
+//         pickupPostcode: data.pickupPostcode,
+//         pickupState: data.pickupState,
+//         pickupDate: data.pickupDate,
+//         pickupTime: data.pickupTime,
+//         pickupInstructions: data.pickupInstructions,
+//         descriptionOfGoods: data.descriptionOfGoods
+//
+//         deliveryStreet: data.deliveryStreet,
+//         deliverySuburb: data.deliverySuburb,
+//         deliveryPostcode: data.deliveryPostcode,
+//         deliveryState: data.deliveryState,
+//         deliveryDate: data.deliveryDate,
+//         deliveryTime: data.deliveryTime,
+//         deliveryInstructions: data.deliveryInstructions,
+//         dimensions{length}: data.dimensions{length},
+//         dimensions{width}: data.dimensions{width},
+//         imensions{height}: data.dimensions{height},
+//       });
+//   });
+// }
+
 function submitCreate(event, onCreate) {
     event.preventDefault()
 
@@ -21,36 +49,47 @@ export default function CreateJobForm({
     <form onSubmit={ (event) => submitCreate(event, onCreate) }>
       <div className='cj-left'>
         <div className='pickup'>
-          <Field required='true' placeholder='Street...' name='pickupStreet' />
-          <Field required='true' placeholder='Suburb...' name='pickupSuburb' />
-          <Field required='true' placeholder='Postcode...' name='pickupPostcode' />
-          <SelectStateField required='true' />
+          <label>Pickup Infomation:</label>
+          <Field required='true' type='text' placeholder='Street...' name='pickupStreet' />
+          <Field required='true' type='text' placeholder='Suburb...' name='pickupSuburb' />
+          <div className='postcode-state'>
+          <div className='postcode'>
+          <Field required='true' type='text' placeholder='Postcode...' name='pickupPostcode' />
+          </div>
+          <div className='state'>
+          <SelectStateField required='true' name="pickupState"/>
+          </div>
+        </div>
+
           <Field required='true' type='date' name='pickupDate' />
           <Field required='true' type='time' name='pickupTime' />
-          <TextField required='false' placeholder='Instructions..' name='pickupInstructions' />
+          <TextField required='true' placeholder='Instructions..' name='pickupInstructions' />
         </div>
         <div className='description'>
-          <TextField placeholder='Description of goods...' name='descriptionOfGoods' required='true'/>
+          <label>Description of Item(s):</label>
+          <TextField required='true' placeholder='Description of goods...' name='descriptionOfGoods' />
         </div>
       </div>
 
       <div className="cj-right">
         <div className='delivery'>
-          <Field required='true' placeholder='Street...' name='deliveryStreet' />
-          <Field required='true' placeholder='Suburb...' name='deliverySuburb' />
-          <Field required='true' placeholder='Postcode...' name='deliveryPostcode' />
-          <SelectStateField required='true' />
+          <label>Delivery Infomation:</label>
+          <Field required='true' type='text' placeholder='Street...' name='deliveryStreet' />
+          <Field required='true' type='text' placeholder='Suburb...' name='deliverySuburb' />
+          <Field required='true' type='text' placeholder='Postcode...' name='deliveryPostcode' />
+          <SelectStateField required='true' name="deliveryState"/>
           <Field required='true' type='date' name='deliveryDate' />
           <Field required='true' type='time' name='deliveryTime' />
-          <TextField required='false' placeholder='Instructions..' name='deliveryInstructions' type=''/>
+          <TextField required='true' placeholder='Instructions..' name='deliveryInstructions' type=''/>
         </div>
         <div className='product-info'>
+          <label>Delivery Type and Item(s) Dimensions:</label>
           <Field required='true' type='number' placeholder='size of mm' name='dimensions{length}' />
-          <Field required='true' type='number' placeholder='size of mm' name='dimensions{height}' />
           <Field required='true' type='number' placeholder='size of mm' name='dimensions{width}' />
+          <Field required='true' type='number' placeholder='size of mm' name='dimensions{height}' />
+          {/* need to add option to add more for multiple items */}
           <Field required='true' type='number' placeholder='kgs' name='weight' />
-          {/* need to add 'add more' for multiple items */}
-          <SelectDeliveryField />
+          <SelectDeliveryField required='true' />
         </div>
       </div>
         <button type='submit' className='cj-button'>Create Job</button>
