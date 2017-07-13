@@ -3,7 +3,8 @@ import React from 'react'
 export default function TextField({
   label,
   name,
-  placeholder
+  placeholder,
+  required
 }) {
   return (
     <label>
