@@ -38,43 +38,43 @@ class App extends Component {
             )
           } />
 
-          <Route path='/createjob' render={
+          <Route exact path='/createjob' render={
             () => (
               <CreateJobPage/>
             )
           } />
 
-          <Route path='/jobs' render={
+          <Route exact path='/jobs' render={
             () => (
               <JobsPage/>
             )
           } />
 
-          <Route path='/jobconfirmation' render={
+          <Route exact path='/jobconfirmation' render={
             () => (
               <JobConfirmationPage/>
             )
           } />
 
-          <Route path='/jobcard/:id' render={
+          <Route exact path='/jobcard/:id' render={
             () => (
               <JobCard/>
             )
           } />
 
-          <Route path='/createuser' render={
+          <Route exact path='/createuser' render={
             () => (
               <CreateUserPage/>
             )
           } />
 
-          <Route path='/users' render={
+          <Route exact path='/users' render={
             () => (
               <UsersPage/>
             )
           } />
 
-          <Route path='/createcustomer' render={
+          <Route exact path='/createcustomer' render={
             () => (
               <CreateCustomerPage/>
             )
