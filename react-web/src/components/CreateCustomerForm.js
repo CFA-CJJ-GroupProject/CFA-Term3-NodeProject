@@ -12,33 +12,31 @@ function submitCreate(event, onCreate) {
     onCreate(userValues)
 }
 
-export default function CreateUserForm({
+export default function CreateCustomerForm({
     onCreate
 }) {
   return (
     <form onSubmit={ (event) => submitCreate(event, onCreate) }>
-      <div className=''>
+      <div className='cj-left'>
           <Field required='true' placeholder='Username...' name='username' />
           <Field required='true' placeholder='Business Name...' name='businessName' />
-        <div className=''>
           <Field required='true' placeholder='Contact department...' name='department' />
           <Field required='true' placeholder='Phone Number...' name='phoneNumber' />
           <Field required='true' placeholder='Email...' name='email' />
           <Field required='false' placeholder='Fax...' name='fax' />
-        </div>
-        <div className=''>
+      </div>
+        <div className='cj-right'>
           <Field required='true' placeholder='Street...' name='pickupStreet' />
           <Field required='true' placeholder='Suburb...' name='pickupSuburb' />
           <Field required='true' placeholder='Postcode...' name='pickupPostcode' />
           <SelectStateField required='true' />
         </div>
-        <div className=''>
+        <div className='cc-middle'>
           <TextField required='false' placeholder='Notes...' name='notes' />
         </div>
-      </div>
 
 
-      <button type='submit' className='cu-button'>Create Customer</button>
+      <button type='submit' className='cc-button'>Create Customer</button>
     </form>
   )
 }
