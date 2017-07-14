@@ -30,8 +30,8 @@ class App extends Component {
     jobs: null, // Null means not loaded yet
   }
 
-  handleSignIn = ({ email, password }) => {
-    authAPI.signIn({email, password })
+  handleSignIn = ({ username, password }) => {
+    authAPI.signIn({username, password })
       .then(json => {
         this.setState({ token: json.token })
       })
@@ -45,8 +45,8 @@ class App extends Component {
 
 
     return (
-  
-      
+
+
       <Router>
         <main>
            {
@@ -56,8 +56,8 @@ class App extends Component {
               <SignInForm onSignIn={ this.handleSignIn } />
             )
           }
-          
-        
+
+
         <PrimaryNav />
           <Route path='/' render={
             () => (
