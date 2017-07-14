@@ -1,37 +1,33 @@
 import React from 'react'
-import Field from './Field'
-import SelectRoleField from './SelectRoleField'
-import readAndClearForm from './readAndClearForm'
 
-function submitCreate(event, onCreate) {
-    event.preventDefault()
+function submitCreateUser(event, onRegister) {
+  event.preventDefault()
 
-    const form = event.target
-    const userValues = readAndClearForm(form)
-    onCreate(userValues)
+  const form = event.target
+  const username = form.elements['username'].value
+  const password = form.elements['password'].value
+  onRegister({username, password})
 }
 
-export default function CreateUserForm({
-    onCreate
-}) {
-  return (
-    <form onSubmit={ (event) => submitCreate(event, onCreate) }>
-      <div className='cu-left'>
-        <div className=''>
-          <Field required='true' placeholder='Username...' name='username' />
-        </div>
-        <div className=''>
-          <Field required='true' type='password' placeholder='Password...' name='password' />
-        </div>
-        <div className=''>
-          <Field required='true' type='password' placeholder='Confirm Password...' name='password' />
-        </div>
-        <div className=''>
-          <SelectRoleField required='true' placeholder='' name='role' />
-        </div>
-      </div>
+export default function CreateUserForm({onRegister}) {
+  console.log(onRegister)
 
-      <button type='submit' className='cu-button'>Create User</button>
+  return (
+    <form onSubmit={(event) => submitCreateUser(event, onRegister)}>
+      <label>
+        <span>
+          Email
+        </span>
+        <input name='username'/>
+      </label>
+      <label>
+        <span>
+          Password
+        </span>
+        <input type='password' name='password'/>
+      </label>
+      <button>Create User
+      </button>
     </form>
   )
 }
