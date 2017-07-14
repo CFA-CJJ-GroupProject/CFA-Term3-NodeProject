@@ -2,6 +2,35 @@
 @import url('https://fonts.googleapis.com/css?family=Lato:300,300i,400,400i,900');
 body {
   font-family: 'Lato', sans-serif;
+  margin: 0px;
+}
+nav {
+  background-color: black;
+}
+nav ul {
+  padding: 0px;
+  display: table;
+  width: 100%;
+  margin: 0px;
+
+}
+nav ul li {
+  list-style-type: none;
+  display: inline-block;
+  display: table-cell;
+  text-align: center;
+  padding: 20px;
+
+}
+nav ul li a {
+  text-decoration: none;
+  color: white;
+}
+nav ul li a:active {
+  text-decoration: underline;
+}
+nav ul li a:hover {
+  text-decoration: underline;
 }
 h1 {
   font-size: 60px;
@@ -85,7 +114,7 @@ button[type=submit]:hover {
 div .cj-right, .cj-left {
   width: 50%;
   padding: 10px;
-  display: inline-block;
+  display: inline-flex;
   vertical-align: top;
 }
 .cj-button {
