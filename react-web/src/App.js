@@ -33,8 +33,8 @@ class App extends Component {
     })
   }
 
-  handleRegister = ({username, password}) => {
-    authAPI.register({username, password}).then(json => {
+  handleRegister = ({username, password, role, customerProfile}) => {
+    authAPI.register({username, password, role, customerProfile}).then(json => {
       this.setState({token: json.token})
     }).catch(error => {
       this.setState({error})

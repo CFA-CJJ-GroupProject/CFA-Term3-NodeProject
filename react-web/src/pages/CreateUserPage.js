@@ -8,6 +8,6 @@ const CreateUserPage = ({
         <h1>Create User</h1>
         <CreateUserForm onRegister={ onRegister } />
     </div>
-      )
+)
 
 export default CreateUserPage
