@@ -11,8 +11,9 @@ import JobCard from './pages/JobCard'
 import CreateUserPage from './pages/CreateUserPage'
 import UsersPage from './pages/UsersPage'
 import CreateCustomerPage from './pages/CreateCustomerPage'
-import PrimaryNav from './components/PrimaryNav'
+import Header from './components/Header'
 import HomePage from './pages/HomePage'
+import Footer from './components/Footer'
 
 
 class App extends Component {
@@ -31,7 +32,7 @@ class App extends Component {
     return (
       <Router>
         <main>
-        <PrimaryNav />
+        <Header />
           <Route exact path='/' render={
             () => (
               <HomePage/>
@@ -79,8 +80,10 @@ class App extends Component {
               <CreateCustomerPage/>
             )
           } />
+          <Footer/>
 
         </main>
+
       </Router>
     )
   }
