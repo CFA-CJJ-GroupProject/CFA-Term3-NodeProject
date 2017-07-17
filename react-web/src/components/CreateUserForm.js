@@ -32,11 +32,10 @@ export default function CreateUserForm({onRegister}) {
         <span>
           Role:
         </span>
-        
-          <select name='role'>
-            <option value="Driver">Driver</option>
-            <option value="Customer">Customer</option>
-          </select>
+        <select name='role'>
+          <option value="Driver">Driver</option>
+          <option value="Customer">Customer</option>
+        </select>
       </label>
       <button>Create User
       </button>
