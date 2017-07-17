@@ -49,19 +49,11 @@ class App extends Component {
         <main>
           {!!token
             ? (
-              <h1>
-                Welcome to ANT jobs application
-              </h1>
-        <Header />
-          <Route exact path='/' render={
-            () => (
-              <HomePage/>
-            )
-          } />
-
+              <Route exact path='/' render={() => (<HomePage/>)}/>
             )
             : (<SignInForm onSignIn={this.handleSignIn}/>)
-}
+          }
+          <Header/>
           <Route exact path='/createjob' render={() => (<CreateJobPage/>)}/>
 
           <Route exact path='/jobs' render={() => (<JobsPage/>)}/>
