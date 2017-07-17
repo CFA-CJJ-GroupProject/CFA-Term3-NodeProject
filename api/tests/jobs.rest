@@ -25,7 +25,7 @@ Content-Type: application/json
   "deliveryInstructions": "Call Greg On 04786456329 to arrange gate to be opened",
   "descriptionOfGoods": "Three Kitchens", 
   "deliveryType": "Heavy Rigid",
-    "driverId": 2,  
+  "driverId": 2,  
   "businessId": 89, 
   "status": "Awaiting Pick-Up",
   "dimensions": 400
