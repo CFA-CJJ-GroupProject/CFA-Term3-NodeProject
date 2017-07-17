@@ -2,11 +2,11 @@ import React from 'react'
 import CreateUserForm from '../components/CreateUserForm.js'
 
 const CreateUserPage = ({
-    onCreateUser
+    onRegister
 }) => (
     <div>
         <h1>Create User</h1>
-        <CreateUserForm onCreate={ onCreateUser } />
+        <CreateUserForm onRegister={ onRegister } />
     </div>
       )
 
