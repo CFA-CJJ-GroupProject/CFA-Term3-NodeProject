@@ -8,16 +8,16 @@ const jobSchema = mongoose.Schema({
   pickupSuburb: String,
   pickupPostcode: Number,
   pickupState: String,
-  pickupDate: Date,
-  pickupTime: Date,
+  pickupDate: String,
+  pickupTime: String,
   pickupInstructions: String,
 
   deliveryStreet: String,
   deliverySuburb: String,
   deliveryPostcode: Number,
   deliveryState: String,
-  deliveryDate: Date,
-  deliveryTime: Date,
+  deliveryDate: String,
+  deliveryTime: String,
   deliveryInstructions: String,
 
   descriptionOfGoods: String,
@@ -31,10 +31,11 @@ const jobSchema = mongoose.Schema({
   dimensions: {
     height: Number,
     length: Number,
-    width: Number
-  },
+    width: Number,
+    weight: Number
+  }
 
-  weight: Number
+
 
 })
 

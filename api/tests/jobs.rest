@@ -9,8 +9,26 @@ POST http://localhost:8000/jobs
 Content-Type: application/json
 
 {
-  "jobNumber": "FOXBOX",
-  "pickupAddress": "FOXES HOUSE YO"
+  "jobNumber": "TESTFORJOBS",
+  "pickupStreet": "456 coke lane",
+  "pickupSuburb": "Melbourne",
+  "pickupPostcode": 3000,
+  "pickupDate": "22/08/2017",
+  "pickupState": "Vic",
+  "pickupInstructions": "Hello",
+  "deliveryStreet": "120 Spencer Street",
+  "deliverySuburb": "Melbourne", 
+  "deliveryPostcode": 3000,
+  "deliveryState": "VIC", 
+  "deliveryTime": "12:00",
+  "deliveryDate": "23/08/2017",
+  "deliveryInstructions": "Call Greg On 04786456329 to arrange gate to be opened",
+  "descriptionOfGoods": "Three Kitchens", 
+  "deliveryType": "Heavy Rigid",
+    "driverId": 2,  
+  "businessId": 89, 
+  "status": "Awaiting Pick-Up",
+  "dimensions": 400
 }
 
 

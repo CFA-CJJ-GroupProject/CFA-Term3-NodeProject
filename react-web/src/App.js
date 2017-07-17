@@ -21,9 +21,8 @@ class App extends Component {
   // Initial state
   state = {
     error: null,
-    token: null,
+    token: null
     // token: savedToken,
-    jobs: null, // Null means not loaded yet
   }
 
   handleSignIn = ({username, password}) => {
