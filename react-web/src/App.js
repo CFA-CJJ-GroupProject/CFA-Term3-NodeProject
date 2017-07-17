@@ -64,7 +64,7 @@ class App extends Component {
 
           <Route exact path='/jobcard/:id' render={() => (<JobCard/>)}/>
 
-          <Route exact path='/createuser' render={() => (<CreateUserPage/>)}/>
+          <Route exact path='/createuser' render={() => (<CreateUserPage onRegister={this.handleRegister}/>)}/>
 
           <Route exact path='/users' render={() => (<UsersPage/>)}/>
 
