@@ -1,17 +1,29 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
+import AdminNav from './AdminNav'
+import DriverNav from './DriverNav'
+import ClientNav from './ClientNav'
+
+const role = 'client'
+
+function DecideNavClass() {
+  if ( role == 'admin') {
+    return <AdminNav/>;
+  }
+  else if ( role == 'driver') {
+    return <DriverNav/>;
+  }
+  else if ( role == 'client') {
+    return <ClientNav/>;
+  }
+}
 
 export default ({
 }) => (
 
     <nav>
-      <ul class='nav'>
-        <li><NavLink exact to='/' activeClassName='active'>Dashboard</NavLink></li>
-        <li><NavLink to='/Jobs'  activeClassName='active'>Jobs</NavLink></li>
-        <li><NavLink to='/createjob'  activeClassName='active'>Create Job</NavLink></li>
-        <li><NavLink to='/users'  activeClassName='active'>Users</NavLink></li>
-        <li><NavLink to='/createuser'  activeClassName='active'>Create User</NavLink></li>
-        <li><NavLink to='/createcustomer'  activeClassName='active'>Create Customer</NavLink></li>
-      </ul>
+    { DecideNavClass(role) }
+
+
     </nav>
 )

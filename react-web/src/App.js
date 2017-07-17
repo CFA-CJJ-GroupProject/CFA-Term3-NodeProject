@@ -22,6 +22,7 @@ class App extends Component {
     token: null,
     // token: savedToken,
     jobs: null, // Null means not loaded yet
+
   }
 
   handleSignIn = ({username, password}) => {
@@ -41,12 +42,13 @@ class App extends Component {
   }
 
   render() {
-    const {error, token, jobs} = this.state
+    const {error, token, jobs, role} = this.state
 
     return (
 
       <Router>
         <main>
+
           {
             token ? (<Header />) : (<Redirect to='/'/>)
           }

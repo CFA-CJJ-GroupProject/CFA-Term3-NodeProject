@@ -1,4 +1,5 @@
 import React from 'react'
+import SelectRoleField from './SelectRoleField'
 
 function submitCreateUser(event, onRegister) {
   event.preventDefault()
@@ -26,6 +27,8 @@ export default function CreateUserForm({onRegister}) {
         </span>
         <input type='password' name='password'/>
       </label>
+      <SelectRoleField/>
+
       <button>Create User
       </button>
     </form>
