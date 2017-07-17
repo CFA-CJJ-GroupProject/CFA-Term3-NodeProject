@@ -1,7 +1,7 @@
 import React from 'react'
 
 export default function Job({
-    jobNumber:  //Must be unique
+  jobNumber,  //Must be unique
 
   pickupStreet, 
   pickupSuburb, 
@@ -27,17 +27,17 @@ export default function Job({
 
   status, 
 
-  dimensions: {
-    height, 
-    length, 
-    width, 
-  },
+  dimensions,
 
-  weight, 
+    weight
 
-})
 
-return (
-  <article>
-    <h2>{ jobNumber} <small>()
-)
+}) {
+
+  return (
+    <main>
+      <h2>{ jobNumber } </h2>
+    </main>
+  )
+
+}

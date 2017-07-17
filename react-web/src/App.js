@@ -12,6 +12,7 @@ import CreateCustomerPage from './pages/CreateCustomerPage'
 import PrimaryNav from './components/PrimaryNav'
 import HomePage from './pages/HomePage'
 import SignInForm from './components/SignInForm'
+
 // Importing everything from auth and calling it authapi
 import * as authAPI from './api/auth'
 
