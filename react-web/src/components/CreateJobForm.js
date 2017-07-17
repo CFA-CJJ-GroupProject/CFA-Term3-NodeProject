@@ -4,7 +4,9 @@ import TextField from './TextField'
 import SelectStateField from './SelectStateField'
 import SelectDeliveryField from './SelectDeliveryField'
 import readAndClearForm from './readAndClearForm'
+import ItemForm from './ItemForm'
 import '../style.css'
+import AddItem from './OnClick'
 
 // componentDidMount(){
 //   fetch('database goes here')
@@ -82,16 +84,22 @@ export default function CreateJobForm({
           <Field required='true' type='time' name='deliveryTime' />
           <TextField required='true' placeholder='Instructions..' name='deliveryInstructions' type=''/>
         </div>
-        <div className='product-info'>
-          <label>Delivery Type and Item(s) Dimensions:</label>
-          <Field required='true' type='number' placeholder='size of mm' name='dimensions{length}' />
-          <Field required='true' type='number' placeholder='size of mm' name='dimensions{width}' />
-          <Field required='true' type='number' placeholder='size of mm' name='dimensions{height}' />
-          {/* need to add option to add more for multiple items */}
-          <Field required='true' type='number' placeholder='kgs' name='weight' />
-          <SelectDeliveryField required='true' />
+        <div id='dimensions' className='dimensions'>
+          <label>Item(s) Dimensions:</label>
+          <AddItem />
+          <ItemForm />
+
+
         </div>
-      </div>
+
+
+
+          <div className='delivery-type'>
+          <label>Delivery Type:</label>
+          <SelectDeliveryField required='true' />
+          </div>
+
+    </div>
         <button type='submit' className='cj-button'>Create Job</button>
     </form>
   )
