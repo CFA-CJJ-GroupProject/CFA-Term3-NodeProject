@@ -17,7 +17,17 @@ server.use(authMiddleware.initialize)
 // routes
 server.use(jobsRouter, usersRouter, customersRouter, authRouter)
 
+server.use((error, req, res, next) => {
+  const status = error.status || 500
+  res.status(status).json({
+    error: { message: error.message }
+  })
+})
+
+
 const port = 8000
 server.listen(port, () => {
   console.log(`Start on localhost:${port}`)
 });
+
+

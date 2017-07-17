@@ -1,19 +1,17 @@
 import React from 'react'
 
-function submitCreateUser(event, onRegister) {
+function submitSignIn(event, onSignIn) {
   event.preventDefault()
 
   const form = event.target
   const username = form.elements['username'].value
   const password = form.elements['password'].value
-  onRegister({username, password})
+  onSignIn({username, password})
 }
 
-export default function CreateUserForm({onRegister}) {
-  console.log(onRegister)
-
+export default function SignInForm({onSignIn}) {
   return (
-    <form onSubmit={(event) => submitCreateUser(event, onRegister)}>
+    <form onSubmit={(event) => submitSignIn(event, onSignIn)}>
       <label>
         <span>
           Email
@@ -26,7 +24,7 @@ export default function CreateUserForm({onRegister}) {
         </span>
         <input type='password' name='password'/>
       </label>
-      <button>Create User
+      <button>Sign In
       </button>
     </form>
   )
