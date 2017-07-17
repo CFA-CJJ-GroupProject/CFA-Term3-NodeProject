@@ -10,6 +10,7 @@ import CreateCustomerPage from './pages/CreateCustomerPage'
 import Header from './components/Header'
 import HomePage from './pages/HomePage'
 import LoginPage from './pages/LoginPage'
+import LogoutPage from './pages/LogoutPage'
 import Footer from './components/Footer'
 import SignInForm from './components/SignInForm'
 // Importing everything from auth and calling it authapi
@@ -20,13 +21,14 @@ class App extends Component {
   // Initial state
   state = {
     error: null,
-    token: null,
+    token: sessionStorage.getItem('token'),
     // token: savedToken,
     jobs: null, // Null means not loaded yet
   }
 
   handleSignIn = ({username, password}) => {
     authAPI.signIn({username, password}).then(json => {
+      sessionStorage.setItem('token', json.token)
       this.setState({token: json.token})
     }).catch(error => {
       this.setState({error})
@@ -69,6 +71,9 @@ class App extends Component {
           <Route exact path='/users' render={() => (<UsersPage/>)}/>
 
           <Route exact path='/createcustomer' render={() => (<CreateCustomerPage/>)}/>
+
+          <Route exact path='/logout' render={() => (<LogoutPage logout={this.logout}/>)}/>
+
           <Footer/>
         </main>
 
