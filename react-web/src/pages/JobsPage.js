@@ -1,17 +1,40 @@
-import React from 'react'
+import React, { Component } from 'react'
 import JobsList from '../components/JobsList'
 
-const JobsPage = () => (
-    <div>
-        <h1>ALL JOBS</h1>
-        <JobsList items={
-            [
-							{ _id: 'abc', jobNumber: 'HEllo World'},
-							{ _id: 'defg', jobNumber: 'Goodbye World'}
+class JobsPage extends Component { 
+	state = {
+		error: null,
+		jobs: null
+	}
 
-            ]
-        } />
-    </div>
-      )
+	componentDidMount() {
+		// Asynchronous
+		fetch('/jobs')
+		.then(res => res.json())
+		.then(jobs => {
+			this.setState({jobs})
+		})
+		.catch(error => {
+			this.setState({error})
+		})
+	}
+
+	render() {
+		const { error, jobs } = this.state
+		return (
+			<div>
+				<h1>ALL JOBS</h1>
+				{ !!error && <p>{ error.message }</p> }
+				{
+					!!jobs ? (
+						<JobsList items={ jobs } />
+					) : (
+						'Loading Jobs...'
+					)
+				}
+			</div>
+		)
+	}
+}
 
 export default JobsPage
