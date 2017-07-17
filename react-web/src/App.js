@@ -7,8 +7,9 @@ import JobCard from './pages/JobCard'
 import CreateUserPage from './pages/CreateUserPage'
 import UsersPage from './pages/UsersPage'
 import CreateCustomerPage from './pages/CreateCustomerPage'
-import PrimaryNav from './components/PrimaryNav'
+import Header from './components/Header'
 import HomePage from './pages/HomePage'
+import Footer from './components/Footer'
 import SignInForm from './components/SignInForm'
 // Importing everything from auth and calling it authapi
 import * as authAPI from './api/auth'
@@ -51,6 +52,12 @@ class App extends Component {
               <h1>
                 Welcome to ANT jobs application
               </h1>
+        <Header />
+          <Route exact path='/' render={
+            () => (
+              <HomePage/>
+            )
+          } />
 
             )
             : (<SignInForm onSignIn={this.handleSignIn}/>)
@@ -68,9 +75,9 @@ class App extends Component {
           <Route exact path='/users' render={() => (<UsersPage/>)}/>
 
           <Route exact path='/createcustomer' render={() => (<CreateCustomerPage/>)}/>
-          <PrimaryNav/>
-          
+          <Footer/>
         </main>
+
       </Router>
     )
   }

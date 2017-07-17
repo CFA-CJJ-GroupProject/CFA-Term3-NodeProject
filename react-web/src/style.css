@@ -4,8 +4,20 @@ body {
   font-family: 'Lato', sans-serif;
   margin: 0px;
 }
+div .company-name {
+  background-color: #00004d;
+  margin: 0px;
+}
+.company-name h3 {
+  margin: 0px;
+  font-weight: 300;
+  padding: 10px;
+  color: white;
+
+}
 nav {
-  background-color: black;
+  background-color: #000033;
+  margin: 0px;
 }
 nav ul {
   padding: 0px;
@@ -19,7 +31,7 @@ nav ul li {
   display: inline-block;
   display: table-cell;
   text-align: center;
-  padding: 20px;
+  padding: 15px;
 
 }
 nav ul li a {
@@ -32,6 +44,19 @@ nav ul li a:active {
 nav ul li a:hover {
   text-decoration: underline;
 }
+footer {
+  margin-top: 70px;
+  margin-bottom: 0px;
+  background-color: #000033;
+  height: 30px;
+}
+footer p {
+  text-align: right;
+  font-size: 10px;
+  color: white;
+  padding: 7px;
+  font-weight: lighter;
+}
 h1 {
   font-size: 60px;
   /*color:white;*/
@@ -39,9 +64,6 @@ h1 {
   margin: 40px;
 }
 h2 {
-
-}
-h3 {
 
 }
 label {
@@ -106,15 +128,17 @@ button[type=submit]:hover {
 .pickup, .delivery, .description, .product-info {
   background-color: grey;
   padding: 40px;
+  width: 50%;
   padding-top: 20px;
   border-radius: 20px;
   margin-bottom: 30px;
 
 }
 div .cj-right, .cj-left {
-  width: 50%;
   padding: 10px;
-  display: inline-flex;
+  margin-right: 10px;
+
+    display: inline-block;
   vertical-align: top;
 }
 .cj-button {
