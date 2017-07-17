@@ -9,6 +9,7 @@ import UsersPage from './pages/UsersPage'
 import CreateCustomerPage from './pages/CreateCustomerPage'
 import Header from './components/Header'
 import HomePage from './pages/HomePage'
+import LoginPage from './pages/LoginPage'
 import Footer from './components/Footer'
 import SignInForm from './components/SignInForm'
 // Importing everything from auth and calling it authapi
@@ -50,11 +51,10 @@ class App extends Component {
           {
             token ? (<Header />) : (<Redirect to='/'/>)
           }
-          {!!token ? (
-              <Route exact path='/' render={() => (<HomePage/>)} />)
-            : (<SignInForm onSignIn={this.handleSignIn}/>)
+          { token ? (
+              <Route exact path='/' render={() => (<HomePage />)} />)
+            : (<Route exact path='/' render={() => (<LoginPage loginMaybe={this.handleSignIn}/>)} />)
           }
-
 
           <Route exact path='/createjob' render={() => (<CreateJobPage/>)}/>
 
