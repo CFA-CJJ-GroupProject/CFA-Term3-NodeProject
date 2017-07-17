@@ -4,6 +4,7 @@ import TextField from './TextField'
 import SelectStateField from './SelectStateField'
 import SelectDeliveryField from './SelectDeliveryField'
 import readAndClearForm from './readAndClearForm'
+import ItemForm from './ItemForm'
 import '../style.css'
 
 // componentDidMount(){
@@ -84,18 +85,15 @@ export default function CreateJobForm({
         </div>
         <div className='dimensions'>
           <label>Item(s) Dimensions:</label>
-          <Field required='true' type='number' placeholder='size of mm' name='dimensions{length}' />
-          <Field required='true' type='number' placeholder='size of mm' name='dimensions{width}' />
-          <Field required='true' type='number' placeholder='size of mm' name='dimensions{height}' />
-          <Field required='true' type='number' placeholder='kgs' name='weight' />
-        </div>
-          
-          {/* need to add option to add more for multiple items */}
+          <ItemForm />
+          <button type='button'>add item</button>
+
           <div className='delivery-type'>
           <label>Delivery Type:</label>
           <SelectDeliveryField required='true' />
           </div>
       </div>
+    </div>
         <button type='submit' className='cj-button'>Create Job</button>
     </form>
   )

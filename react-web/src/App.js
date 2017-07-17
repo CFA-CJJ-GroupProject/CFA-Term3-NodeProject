@@ -48,7 +48,7 @@ class App extends Component {
 
       <Router>
         <main>
-          {!!token
+          {/* {!!token
             ? (
               <Route exact path='/' render={() => (<HomePage/>)}/>
             )
@@ -56,7 +56,7 @@ class App extends Component {
           }
           {
             token ? (<Header />) : (<Redirect to ='/'/>)
-          }
+          } */}
           <Route exact path='/createjob' render={() => (<CreateJobPage/>)}/>
 
           <Route exact path='/jobs' render={() => (<JobsPage/>)}/>
