@@ -13,9 +13,38 @@ function handleSubmit(event, onCreate) {
     const jobNumber = form.elements['jobNumber'].value
     const pickupStreet = form.elements['pickupStreet'].value
     const pickupSuburb = form.elements['pickupSuburb'].value
+    const pickupPostcode = form.elements['pickupPostcode'].value
+    const pickupState = form.elements['pickupState'].value
+    const pickupTime = form.elements['pickupTime'].value
+    const pickupInstructions = form.elements['pickupInstructions'].value
+
+    const deliveryStreet = form.elements['deliveryStreet'].value
+    const deliverySuburb = form.elements['deliverySuburb'].value
+    const deliveryPostcode = form.elements['deliveryPostcode'].value
+    const deliveryState = form.elements['deliveryState'].value
+    const deliveryTime = form.elements['deliveryTime'].value
+    const deliveryInstructions = form.elements['deliveryInstructions'].value
+    const descriptionOfGoods = form.elements['descriptionOfGoods'].value
+    const deliveryType = form.elements['deliveryType'].value
     const jobValues = readAndClearForm(form)
 
-    onCreate({jobNumber, pickupStreet, pickupSuburb})
+    onCreate({
+      jobNumber,
+      pickupStreet,
+      pickupSuburb,
+      pickupPostcode,
+      pickupState,
+      pickupTime,
+      pickupInstructions,
+      deliveryStreet,
+      deliverySuburb,
+      deliveryPostcode,
+      deliveryState,
+      deliveryTime,
+      deliveryInstructions,
+      descriptionOfGoods,
+      deliveryType
+    })
 }
 
 
@@ -36,7 +65,7 @@ export default function CreateJobForm({
           <Field required='false' type='text' placeholder='Postcode...' name='pickupPostcode' />
           </div>
           <div className='state'>
-          <SelectStateField required='false' name="pickupState"/>
+          <Field required='false' name="pickupState"/>
           </div>
         </div>
 
@@ -56,7 +85,7 @@ export default function CreateJobForm({
           <Field required='false' type='text' placeholder='Street...' name='deliveryStreet' />
           <Field required='false' type='text' placeholder='Suburb...' name='deliverySuburb' />
           <Field required='false' type='text' placeholder='Postcode...' name='deliveryPostcode' />
-          <SelectStateField required='false' name="deliveryState"/>
+          <Field required='false' name="deliveryState"/>
           <Field required='false' type='date' name='deliveryDate' />
           <Field required='false' type='time' name='deliveryTime' />
           <TextField required='false' placeholder='Instructions..' name='deliveryInstructions' type=''/>
@@ -68,7 +97,7 @@ export default function CreateJobForm({
           <Field required='false' type='number' placeholder='size of mm' name='dimensions{height}' />
           {/* need to add option to add more for multiple items */}
           <Field required='false' type='number' placeholder='kgs' name='weight' />
-          <SelectDeliveryField required='false' />
+          <Field required='false' name='deliveryType' />
         </div>
       </div>
         <button type='submit' className='cj-button'>Create Job</button>

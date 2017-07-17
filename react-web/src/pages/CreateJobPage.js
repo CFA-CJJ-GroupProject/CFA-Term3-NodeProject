@@ -8,7 +8,23 @@ class CreateJobPage extends Component {
 		jobs: null
 	}
 
-	handleCreateJob = ({ jobNumber, pickupStreet, pickupSuburb}) => {
+	handleCreateJob = ({ 
+ 		jobNumber,
+    pickupStreet,
+    pickupSuburb,
+    pickupPostcode,
+    pickupState,
+    pickupTime,
+    pickupInstructions,
+    deliveryStreet,
+    deliverySuburb,
+    deliveryPostcode,
+    deliveryState,
+    deliveryTime,
+    deliveryInstructions,
+    descriptionOfGoods,
+    deliveryType
+		}) => {
 		console.log(jobNumber)
 		console.log(pickupStreet)
 		console.log(pickupSuburb)
@@ -18,7 +34,21 @@ class CreateJobPage extends Component {
 		headers: {
 			'Content-Type': 'application/json'
 		},
-		body: JSON.stringify({jobNumber, pickupStreet, pickupSuburb })
+		body: JSON.stringify({
+			jobNumber,
+			pickupStreet,
+			pickupSuburb,
+			pickupPostcode,
+			pickupState,
+			pickupInstructions,
+			deliveryStreet,
+			deliverySuburb,
+			deliveryPostcode,
+			deliveryState,
+			deliveryInstructions,
+			descriptionOfGoods,
+			deliveryType
+		})
 	})
 	.then(res => res.json())
 	.then(newJob => {
