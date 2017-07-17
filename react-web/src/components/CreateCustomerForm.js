@@ -18,17 +18,16 @@ export default function CreateCustomerForm({
   return (
     <form onSubmit={ (event) => submitCreate(event, onCreate) }>
       <div className='cj-left'>
-          <Field required='true' placeholder='Username...' name='username' />
-          <Field required='true' placeholder='Business Name...' name='businessName' />
-          <Field required='true' placeholder='Contact department...' name='department' />
-          <Field required='true' placeholder='Phone Number...' name='phoneNumber' />
-          <Field required='true' placeholder='Email...' name='email' />
-          <Field required='false' placeholder='Fax...' name='fax' />
+          <Field required='true' type='username' placeholder='Username...' name='username' />
+          <Field required='true' type='text' placeholder='Contact department...' name='department' />
+          <Field required='true' type='tel' placeholder='Phone Number...' name='phoneNumber' />
+          <Field required='true' type='email' placeholder='Email...' name='email' />
+          <Field required='false' type='tel' placeholder='Fax...' name='fax' />
       </div>
         <div className='cj-right'>
-          <Field required='true' placeholder='Street...' name='pickupStreet' />
-          <Field required='true' placeholder='Suburb...' name='pickupSuburb' />
-          <Field required='true' placeholder='Postcode...' name='pickupPostcode' />
+          <Field required='true' type='text' placeholder='Street...' name='pickupStreet' />
+          <Field required='true' type='number' placeholder='Suburb...' name='pickupSuburb' />
+          <Field required='true' type='number' placeholder='Postcode...' name='pickupPostcode' />
           <SelectStateField required='true' />
         </div>
         <div className='cc-middle'>

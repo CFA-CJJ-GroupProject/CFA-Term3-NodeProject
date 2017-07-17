@@ -18,7 +18,7 @@ export default function CreateUserForm({
     <form onSubmit={ (event) => submitCreate(event, onCreate) }>
       <div className='cu-left'>
         <div className=''>
-          <Field required='true' placeholder='Username...' name='username' />
+          <Field required='true' type='username' placeholder='Username...' name='username' />
         </div>
         <div className=''>
           <Field required='true' type='password' placeholder='Password...' name='password' />
