@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
+import {BrowserRouter as Router, Route, Switch, Redirect} from 'react-router-dom'
 import CreateJobPage from './pages/CreateJobPage'
 import JobsPage from './pages/JobsPage'
 import JobConfirmationPage from './pages/JobConfirmationPage'
@@ -47,21 +47,15 @@ class App extends Component {
 
       <Router>
         <main>
-          {!!token
-            ? (
-              <h1>
-                Welcome to ANT jobs application
-              </h1>
-        <Header />
-          <Route exact path='/' render={
-            () => (
-              <HomePage/>
-            )
-          } />
-
-            )
+          {
+            token ? (<Header />) : (<Redirect to='/'/>)
+          }
+          {!!token ? (
+              <Route exact path='/' render={() => (<HomePage/>)} />)
             : (<SignInForm onSignIn={this.handleSignIn}/>)
-}
+          }
+
+
           <Route exact path='/createjob' render={() => (<CreateJobPage/>)}/>
 
           <Route exact path='/jobs' render={() => (<JobsPage/>)}/>
