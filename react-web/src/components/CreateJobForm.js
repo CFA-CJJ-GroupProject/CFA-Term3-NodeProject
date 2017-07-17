@@ -82,15 +82,19 @@ export default function CreateJobForm({
           <Field required='true' type='time' name='deliveryTime' />
           <TextField required='true' placeholder='Instructions..' name='deliveryInstructions' type=''/>
         </div>
-        <div className='product-info'>
-          <label>Delivery Type and Item(s) Dimensions:</label>
+        <div className='dimensions'>
+          <label>Item(s) Dimensions:</label>
           <Field required='true' type='number' placeholder='size of mm' name='dimensions{length}' />
           <Field required='true' type='number' placeholder='size of mm' name='dimensions{width}' />
           <Field required='true' type='number' placeholder='size of mm' name='dimensions{height}' />
-          {/* need to add option to add more for multiple items */}
           <Field required='true' type='number' placeholder='kgs' name='weight' />
-          <SelectDeliveryField required='true' />
         </div>
+          
+          {/* need to add option to add more for multiple items */}
+          <div className='delivery-type'>
+          <label>Delivery Type:</label>
+          <SelectDeliveryField required='true' />
+          </div>
       </div>
         <button type='submit' className='cj-button'>Create Job</button>
     </form>

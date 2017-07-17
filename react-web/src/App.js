@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
+import {BrowserRouter as Router, Route, Redirect} from 'react-router-dom'
 import CreateJobPage from './pages/CreateJobPage'
 import JobsPage from './pages/JobsPage'
 import JobConfirmationPage from './pages/JobConfirmationPage'
@@ -13,6 +13,7 @@ import Footer from './components/Footer'
 import SignInForm from './components/SignInForm'
 // Importing everything from auth and calling it authapi
 import * as authAPI from './api/auth'
+import Top from './components/Top'
 
 class App extends Component {
 
@@ -53,7 +54,9 @@ class App extends Component {
             )
             : (<SignInForm onSignIn={this.handleSignIn}/>)
           }
-          <Header/>
+          {
+            token ? (<Header />) : (<Redirect to ='/'/>)
+          }
           <Route exact path='/createjob' render={() => (<CreateJobPage/>)}/>
 
           <Route exact path='/jobs' render={() => (<JobsPage/>)}/>
