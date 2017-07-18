@@ -118,7 +118,7 @@ export default function CreateJobForm({
 
           <div className='delivery-type'>
           <label>Delivery Type:</label>
-          <SelectDeliveryField required='true' />
+          <SelectDeliveryField required='true' name='deliveryType' />
           </div>
 
     </div>
