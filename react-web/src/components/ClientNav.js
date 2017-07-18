@@ -6,7 +6,6 @@ class ClientNav extends React.Component {
   render() {
     return (
     <nav>
-
       <ul className='nav'>
         <li><NavLink exact to='/' activeClassName='active'>Dashboard</NavLink></li>
         <li><NavLink to='/Jobs'  activeClassName='active'>Jobs</NavLink></li>

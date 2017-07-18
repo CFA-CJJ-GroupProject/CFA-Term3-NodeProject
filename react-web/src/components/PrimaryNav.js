@@ -3,23 +3,22 @@ import OfficeNav from './OfficeNav'
 import DriverNav from './DriverNav'
 import ClientNav from './ClientNav'
 
-// Testing
+function DecideNavClass(role) {
+  var string = role.toLowerCase();
 
-const role = 'office'
-
-function DecideNavClass() {
-  if ( role === 'office') {
+  if ( string == 'office') {
     return <OfficeNav/>;
   }
-  else if ( role === 'driver') {
+  else if ( string == 'driver') {
     return <DriverNav/>;
   }
-  else if ( role === 'client') {
+  else if ( string == 'customer') {
     return <ClientNav/>;
   }
 }
 
 class PrimaryNav extends React.Component {
+   role,
   render() {
     return (
       <nav>

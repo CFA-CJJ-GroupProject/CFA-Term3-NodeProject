@@ -8,12 +8,11 @@ function submitCreateUser(event, onRegister) {
   const form = event.target
   const username = form.elements['username'].value
   const password = form.elements['password'].value
-  onRegister({username, password})
+  const role = form.elements['role'].value
+  onRegister({username, password, role})
 }
 
 export default function CreateUserForm({onRegister}) {
-  console.log(onRegister)
-
   return (
     <form onSubmit={(event) => submitCreateUser(event, onRegister)}>
       <div className='cu'>
@@ -22,7 +21,6 @@ export default function CreateUserForm({onRegister}) {
           <Field required='true' type='password' placeholder='Confirm Password...' name='password' />
           <SelectRoleField required='true' name='role' />
       </div>
-
       <button type='submit' className='cu-button'>Create User</button>
     </form>
   )

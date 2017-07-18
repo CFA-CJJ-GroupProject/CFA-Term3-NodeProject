@@ -6,11 +6,11 @@ import PrimaryNav from './PrimaryNav'
 class Header extends React.Component {
   render() {
     return (
-  <div>
-  <Top />
-  <PrimaryNav />
-  </div>
-    );
-  }
-}
+      <div>
+      <Top handleLogout={handleLogout} />
+      <PrimaryNav role={ role } />
+      </div>
+        );
+      }
+    }
 export default Header

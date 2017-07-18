@@ -6,9 +6,9 @@ function readAndClearForm(form) {
     for (let i = 0, element; element = elements[i++];) {
         // Read value from <input>
         values[element.name] = element.value
-        // Reset <input> value
-        element.value = ''
     }
+
+    form.reset()
 
     return values
 }

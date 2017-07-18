@@ -1,10 +1,12 @@
 import React from 'react'
 
-const LoginPage = () => (
-    <div>
-        <h1>Login</h1>
-        <SignInForm />
-    </div>
-      )
+import SignInForm from '../components/SignInForm.js'
 
-export default HomePage
+const LoginPage = ({loginMaybe}) => (
+  <div>
+    <h1>P A R T Y</h1>
+    <SignInForm onSignIn={loginMaybe}/>
+  </div>
+)
+
+export default LoginPage
