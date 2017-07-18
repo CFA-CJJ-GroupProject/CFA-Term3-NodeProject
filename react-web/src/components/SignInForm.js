@@ -1,4 +1,5 @@
 import React from 'react'
+import Field from './Field'
 
 function submitSignIn(event, onSignIn) {
   event.preventDefault()
@@ -12,20 +13,9 @@ function submitSignIn(event, onSignIn) {
 export default function SignInForm({onSignIn}) {
   return (
     <form onSubmit={(event) => submitSignIn(event, onSignIn)}>
-      <label>
-        <span>
-          Email
-        </span>
-        <input name='username'/>
-      </label>
-      <label>
-        <span>
-          Password
-        </span>
-        <input type='password' name='password'/>
-      </label>
-      <button>Sign In
-      </button>
+    <Field required='true' type='username' placeholder='Username...' name='username' />
+    <Field required='true' type='password' placeholder='Password...' name='password' />
+    <button type='submit' className='sign-in'>Sign in</button>
     </form>
   )
 }

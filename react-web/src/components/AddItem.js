@@ -19,7 +19,7 @@ class AddItem extends React.Component {
   render() {
     return (
       <div>
-        <button type='button' onClick={this._onButtonClick}>Add Item</button>
+        <button type='button' onClick={this._onButtonClick} className='add-item'>Add Item</button>
         {this.state.showComponent ?
            <ItemForm /> :
            null
