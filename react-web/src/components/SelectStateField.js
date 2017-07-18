@@ -14,15 +14,15 @@ class SelectStateField extends React.Component {
 
   render() {
     return (
-          <select value={this.state.value} onChange={this.handleChange}>
-            <option value="NSW">NSW</option>
-            <option value="VIC">VIC</option>
-            <option value="ACT">ACT</option>
-            <option value="WA">WA</option>
-            <option value="SA">SA</option>
-            <option value="NT">NT</option>
-            <option value="QLD">QLD</option>
-          </select>
+      <select value={this.state.value} name={this.props.name} onChange={this.handleChange}>
+        <option value="NSW">NSW</option>
+        <option value="VIC">VIC</option>
+        <option value="ACT">ACT</option>
+        <option value="WA">WA</option>
+        <option value="SA">SA</option>
+        <option value="NT">NT</option>
+        <option value="QLD">QLD</option>
+      </select>
     );
   }
 }
