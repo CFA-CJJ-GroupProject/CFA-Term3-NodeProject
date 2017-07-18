@@ -1,14 +1,14 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
-import AdminNav from './AdminNav'
+import OfficeNav from './OfficeNav'
 import DriverNav from './DriverNav'
 import ClientNav from './ClientNav'
 
-const role = 'client'
+const role = 'office'
 
 function DecideNavClass() {
-  if ( role == 'admin') {
-    return <AdminNav/>;
+  if ( role == 'office') {
+    return <OfficeNav/>;
   }
   else if ( role == 'driver') {
     return <DriverNav/>;

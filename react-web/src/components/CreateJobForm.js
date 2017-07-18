@@ -6,7 +6,7 @@ import SelectDeliveryField from './SelectDeliveryField'
 import readAndClearForm from './readAndClearForm'
 import ItemForm from './ItemForm'
 import '../style.css'
-import AddItem from './OnClick'
+import AddItem from './AddItem'
 
 // componentDidMount(){
 //   fetch('database goes here')
