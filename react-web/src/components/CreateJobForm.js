@@ -1,12 +1,13 @@
 import React from 'react'
-import Field from './Field'
 import TextField from './TextField'
-import SelectStateField from './SelectStateField'
 import SelectDeliveryField from './SelectDeliveryField'
 import readAndClearForm from './readAndClearForm'
 import ItemForm from './ItemForm'
 import '../style.css'
 import AddItem from './AddItem'
+import Address from './Address'
+import DateTime from './DateTime'
+import Field from './Field'
 
 function handleSubmit(event, onCreate) {
     event.preventDefault()
@@ -65,8 +66,6 @@ function handleSubmit(event, onCreate) {
     })
 }
 
-
-
 export default function CreateJobForm({
     onCreate
 }) {
@@ -75,52 +74,32 @@ export default function CreateJobForm({
       <div className='cj-left'>
         <div className='pickup'>
           <label>Pickup Infomation:</label>
-            <Field required='true' type='text' placeholder='Job ID' name='jobNumber' />
-            <Field required='true' type='text' placeholder='Street...' name='pickupStreet' />
-            <Field required='true' type='text' placeholder='Suburb...' name='pickupSuburb' />
-          <div className='postcode-state'>
-          <div className='postcode'>
-            <Field required='false' type='text' placeholder='Postcode...' name='pickupPostcode' />
-          </div>
-          <div className='state'>
-          <SelectStateField required='false' name="pickupState" />
-          </div>
-        </div>
-
-          <Field required='false' type='date' name='pickupDate' />
-          <Field required='false' type='time' name='pickupTime' />
-          <TextField required='false' placeholder='Instructions..' name='pickupInstructions' />
+          <Field required='true' type='text' placeholder='Job ID' name='jobNumber' />
+          <Address />
+          <DateTime />
+          <TextField required='true' placeholder='Instructions..' name='pickupInstructions' />
         </div>
         <div className='description'>
           <label>Description of Item(s):</label>
-          <TextField required='false' placeholder='Description of goods...' name='descriptionOfGoods' />
+          <TextField required='true' placeholder='Description of all items...' name='descriptionOfGoods' />
+          </div>
         </div>
-      </div>
-
       <div className="cj-right">
         <div className='delivery'>
           <label>Delivery Infomation:</label>
-          <Field required='false' type='text' placeholder='Street...' name='deliveryStreet' />
-          <Field required='false' type='text' placeholder='Suburb...' name='deliverySuburb' />
-          <Field required='false' type='text' placeholder='Postcode...' name='deliveryPostcode' />
-          <SelectStateField required='false' name="deliveryState"/>
-          <Field required='false' type='date' name='deliveryDate' />
-          <Field required='false' type='time' name='deliveryTime' />
-          <TextField required='false' placeholder='Instructions..' name='deliveryInstructions' type=''/>
+          <Address />
+          <DateTime />
+          <TextField required='true' placeholder='Instructions..' name='deliveryInstructions' type=''/>
         </div>
-
         <div id='dimensions' className='dimensions'>
           <label>Item(s) Dimensions:</label>
-          <AddItem />
           <ItemForm />
-
+          <AddItem />
         </div>
-
           <div className='delivery-type'>
           <label>Delivery Type:</label>
           <SelectDeliveryField required='true' name='deliveryType' />
           </div>
-
     </div>
         <button type='submit' className='cj-button'>Create Job</button>
     </form>

@@ -15,6 +15,9 @@ div .company-name {
   color: white;
 
 }
+ul {
+  padding: 0px;
+}
 nav {
   background-color: #000033;
   margin: 0px;
@@ -69,18 +72,24 @@ h2 {
 }
 label {
   display: block;
-  color: blue;
+  color: white;
   font-size: 20px;
+  margin-bottom: 15px;
 
 }
 form {
-margin-top: 20px;
-max-width: 80%;
-margin-left: auto;
-margin-right: auto;
+  margin-top: 50px;
+  max-width: 80%;
+  text-align: center;
+  padding: 40px;
+  padding-top: 20px;
+  border-radius: 20px;
+  margin-bottom: 30px;
+  margin-left: auto;
+  margin-right: auto;
 
 }
-input[type=text], input[type=number], input[type=date], input[type=time], textarea, select {
+input, textarea, select {
   margin: auto;
   font-family: 'Lato', sans-serif;
   font-weight: 300;
@@ -97,6 +106,15 @@ input[type=text], input[type=number], input[type=date], input[type=time], textar
   padding-top: 6px;
   width: 80%;
   background-color: white;
+}
+select {
+  max-width: 200px;
+}
+input[type='username'], input[type='password'] {
+  text-align: left;
+  width: 200px;
+  margin: 0px;
+  margin-bottom: 20px;
 }
 select, button[type=submit] {
   border: none;
@@ -116,30 +134,32 @@ input[type=number]::-webkit-outer-spin-button {
   margin: 0;
 }
 button[type=submit] {
+  font-size: 20px;
   display: block;
+  margin-top: 50px;
   letter-spacing: 2px;
   border-radius: 7px;
-  padding: 10px 20px 10px 20px;
+  padding: 20px 15px 20px 15px;
 }
 button[type=submit]:hover {
   box-shadow: 2px 2px 2px grey;
 }
+/***********************/
 /*Create Job*/
 
-.pickup, .delivery, .description, .product-info {
+.pickup, .delivery, .description, .dimensions, .delivery-type {
   background-color: grey;
-  padding: 40px;
-  width: 50%;
+  padding: 20px;
+  width: 80%;
   padding-top: 20px;
   border-radius: 20px;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
+
 
 }
 div .cj-right, .cj-left {
-  padding: 10px;
-  margin-right: 10px;
-
-    display: inline-block;
+  width: 50%;
+  display: inline-block;
   vertical-align: top;
 }
 .cj-button {
@@ -147,4 +167,25 @@ div .cj-right, .cj-left {
   color: white;
   float: right;
   margin-bottom: 100px;
+}
+.measurements, .address, .date-time {
+  padding: 0px;
+  display: table;
+  width: 100%;
+  margin: 0px;
+}
+.measurements label {
+  font-size: 15px;
+  margin-bottom: 5px;
+
+}
+.measurements li {
+  list-style-type: none;
+  display: inline-block;
+  display: table-cell;
+  text-align: center;
+  padding: 3px;
+}
+div .add-item {
+  display: inline-block;
 }
