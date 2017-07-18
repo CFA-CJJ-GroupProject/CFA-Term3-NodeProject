@@ -7,6 +7,7 @@ import '../style.css'
 import AddItem from './AddItem'
 import Address from './Address'
 import DateTime from './DateTime'
+import Field from './Field'
 
 function handleSubmit(event, onCreate) {
     event.preventDefault()
