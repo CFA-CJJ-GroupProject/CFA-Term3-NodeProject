@@ -5,7 +5,7 @@ import CreateJobForm from '../components/CreateJobForm'
 
 class CreateJobPage extends Component {
 	state = {
-		jobs: null
+		error: null
 	}
 
 	handleCreateJob = ({ 
@@ -14,22 +14,26 @@ class CreateJobPage extends Component {
     pickupSuburb,
     pickupPostcode,
     pickupState,
+		pickupDate,
     pickupTime,
     pickupInstructions,
     deliveryStreet,
     deliverySuburb,
     deliveryPostcode,
     deliveryState,
+		deliveryDate,
     deliveryTime,
     deliveryInstructions,
     descriptionOfGoods,
-    deliveryType
+    deliveryType,
+		weight,
+		height,
+		length,
+		width
 		}) => {
-		console.log(jobNumber)
-		console.log(pickupStreet)
-		console.log(pickupSuburb)
+		
 	// Post to /jobsß∂
-	fetch('/Jobs', { 
+	fetch('/jobs', { 
 		method: 'POST',
 		headers: {
 			'Content-Type': 'application/json'
@@ -39,15 +43,25 @@ class CreateJobPage extends Component {
 			pickupStreet,
 			pickupSuburb,
 			pickupPostcode,
+			pickupDate,
+			pickupTime,
 			pickupState,
 			pickupInstructions,
 			deliveryStreet,
 			deliverySuburb,
 			deliveryPostcode,
 			deliveryState,
+			deliveryTime,
+			deliveryDate,
 			deliveryInstructions,
 			descriptionOfGoods,
-			deliveryType
+			deliveryType,
+			dimensions: {
+				weight,
+				height,
+				length,
+				width
+			}
 		})
 	})
 	.then(res => res.json())
@@ -59,14 +73,16 @@ class CreateJobPage extends Component {
 			}
 		})
 	})
-	.then(error => {
+	.catch(error => {
 		this.setState({ error })
 	})
 }
   render () {
+		const { error } = this.state
 	return (
     <div>
       <h1>Create Job</h1>
+				{ !!error && <p>{ error.message }</p> }
         <CreateJobForm onCreate={ this.handleCreateJob } />
     </div>
       )

@@ -15,6 +15,7 @@ function handleSubmit(event, onCreate) {
     const pickupSuburb = form.elements['pickupSuburb'].value
     const pickupPostcode = form.elements['pickupPostcode'].value
     const pickupState = form.elements['pickupState'].value
+    const pickupDate = form.elements['pickupDate'].value
     const pickupTime = form.elements['pickupTime'].value
     const pickupInstructions = form.elements['pickupInstructions'].value
 
@@ -23,10 +24,19 @@ function handleSubmit(event, onCreate) {
     const deliveryPostcode = form.elements['deliveryPostcode'].value
     const deliveryState = form.elements['deliveryState'].value
     const deliveryTime = form.elements['deliveryTime'].value
+    const deliveryDate = form.elements['deliveryDate'].value
     const deliveryInstructions = form.elements['deliveryInstructions'].value
     const descriptionOfGoods = form.elements['descriptionOfGoods'].value
     const deliveryType = form.elements['deliveryType'].value
+    const weight = form.elements['weight'].value
+    const height = form.elements['height'].value
+    const width = form.elements['width'].value
+    const length = form.elements['lengthField'].value
     const jobValues = readAndClearForm(form)
+
+    console.log('pickupTime', pickupTime)
+    console.log('pickupDate', pickupDate)
+    console.log('length', length)
 
     onCreate({
       jobNumber,
@@ -40,10 +50,15 @@ function handleSubmit(event, onCreate) {
       deliverySuburb,
       deliveryPostcode,
       deliveryState,
+      deliveryDate,
       deliveryTime,
       deliveryInstructions,
       descriptionOfGoods,
-      deliveryType
+      deliveryType,
+      weight,
+      height,
+      width,
+      length
     })
 }
 
@@ -57,15 +72,15 @@ export default function CreateJobForm({
       <div className='cj-left'>
         <div className='pickup'>
           <label>Pickup Infomation:</label>
-          <Field required='true' type='text' placeholder='Job ID' name='jobNumber' />
-          <Field required='true' type='text' placeholder='Street...' name='pickupStreet' />
-          <Field required='true' type='text' placeholder='Suburb...' name='pickupSuburb' />
+            <Field required='true' type='text' placeholder='Job ID' name='jobNumber' />
+            <Field required='true' type='text' placeholder='Street...' name='pickupStreet' />
+            <Field required='true' type='text' placeholder='Suburb...' name='pickupSuburb' />
           <div className='postcode-state'>
           <div className='postcode'>
-          <Field required='false' type='text' placeholder='Postcode...' name='pickupPostcode' />
+            <Field required='false' type='text' placeholder='Postcode...' name='pickupPostcode' />
           </div>
           <div className='state'>
-          <Field required='false' name="pickupState"/>
+          <SelectStateField required='false' name="pickupState" />
           </div>
         </div>
 
@@ -85,19 +100,19 @@ export default function CreateJobForm({
           <Field required='false' type='text' placeholder='Street...' name='deliveryStreet' />
           <Field required='false' type='text' placeholder='Suburb...' name='deliverySuburb' />
           <Field required='false' type='text' placeholder='Postcode...' name='deliveryPostcode' />
-          <Field required='false' name="deliveryState"/>
+          <SelectStateField required='false' name="deliveryState"/>
           <Field required='false' type='date' name='deliveryDate' />
           <Field required='false' type='time' name='deliveryTime' />
           <TextField required='false' placeholder='Instructions..' name='deliveryInstructions' type=''/>
         </div>
         <div className='product-info'>
           <label>Delivery Type and Item(s) Dimensions:</label>
-          <Field required='false' type='number' placeholder='size of mm' name='dimensions{length}' />
-          <Field required='false' type='number' placeholder='size of mm' name='dimensions{width}' />
-          <Field required='false' type='number' placeholder='size of mm' name='dimensions{height}' />
+          <Field required='false' type='number' placeholder='size of mm' name='lengthField' />
+          <Field required='false' type='number' placeholder='size of mm' name='width' />
+          <Field required='false' type='number' placeholder='size of mm' name='height' />
           {/* need to add option to add more for multiple items */}
           <Field required='false' type='number' placeholder='kgs' name='weight' />
-          <Field required='false' name='deliveryType' />
+          <SelectDeliveryField required='false' name='deliveryType' />
         </div>
       </div>
         <button type='submit' className='cj-button'>Create Job</button>
