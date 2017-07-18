@@ -8,10 +8,12 @@ export function signIn({ username, password }) {
   .then(res => res.data)
 }
 
-export function register({ username, password }) {
+export function register({ username, password, role, customerProfile }) {
   return axios.post('/auth/register', {
     username,
-    password
+    password,
+    role,
+    customerProfile
   })
   .then(res => res.data)
 }

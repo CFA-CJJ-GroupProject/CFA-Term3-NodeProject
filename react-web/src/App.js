@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {BrowserRouter as Router, Route, Switch, Redirect} from 'react-router-dom'
+import decodeJWT from 'jwt-decode'
 import CreateJobPage from './pages/CreateJobPage'
 import JobsPage from './pages/JobsPage'
 import JobConfirmationPage from './pages/JobConfirmationPage'
@@ -13,6 +14,7 @@ import LoginPage from './pages/LoginPage'
 import LogoutPage from './pages/LogoutPage'
 import Footer from './components/Footer'
 import SignInForm from './components/SignInForm'
+
 // Importing everything from auth and calling it authapi
 import * as authAPI from './api/auth'
 
@@ -25,22 +27,24 @@ class App extends Component {
     // token: savedToken,
     jobs: null, // Null means not loaded yet
     redirect: null
+    role: null
   }
 
   handleSignIn = ({username, password}) => {
     authAPI.signIn({username, password})
     .then(json => {
       sessionStorage.setItem('token', json.token)
-      this.setState({token: json.token})
-    })
-    .catch(error => {
+      this.setState({
+        token: json.token,
+        role: tokenPayload.role
+      })
+    }).catch(error => {
       this.setState({error})
     })
   }
 
-  handleRegister = ({username, password}) => {
-    authAPI.register({username, password})
-    .then(json => {
+  handleRegister = ({username, password, role, customerProfile}) => {
+    authAPI.register({username, password, role, customerProfile}).then(json => {
       this.setState({
         token: json.token,
         redirect: true
@@ -65,13 +69,15 @@ class App extends Component {
   }
 
   render() {
-    const {error, token, jobs, redirect} = this.state
+    const {error, token, jobs, role, redirect} = this.state
+
     return (
 
       <Router>
         <main>
+
           {
-            token ? (<Header handleLogout={this.handleLogout}  />) : (<Redirect to='/'/>)
+            token ? (<Header handleLogout={this.handleLogout} role={ role }  />) : (<Redirect to='/'/>)
           }
           { token ? (
               <Route exact path='/' render={() => (<HomePage />)} />)

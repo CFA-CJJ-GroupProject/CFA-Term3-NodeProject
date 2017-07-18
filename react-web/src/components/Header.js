@@ -4,11 +4,12 @@ import PrimaryNav from './PrimaryNav'
 
 
 export default ({
+  role,
   resetRedirect,
   handleLogout
 }) => (
   <div>
   <Top handleLogout={handleLogout} />
-  <PrimaryNav />
+  <PrimaryNav role={ role } />
   </div>
 )
