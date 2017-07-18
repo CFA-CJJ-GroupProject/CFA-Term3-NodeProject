@@ -11,6 +11,7 @@ import Header from './components/Header'
 import HomePage from './pages/HomePage'
 import Footer from './components/Footer'
 import SignInForm from './components/SignInForm'
+
 // Importing everything from auth and calling it authapi
 import * as authAPI from './api/auth'
 
@@ -19,9 +20,8 @@ class App extends Component {
   // Initial state
   state = {
     error: null,
-    token: null,
+    token: null
     // token: savedToken,
-    jobs: null, // Null means not loaded yet
   }
 
   handleSignIn = ({username, password}) => {
@@ -32,8 +32,8 @@ class App extends Component {
     })
   }
 
-  handleRegister = ({username, password}) => {
-    authAPI.register({username, password}).then(json => {
+  handleRegister = ({username, password, role, customerProfile}) => {
+    authAPI.register({username, password, role, customerProfile}).then(json => {
       this.setState({token: json.token})
     }).catch(error => {
       this.setState({error})
