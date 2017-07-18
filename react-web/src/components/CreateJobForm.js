@@ -45,6 +45,7 @@ function handleSubmit(event, onCreate) {
       pickupPostcode,
       pickupState,
       pickupTime,
+      pickupDate,
       pickupInstructions,
       deliveryStreet,
       deliverySuburb,
