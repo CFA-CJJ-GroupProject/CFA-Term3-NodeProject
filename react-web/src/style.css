@@ -45,12 +45,13 @@ nav ul li a:hover {
   text-decoration: underline;
 }
 footer {
+  margin-top: 70px;
   margin-bottom: 0px;
   background-color: #000033;
-  text-align: right;
-  position: fixed;
+  height: 30px;
 }
 footer p {
+  text-align: right;
   font-size: 10px;
   color: white;
   padding: 7px;
@@ -159,4 +160,19 @@ div .cj-right, .cj-left {
   color: white;
   float: right;
   margin-bottom: 100px;
+}
+.measurements {
+  padding: 0px;
+  display: table;
+  width: 100%;
+  margin: 0px;
+
+}
+.measurements li {
+  list-style-type: none;
+  display: inline-block;
+  display: table-cell;
+  text-align: center;
+  padding: 3px;
+
 }

@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {BrowserRouter as Router, Route, Redirect} from 'react-router-dom'
+import {BrowserRouter as Router, Route, Switch, Redirect} from 'react-router-dom'
 import CreateJobPage from './pages/CreateJobPage'
 import JobsPage from './pages/JobsPage'
 import JobConfirmationPage from './pages/JobConfirmationPage'
@@ -13,7 +13,6 @@ import Footer from './components/Footer'
 import SignInForm from './components/SignInForm'
 // Importing everything from auth and calling it authapi
 import * as authAPI from './api/auth'
-import Top from './components/Top'
 
 class App extends Component {
 
@@ -23,6 +22,7 @@ class App extends Component {
     token: null,
     // token: savedToken,
     jobs: null, // Null means not loaded yet
+
   }
 
   handleSignIn = ({username, password}) => {
@@ -42,21 +42,22 @@ class App extends Component {
   }
 
   render() {
-    const {error, token, jobs} = this.state
+    const {error, token, jobs, role} = this.state
 
     return (
 
       <Router>
         <main>
-          {/* {!!token
-            ? (
-              <Route exact path='/' render={() => (<HomePage/>)}/>
-            )
+
+          {
+            token ? (<Header />) : (<Redirect to='/'/>)
+          }
+          {!!token ? (
+              <Route exact path='/' render={() => (<HomePage/>)} />)
             : (<SignInForm onSignIn={this.handleSignIn}/>)
           }
-          {
-            token ? (<Header />) : (<Redirect to ='/'/>)
-          } */}
+
+
           <Route exact path='/createjob' render={() => (<CreateJobPage/>)}/>
 
           <Route exact path='/jobs' render={() => (<JobsPage/>)}/>

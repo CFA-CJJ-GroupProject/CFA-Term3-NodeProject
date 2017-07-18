@@ -6,6 +6,7 @@ import SelectDeliveryField from './SelectDeliveryField'
 import readAndClearForm from './readAndClearForm'
 import ItemForm from './ItemForm'
 import '../style.css'
+import AddItem from './AddItem'
 
 // componentDidMount(){
 //   fetch('database goes here')
@@ -83,16 +84,21 @@ export default function CreateJobForm({
           <Field required='true' type='time' name='deliveryTime' />
           <TextField required='true' placeholder='Instructions..' name='deliveryInstructions' type=''/>
         </div>
-        <div className='dimensions'>
+        <div id='dimensions' className='dimensions'>
           <label>Item(s) Dimensions:</label>
+          <AddItem />
           <ItemForm />
-          <button type='button'>add item</button>
+
+
+        </div>
+
+
 
           <div className='delivery-type'>
           <label>Delivery Type:</label>
           <SelectDeliveryField required='true' />
           </div>
-      </div>
+
     </div>
         <button type='submit' className='cj-button'>Create Job</button>
     </form>

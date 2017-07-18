@@ -15,7 +15,7 @@ export default function SignInForm({onSignIn}) {
     <form onSubmit={(event) => submitSignIn(event, onSignIn)}>
     <Field required='true' type='username' placeholder='Username...' name='username' />
     <Field required='true' type='password' placeholder='Password...' name='password' />
-<button type='submit' className='sign-in'>Sign in</button>
+    <button type='submit' className='sign-in'>Sign in</button>
     </form>
   )
 }
