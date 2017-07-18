@@ -1,7 +1,5 @@
 import React, {Component} from 'react';
-import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
-import logo from './logo.svg';
-import './App.css';
+import {BrowserRouter as Router, Route, Switch, Redirect} from 'react-router-dom'
 import CreateJobPage from './pages/CreateJobPage'
 import JobsPage from './pages/JobsPage'
 import JobConfirmationPage from './pages/JobConfirmationPage'
@@ -9,8 +7,9 @@ import JobCard from './pages/JobCard'
 import CreateUserPage from './pages/CreateUserPage'
 import UsersPage from './pages/UsersPage'
 import CreateCustomerPage from './pages/CreateCustomerPage'
-import PrimaryNav from './components/PrimaryNav'
+import Header from './components/Header'
 import HomePage from './pages/HomePage'
+import Footer from './components/Footer'
 import SignInForm from './components/SignInForm'
 
 // Importing everything from auth and calling it authapi
@@ -48,33 +47,31 @@ class App extends Component {
 
       <Router>
         <main>
-          {!!token
-            ? (
-              <h1>
-                Welcome to ANT jobs application
-              </h1>
-            )
+          {
+            token ? (<Header />) : (<Redirect to='/'/>)
+          }
+          {!!token ? (
+              <Route exact path='/' render={() => (<HomePage/>)} />)
             : (<SignInForm onSignIn={this.handleSignIn}/>)
-}
+          }
 
-          <PrimaryNav/>
-          <Route path='/' render={() => (<HomePage/>)}/>
 
-          <Route path='/createjob' render={() => (<CreateJobPage/>)}/>
+          <Route exact path='/createjob' render={() => (<CreateJobPage/>)}/>
 
-          <Route path='/jobs' render={() => (<JobsPage/>)}/>
+          <Route exact path='/jobs' render={() => (<JobsPage/>)}/>
 
-          <Route path='/jobconfirmation' render={() => (<JobConfirmationPage/>)}/>
+          <Route exact path='/jobconfirmation' render={() => (<JobConfirmationPage/>)}/>
 
-          <Route path='/jobcard/:id' render={() => (<JobCard/>)}/>
+          <Route exact path='/jobcard/:id' render={() => (<JobCard/>)}/>
 
-          <Route path='/createuser' render={() => (<CreateUserPage onRegister={this.handleRegister}/>)}/>
+          <Route exact path='/createuser' render={() => (<CreateUserPage/>)}/>
 
-          <Route path='/users' render={() => (<UsersPage/>)}/>
+          <Route exact path='/users' render={() => (<UsersPage/>)}/>
 
-          <Route path='/createcustomer' render={() => (<CreateCustomerPage/>)}/>
-
+          <Route exact path='/createcustomer' render={() => (<CreateCustomerPage/>)}/>
+          <Footer/>
         </main>
+
       </Router>
     )
   }
