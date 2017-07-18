@@ -51,6 +51,7 @@ export default function CreateJobForm({
     <form onSubmit={ (event) => submitCreate(event, onCreate) }>
       <div className='cj-left'>
         <div className='pickup'>
+          <label>Pickup Infomation:</label>
           <Address />
           <DateTime />
           <TextField required='true' placeholder='Instructions..' name='pickupInstructions' />

@@ -6,7 +6,6 @@ class Address extends React.Component {
   render() {
     return (
         <div>
-        <label>Pickup Infomation:</label>
         <Field required='true' type='text' placeholder='Street...' name='pickupStreet' />
         <Field required='true' type='text' placeholder='Suburb...' name='pickupSuburb' />
         <ul className='measurements'>
