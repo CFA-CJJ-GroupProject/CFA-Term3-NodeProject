@@ -1,12 +1,12 @@
 import React from 'react'
-import Field from './Field'
 import TextField from './TextField'
-import SelectStateField from './SelectStateField'
 import SelectDeliveryField from './SelectDeliveryField'
 import readAndClearForm from './readAndClearForm'
 import ItemForm from './ItemForm'
 import '../style.css'
 import AddItem from './AddItem'
+import Address from './Address'
+import DateTime from './DateTime'
 
 // componentDidMount(){
 //   fetch('database goes here')
@@ -51,20 +51,8 @@ export default function CreateJobForm({
     <form onSubmit={ (event) => submitCreate(event, onCreate) }>
       <div className='cj-left'>
         <div className='pickup'>
-          <label>Pickup Infomation:</label>
-          <Field required='true' type='text' placeholder='Street...' name='pickupStreet' />
-          <Field required='true' type='text' placeholder='Suburb...' name='pickupSuburb' />
-          <div className='postcode-state'>
-          <div className='postcode'>
-          <Field required='true' type='text' placeholder='Postcode...' name='pickupPostcode' />
-          </div>
-          <div className='state'>
-          <SelectStateField required='true' name="pickupState"/>
-          </div>
-        </div>
-
-          <Field required='true' type='date' name='pickupDate' />
-          <Field required='true' type='time' name='pickupTime' />
+          <Address />
+          <DateTime />
           <TextField required='true' placeholder='Instructions..' name='pickupInstructions' />
         </div>
         <div className='description'>
@@ -76,12 +64,8 @@ export default function CreateJobForm({
       <div className="cj-right">
         <div className='delivery'>
           <label>Delivery Infomation:</label>
-          <Field required='true' type='text' placeholder='Street...' name='deliveryStreet' />
-          <Field required='true' type='text' placeholder='Suburb...' name='deliverySuburb' />
-          <Field required='true' type='text' placeholder='Postcode...' name='deliveryPostcode' />
-          <SelectStateField required='true' name="deliveryState"/>
-          <Field required='true' type='date' name='deliveryDate' />
-          <Field required='true' type='time' name='deliveryTime' />
+          <Address />
+          <DateTime />
           <TextField required='true' placeholder='Instructions..' name='deliveryInstructions' type=''/>
         </div>
         <div id='dimensions' className='dimensions'>
@@ -89,8 +73,6 @@ export default function CreateJobForm({
           <ItemForm />
           <AddItem />
         </div>
-
-
 
           <div className='delivery-type'>
           <label>Delivery Type:</label>

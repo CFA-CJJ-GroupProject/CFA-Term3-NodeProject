@@ -167,7 +167,7 @@ div .cj-right, .cj-left {
   float: right;
   margin-bottom: 100px;
 }
-.measurements {
+.measurements, .address, .date-time {
   padding: 0px;
   display: table;
   width: 100%;

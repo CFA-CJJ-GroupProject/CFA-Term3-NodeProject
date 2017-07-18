@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {BrowserRouter as Router, Route, Switch, Redirect} from 'react-router-dom'
+import {BrowserRouter as Router, Route, Redirect} from 'react-router-dom'
 import CreateJobPage from './pages/CreateJobPage'
 import JobsPage from './pages/JobsPage'
 import JobConfirmationPage from './pages/JobConfirmationPage'
