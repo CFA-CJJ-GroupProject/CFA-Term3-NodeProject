@@ -69,7 +69,7 @@ export default function CreateJobForm({
         </div>
         <div className='description'>
           <label>Description of Item(s):</label>
-          <TextField required='true' placeholder='Description of goods...' name='descriptionOfGoods' />
+          <TextField required='true' placeholder='Description of all items...' name='descriptionOfGoods' />
         </div>
       </div>
 
@@ -86,10 +86,8 @@ export default function CreateJobForm({
         </div>
         <div id='dimensions' className='dimensions'>
           <label>Item(s) Dimensions:</label>
-          <AddItem />
           <ItemForm />
-
-
+          <AddItem />
         </div>
 
 

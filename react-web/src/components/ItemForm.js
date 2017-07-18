@@ -10,12 +10,25 @@ class ItemForm extends React.Component {
   render() {
     return (
       <div>
-      <p>Item:</p>
       <ul className='measurements'>
-      <li><Field required='true' type='number' placeholder='size of mm' name='dimensions{length}' /></li>
-      <li><Field required='true' type='number' placeholder='size of mm' name='dimensions{width}' /></li>
-      <li><Field required='true' type='number' placeholder='size of mm' name='dimensions{height}' /></li>
-      <li><Field required='true' type='number' placeholder='kgs' name='weight' /></li>
+        <li>
+          <label>L</label>
+          <Field required='true' type='number' placeholder='mm' name='dimensions{length}' />
+        </li>
+
+        <li>
+          <label>W</label>
+          <Field required='true' type='number' placeholder='mm' name='dimensions{width}' />
+        </li>
+
+            <li>
+              <label>H</label>
+              <Field required='true' type='number' placeholder='mm' name='dimensions{height}' />
+            </li>
+            <li>
+              <label>KGS</label>
+              <Field required='true' type='number' placeholder='kgs' name='weight' />
+            </li>
       </ul>
       </div>
     );

@@ -15,6 +15,9 @@ div .company-name {
   color: white;
 
 }
+ul {
+  padding: 0px;
+}
 nav {
   background-color: #000033;
   margin: 0px;
@@ -103,6 +106,9 @@ input, textarea, select {
   width: 80%;
   background-color: white;
 }
+select {
+  max-width: 200px;
+}
 input[type='username'], input[type='password'] {
   text-align: left;
   width: 200px;
@@ -166,6 +172,10 @@ div .cj-right, .cj-left {
   display: table;
   width: 100%;
   margin: 0px;
+}
+.measurements label {
+  font-size: 15px;
+  margin-bottom: 5px;
 
 }
 .measurements li {
@@ -174,5 +184,7 @@ div .cj-right, .cj-left {
   display: table-cell;
   text-align: center;
   padding: 3px;
-
+}
+div .add-item {
+  display: inline-block;
 }
