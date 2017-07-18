@@ -26,14 +26,14 @@ class App extends Component {
     token: sessionStorage.getItem('token'),
     // token: savedToken,
     jobs: null, // Null means not loaded yet
-    redirect: null
+    redirect: null,
     role: null
   }
 
   handleSignIn = ({username, password}) => {
-    authAPI.signIn({username, password})
-    .then(json => {
+    authAPI.signIn({username, password}).then(json => {
       sessionStorage.setItem('token', json.token)
+      const tokenPayload = decodeJWT( json.token )
       this.setState({
         token: json.token,
         role: tokenPayload.role
