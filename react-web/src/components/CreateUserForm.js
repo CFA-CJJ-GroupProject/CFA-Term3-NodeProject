@@ -1,5 +1,4 @@
 import React from 'react'
-import {BrowserRouter as Redirect} from 'react-router-dom'
 
 function submitCreateUser(event, onRegister) {
   event.preventDefault()

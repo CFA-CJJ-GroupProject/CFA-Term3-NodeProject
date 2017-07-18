@@ -24,34 +24,54 @@ class App extends Component {
     token: sessionStorage.getItem('token'),
     // token: savedToken,
     jobs: null, // Null means not loaded yet
+    redirect: null
   }
 
   handleSignIn = ({username, password}) => {
-    authAPI.signIn({username, password}).then(json => {
+    authAPI.signIn({username, password})
+    .then(json => {
       sessionStorage.setItem('token', json.token)
       this.setState({token: json.token})
-    }).catch(error => {
+    })
+    .catch(error => {
       this.setState({error})
     })
   }
 
   handleRegister = ({username, password}) => {
-    authAPI.register({username, password}).then(json => {
-      this.setState({token: json.token})
-    }).catch(error => {
+    authAPI.register({username, password})
+    .then(json => {
+      this.setState({
+        token: json.token,
+        redirect: true
+      })
+    })
+    .catch(error => {
       this.setState({error})
     })
   }
 
-  render() {
-    const {error, token, jobs} = this.state
+  handleRedirect = () => {
+    this.setState((prevState) => {
+      return {
+        redirect: !prevState.redirect
+      }
+    })
+  }
 
+  handleLogout = () => {
+    sessionStorage.removeItem('token')
+    this.setState({token: null})
+  }
+
+  render() {
+    const {error, token, jobs, redirect} = this.state
     return (
 
       <Router>
         <main>
           {
-            token ? (<Header />) : (<Redirect to='/'/>)
+            token ? (<Header handleLogout={this.handleLogout}  />) : (<Redirect to='/'/>)
           }
           { token ? (
               <Route exact path='/' render={() => (<HomePage />)} />)
@@ -66,13 +86,11 @@ class App extends Component {
 
           <Route exact path='/jobcard/:id' render={() => (<JobCard/>)}/>
 
-          <Route exact path='/createuser' render={() => (<CreateUserPage onRegister={this.handleRegister}/>)}/>
+          <Route exact path='/createuser' render={() => (<CreateUserPage handleRedirect={this.handleRedirect} redirect={redirect} onRegister={this.handleRegister}/>)}/>
 
           <Route exact path='/users' render={() => (<UsersPage/>)}/>
 
           <Route exact path='/createcustomer' render={() => (<CreateCustomerPage/>)}/>
-
-          <Route exact path='/logout' render={() => (<LogoutPage logout={this.logout}/>)}/>
 
           <Footer/>
         </main>

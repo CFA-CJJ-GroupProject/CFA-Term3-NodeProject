@@ -1,10 +1,7 @@
 import React from 'react'
-const LogoutPage = (logout) => (
-  <div>
-    {sessionStorage.removeItem('token'),
-    window.location.reload(true)
+import {Redirect} from 'react-router-dom'
+const LogoutPage = (logout) => {
+  return <Redirect to='/' />
 }
-  </div>
-)
 
 export default LogoutPage
