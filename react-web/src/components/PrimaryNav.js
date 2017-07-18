@@ -1,5 +1,4 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
 import OfficeNav from './OfficeNav'
 import DriverNav from './DriverNav'
 import ClientNav from './ClientNav'
@@ -18,13 +17,14 @@ function DecideNavClass(role) {
   }
 }
 
-export default ({
-  role
-}) => (
-
-    <nav>
-    { DecideNavClass(role) }
-
-
-    </nav>
-)
+class PrimaryNav extends React.Component {
+   role,
+  render() {
+    return (
+      <nav>
+      { DecideNavClass(role) }
+      </nav>
+    );
+  }
+}
+export default PrimaryNav

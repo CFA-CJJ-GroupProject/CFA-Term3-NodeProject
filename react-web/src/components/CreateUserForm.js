@@ -1,4 +1,5 @@
 import React from 'react'
+import Field from './Field'
 import SelectRoleField from './SelectRoleField'
 
 function submitCreateUser(event, onRegister) {
@@ -14,32 +15,13 @@ function submitCreateUser(event, onRegister) {
 export default function CreateUserForm({onRegister}) {
   return (
     <form onSubmit={(event) => submitCreateUser(event, onRegister)}>
-      <label>
-        <span>
-          Username
-        </span>
-        <input name='username'/>
-      </label>
-      <label>
-        <span>
-          Password
-        </span>
-        <input type='password' name='password'/>
-      </label>
-
-      <label>
-        <span>
-          Role:
-        </span>
-        <select name='role'>
-          <option value="Driver">Driver</option>
-          <option value="Customer">Customer</option>
-        </select>
-      </label>
-
-      <button>Create User
-      </button>
-    
+      <div className='cu'>
+          <Field required='true' type='username' placeholder='Username...' name='username' />
+          <Field required='true' type='password' placeholder='Password...' name='password' />
+          <Field required='true' type='password' placeholder='Confirm Password...' name='password' />
+          <SelectRoleField required='true' name='role' />
+      </div>
+      <button type='submit' className='cu-button'>Create User</button>
     </form>
   )
 }

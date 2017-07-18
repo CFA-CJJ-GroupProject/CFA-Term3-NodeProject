@@ -3,13 +3,14 @@ import Top from './Top'
 import PrimaryNav from './PrimaryNav'
 
 
-export default ({
-  role,
-  resetRedirect,
-  handleLogout
-}) => (
-  <div>
-  <Top handleLogout={handleLogout} />
-  <PrimaryNav role={ role } />
-  </div>
-)
+class Header extends React.Component {
+  render() {
+    return (
+      <div>
+      <Top handleLogout={handleLogout} />
+      <PrimaryNav role={ role } />
+      </div>
+        );
+      }
+    }
+export default Header

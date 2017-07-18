@@ -1,7 +1,7 @@
 import React from 'react'
 import Field from './Field'
 import TextField from './TextField'
-import SelectStateField from './SelectStateField'
+import Address from './Address'
 import readAndClearForm from './readAndClearForm'
 
 function submitCreate(event, onCreate) {
@@ -25,10 +25,7 @@ export default function CreateCustomerForm({
           <Field required='false' type='tel' placeholder='Fax...' name='fax' />
       </div>
         <div className='cj-right'>
-          <Field required='true' type='text' placeholder='Street...' name='pickupStreet' />
-          <Field required='true' type='number' placeholder='Suburb...' name='pickupSuburb' />
-          <Field required='true' type='number' placeholder='Postcode...' name='pickupPostcode' />
-          <SelectStateField required='true' />
+          <Address />
         </div>
         <div className='cc-middle'>
           <TextField required='false' placeholder='Notes...' name='notes' />
