@@ -18,7 +18,7 @@ export default function CreateUserForm({onRegister}) {
     <form onSubmit={(event) => submitCreateUser(event, onRegister)}>
       <label>
         <span>
-          Email
+          Username
         </span>
         <input name='username'/>
       </label>
@@ -28,6 +28,7 @@ export default function CreateUserForm({onRegister}) {
         </span>
         <input type='password' name='password'/>
       </label>
+
       <label>
         <span>
           Role:
@@ -37,6 +38,7 @@ export default function CreateUserForm({onRegister}) {
           <option value="Customer">Customer</option>
         </select>
       </label>
+
       <button>Create User
       </button>
     

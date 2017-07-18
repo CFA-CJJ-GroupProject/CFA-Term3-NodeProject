@@ -4,7 +4,9 @@ import TextField from './TextField'
 import SelectStateField from './SelectStateField'
 import SelectDeliveryField from './SelectDeliveryField'
 import readAndClearForm from './readAndClearForm'
+import ItemForm from './ItemForm'
 import '../style.css'
+import AddItem from './AddItem'
 
 function handleSubmit(event, onCreate) {
     event.preventDefault()
@@ -105,16 +107,20 @@ export default function CreateJobForm({
           <Field required='false' type='time' name='deliveryTime' />
           <TextField required='false' placeholder='Instructions..' name='deliveryInstructions' type=''/>
         </div>
-        <div className='product-info'>
-          <label>Delivery Type and Item(s) Dimensions:</label>
-          <Field required='false' type='number' placeholder='size of mm' name='lengthField' />
-          <Field required='false' type='number' placeholder='size of mm' name='width' />
-          <Field required='false' type='number' placeholder='size of mm' name='height' />
-          {/* need to add option to add more for multiple items */}
-          <Field required='false' type='number' placeholder='kgs' name='weight' />
-          <SelectDeliveryField required='false' name='deliveryType' />
+
+        <div id='dimensions' className='dimensions'>
+          <label>Item(s) Dimensions:</label>
+          <AddItem />
+          <ItemForm />
+
         </div>
-      </div>
+
+          <div className='delivery-type'>
+          <label>Delivery Type:</label>
+          <SelectDeliveryField required='true' />
+          </div>
+
+    </div>
         <button type='submit' className='cj-button'>Create Job</button>
     </form>
   )

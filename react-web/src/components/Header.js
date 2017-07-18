@@ -4,9 +4,10 @@ import PrimaryNav from './PrimaryNav'
 
 
 export default ({
+  role
 }) => (
   <div>
   <Top />
-  <PrimaryNav />
+  <PrimaryNav role={ role } />
   </div>
 )
