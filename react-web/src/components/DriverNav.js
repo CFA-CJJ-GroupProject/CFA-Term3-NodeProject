@@ -2,9 +2,9 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 
 
-export default ({
-}) => (
-
+class DriverNav extends React.Component {
+  render() {
+    return (
     <nav>
 
       <ul class='nav'>
@@ -12,4 +12,7 @@ export default ({
         <li><NavLink to='/Jobs'  activeClassName='active'>Jobs</NavLink></li>
       </ul>
     </nav>
-)
+    );
+  }
+}
+export default DriverNav

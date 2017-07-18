@@ -19,12 +19,13 @@ function DecideNavClass() {
   }
 }
 
-export default ({
-}) => (
-
-    <nav>
-    { DecideNavClass(role) }
-
-
-    </nav>
-)
+class PrimaryNav extends React.Component {
+  render() {
+    return (
+      <nav>
+      { DecideNavClass(role) }
+      </nav>
+    );
+  }
+}
+export default PrimaryNav

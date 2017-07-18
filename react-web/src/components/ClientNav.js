@@ -2,9 +2,9 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 
 
-export default ({
-}) => (
-
+class ClientNav extends React.Component {
+  render() {
+    return (
     <nav>
 
       <ul className='nav'>
@@ -13,4 +13,7 @@ export default ({
         <li><NavLink to='/createjob'  activeClassName='active'>Create Job</NavLink></li>
       </ul>
     </nav>
-)
+    );
+  }
+}
+export default ClientNav
