@@ -4,21 +4,22 @@ import OfficeNav from './OfficeNav'
 import DriverNav from './DriverNav'
 import ClientNav from './ClientNav'
 
-const role = 'office'
+function DecideNavClass(role) {
+  var string = role.toLowerCase();
 
-function DecideNavClass() {
-  if ( role == 'office') {
+  if ( string == 'office') {
     return <OfficeNav/>;
   }
-  else if ( role == 'driver') {
+  else if ( string == 'driver') {
     return <DriverNav/>;
   }
-  else if ( role == 'client') {
+  else if ( string == 'customer') {
     return <ClientNav/>;
   }
 }
 
 export default ({
+  role
 }) => (
 
     <nav>

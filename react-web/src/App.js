@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {BrowserRouter as Router, Route, Switch, Redirect} from 'react-router-dom'
+import decodeJWT from 'jwt-decode'
 import CreateJobPage from './pages/CreateJobPage'
 import JobsPage from './pages/JobsPage'
 import JobConfirmationPage from './pages/JobConfirmationPage'
@@ -22,12 +23,16 @@ class App extends Component {
     token: null,
     // token: savedToken,
     jobs: null, // Null means not loaded yet
-
+    role: null
   }
 
   handleSignIn = ({username, password}) => {
     authAPI.signIn({username, password}).then(json => {
-      this.setState({token: json.token})
+      const tokenPayload = decodeJWT(json.token)
+      this.setState({
+        token: json.token,
+        role: tokenPayload.role
+      })
     }).catch(error => {
       this.setState({error})
     })
@@ -50,7 +55,7 @@ class App extends Component {
         <main>
 
           {
-            token ? (<Header />) : (<Redirect to='/'/>)
+            token ? (<Header role={ role } />) : (<Redirect to='/'/>)
           }
           {!!token ? (
               <Route exact path='/' render={() => (<HomePage/>)} />)
