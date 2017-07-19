@@ -27,13 +27,12 @@ export default function Job({
 
   status, 
 
-  
-  height,
-  length,
-  weight,
-  width
-  
-
+  dimensions: {
+    height,
+    length,
+    weight,
+    width
+  } = {}, // Default if dimension is not present
 
 }) {
 

@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {BrowserRouter as Router, Route, Switch, Redirect} from 'react-router-dom'
+import {BrowserRouter as Router, Route, Redirect} from 'react-router-dom'
 import decodeJWT from 'jwt-decode'
 import CreateJobPage from './pages/CreateJobPage'
 import JobsPage from './pages/JobsPage'
@@ -112,13 +112,9 @@ loadUsers = () => {
 
   render() {
     const {error, token, jobs, role, redirect} = this.state
-    // const userInfo = !!token ? decodeJWT(token) : null
-    console.log('UserInfo', token)
     return (
-
       <Router>
         <main>
-
           {
             token ? (<Header handleLogout={this.handleLogout} role={ role }  />) : (<Redirect to='/'/>)
           }

@@ -8,8 +8,8 @@ POST http://localhost:8000/customers
 Content-Type: application/json
 
 {
-  "businessName": "Alpha Bravo Charlie",
-  "address": "Whisky Tango Delta Foxtrot "
+  "businessName": "Test for Craig ",
+  "address": "Hello World"
 }
 
 ###
