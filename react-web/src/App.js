@@ -8,13 +8,10 @@ import JobConfirmationPage from './pages/JobConfirmationPage'
 import JobCard from './pages/JobCard'
 import CreateUserPage from './pages/CreateUserPage'
 import UsersPage from './pages/UsersPage'
-import CreateCustomerPage from './pages/CreateCustomerPage'
 import Header from './components/Header'
 import HomePage from './pages/HomePage'
 import LoginPage from './pages/LoginPage'
-import LogoutPage from './pages/LogoutPage'
 import Footer from './components/Footer'
-import SignInForm from './components/SignInForm'
 import {setAPIToken} from './api/init'
 
 // Importing everything from auth and calling it authapi
@@ -38,8 +35,7 @@ class App extends Component {
     redirect: null,
     role: sessionStorage.getItem('role'),
     users: null,
-    jobs: null,
-    customer: null
+    customers: null
   }
 
   loadPromises = {}
@@ -70,8 +66,8 @@ class App extends Component {
     if (this.loadPromises.listCustomers) {
       return
     }
-    this.loadPromises.listCustomers = customersAPI.list().then(Customers => {
-      this.setState({Customers, error: null})
+    this.loadPromises.listCustomers = customersAPI.list().then(customers => {
+      this.setState({customers, error: null})
     }).catch(error => {
       this.setState({error})
     })
@@ -159,7 +155,7 @@ class App extends Component {
           }}/>
 
           <Route exact path='/customers' render={() => {
-            this.loadJobs()
+            this.loadCustomers()
             return (<CustomersPage customers={this.state.customers}/>)
           }}/>
 
