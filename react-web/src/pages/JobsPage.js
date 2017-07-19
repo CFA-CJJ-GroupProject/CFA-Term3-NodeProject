@@ -1,15 +1,19 @@
 import React, { Component } from 'react'
 import JobsList from '../components/JobsList'
 
-class JobsPage extends Component { 
+class JobsPage extends Component {
 	state = {
 		error: null,
-		jobs: null
+		jobs: null,
+		username: 'Jay'
 	}
 
-	componentDidMount() {
+
+	componentDidMount(username) {
 		// Asynchronous
-		fetch('/jobs')
+		var username = this.state.username
+		console.log(username)
+		fetch("/driverjobs/"+username)
 		.then(res => res.json())
 		.then(jobs => {
 			this.setState({jobs})
@@ -20,9 +24,10 @@ class JobsPage extends Component {
 	}
 
 	render() {
-		const { error, jobs } = this.state
+		const { error, jobs, username } = this.state
 		return (
 			<div>
+
 				<h1>ALL JOBS</h1>
 				{ !!error && <p>{ error.message }</p> }
 				{
@@ -32,6 +37,8 @@ class JobsPage extends Component {
 						'Loading Jobs...'
 					)
 				}
+
+
 			</div>
 		)
 	}

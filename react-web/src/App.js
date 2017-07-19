@@ -27,7 +27,8 @@ class App extends Component {
     // token: savedToken,
     jobs: null, // Null means not loaded yet
     redirect: null,
-    role: sessionStorage.getItem('role')
+    role: sessionStorage.getItem('role'),
+    username: sessionStorage.getItem('username')
   }
 
   handleSignIn = ({username, password}) => {
@@ -35,9 +36,11 @@ class App extends Component {
       const tokenPayload = decodeJWT( json.token )
       sessionStorage.setItem('token', json.token)
       sessionStorage.setItem('role', tokenPayload.role)
+      sessionStorage.setItem('username', tokenPayload.username)
       this.setState({
         token: json.token,
-        role: tokenPayload.role
+        role: tokenPayload.role,
+        username: tokenPayload.username
       })
     }).catch(error => {
       this.setState({error})
@@ -70,7 +73,7 @@ class App extends Component {
   }
 
   render() {
-    const {error, token, jobs, role, redirect} = this.state
+    const {error, token, jobs, role, redirect, username} = this.state
     return (
       <Router>
         <main>
@@ -82,9 +85,9 @@ class App extends Component {
             : (<Route exact path='/' render={() => (<LoginPage loginMaybe={this.handleSignIn}/>)} />)
           }
 
-          <Route exact path='/createjob' render={() => (<CreateJobPage/>)}/>
+          <Route exact path='/createjob' render={() => (<CreateJobPage />)}/>
 
-          <Route exact path='/jobs' render={() => (<JobsPage/>)}/>
+          <Route exact path='/jobs' render={() => (<JobsPage username={ username }/>)}/>
 
           <Route exact path='/jobconfirmation' render={() => (<JobConfirmationPage/>)}/>
 
