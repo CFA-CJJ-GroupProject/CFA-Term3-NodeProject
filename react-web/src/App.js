@@ -15,11 +15,12 @@ import LoginPage from './pages/LoginPage'
 import LogoutPage from './pages/LogoutPage'
 import Footer from './components/Footer'
 import SignInForm from './components/SignInForm'
-import { setAPIToken } from './api/init'
+import {setAPIToken} from './api/init'
 
 // Importing everything from auth and calling it authapi
 import * as authAPI from './api/auth'
 import * as usersAPI from './api/users'
+import * as jobsAPI from './api/jobs'
 
 const tokenKey = 'userToken'
 
@@ -35,65 +36,62 @@ class App extends Component {
     jobs: null, // Null means not loaded yet
     redirect: null,
     role: sessionStorage.getItem('role'),
-    users: null
+    users: null,
+    jobs: null
   }
 
-loadPromises = {}
+  loadPromises = {}
 
-loadUsers = () => {
-  if (this.loadPromises.listUsers){
-    return
-  }
-  console.log('911 was a inside job')
-  this.loadPromises.listUsers = usersAPI.list()
-    .then(users =>{
-      this.setState({ users, error: null })
-    })
-    .catch(error => {
-      this.setState({ error })
-    })
-}
-
-
-
-    setToken = (token) => {
-      setAPIToken(token)
-      this.loadPromises = {}
-      if (token) {
-        sessionStorage.setItem(tokenKey, token)
-      }else{
-        sessionStorage.removeItem(tokenKey)
-      }
-      this.setState({
-        token: token
-      })
+  loadUsers = () => {
+    if (this.loadPromises.listUsers) {
+      return
     }
-
-  handleSignIn = ({username, password}) => {
-    authAPI.signIn({username, password}).then(json => {
-      const tokenPayload = decodeJWT( json.token )
-      this.setToken(json.token)
-      sessionStorage.setItem('role', tokenPayload.role)
-
-      this.setState({
-        token: json.token,
-        role: tokenPayload.role
-      })
+    this.loadPromises.listUsers = usersAPI.list().then(users => {
+      this.setState({users, error: null})
     }).catch(error => {
       this.setState({error})
     })
   }
 
+  loadJobs = () => {
+    if (this.loadPromises.listJobs) {
+      return
+    }
+    this.loadPromises.listJobs = jobsAPI.list().then(jobs => {
+      this.setState({jobs, error: null})
+    }).catch(error => {
+      this.setState({error})
+    })
+  }
+
+  setToken = (token) => {
+    setAPIToken(token)
+    this.loadPromises = {}
+    if (token) {
+      sessionStorage.setItem(tokenKey, token)
+    } else {
+      sessionStorage.removeItem(tokenKey)
+    }
+    this.setState({token: token})
+  }
+
+  handleSignIn = ({username, password}) => {
+    authAPI.signIn({username, password}).then(json => {
+      const tokenPayload = decodeJWT(json.token)
+      this.setToken(json.token)
+      sessionStorage.setItem('role', tokenPayload.role)
+
+      this.setState({token: json.token, role: tokenPayload.role})
+    }).catch(error => {
+      this.setState({error})
+    })
+  }
 
   handleRegister = ({username, password, role, customerProfile}) => {
     authAPI.register({username, password, role, customerProfile}).then(json => {
       this.setToken(json.token)
-      this.setState({
-        token: json.token,
-        redirect: true
-      })
-    })
-    .catch(error => {
+      this.setState({token: json.token, redirect: true})
+    }).catch(error => {
       this.setState({error})
     })
   }
@@ -111,36 +109,41 @@ loadUsers = () => {
   }
 
   render() {
-    const {error, token, jobs, role, redirect} = this.state
+    const {error, token, role, redirect} = this.state
     return (
       <Router>
         <main>
-          {
-            token ? (<Header handleLogout={this.handleLogout} role={ role }  />) : (<Redirect to='/'/>)
-          }
-          { token ? (
-              <Route exact path='/' render={() => (<HomePage />)} />)
-            : (<Route exact path='/' render={() => (<LoginPage loginMaybe={this.handleSignIn}/>)} />)
-          }
+          {token
+            ? (<Header handleLogout={this.handleLogout} role={role}/>)
+            : (<Redirect to='/'/>)
+}
+          {token
+            ? (
+              <Route exact path='/' render={() => (<HomePage/>)}/>
+            )
+            : (
+              <Route exact path='/' render={() => (<LoginPage loginMaybe={this.handleSignIn}/>)}/>
+            )
+}
 
           <Route exact path='/createjob' render={() => (<CreateJobPage/>)}/>
-
-          <Route exact path='/jobs' render={() => (<JobsPage/>)}/>
 
           <Route exact path='/jobconfirmation' render={() => (<JobConfirmationPage/>)}/>
 
           <Route exact path='/jobcard/:id' render={() => (<JobCard/>)}/>
 
-          <Route exact path='/createuser' render={() => (<CreateUserPage handleRedirect={this.handleRedirect} redirect={redirect} onRegister={this.handleRegister}/>)}/>
+          <Route exact path='/createuser' render={() => (
+            <CreateUserPage handleRedirect={this.handleRedirect} redirect={redirect} onRegister={this.handleRegister}/>
+          )}/>
 
           <Route exact path='/users' render={() => {
             this.loadUsers()
-
-            return(
-              <UsersPage users={ this.state.users } />
-              )
-            }
-          }/>
+            return (<UsersPage users={this.state.users}/>)
+          }}/>
+          <Route exact path='/jobs' render={() => {
+            this.loadJobs()
+            return (<JobsPage jobs={this.state.jobs}/>)
+          }}/>
 
           <Route exact path='/customer' render={() => (<CustomersPage/>)}/>
 

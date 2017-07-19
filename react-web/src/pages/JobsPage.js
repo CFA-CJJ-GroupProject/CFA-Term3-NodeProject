@@ -1,30 +1,12 @@
 import React, { Component } from 'react'
 import JobsList from '../components/JobsList'
 
-class JobsPage extends Component { 
-	state = {
-		error: null,
-		jobs: null
-	}
-
-	componentDidMount() {
-		// Asynchronous
-		fetch('/jobs')
-		.then(res => res.json())
-		.then(jobs => {
-			this.setState({jobs})
-		})
-		.catch(error => {
-			this.setState({error})
-		})
-	}
-
+class JobsPage extends Component {
 	render() {
-		const { error, jobs } = this.state
+		const { jobs } = this.props
 		return (
 			<div>
-				<h1>ALL JOBS</h1>
-				{ !!error && <p>{ error.message }</p> }
+				<h1>ALL HAIL JOBS</h1>
 				{
 					!!jobs ? (
 						<JobsList items={ jobs } />
