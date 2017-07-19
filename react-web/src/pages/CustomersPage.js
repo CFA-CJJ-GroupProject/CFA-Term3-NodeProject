@@ -2,29 +2,11 @@ import React, { Component } from 'react'
 import CustomersList from '../components/CustomersList'
 
 class CustomersPage extends Component {
-	state = {
-		error: null,
-		customers: null
-	}
-
-	componentDidMount() {
-		// Asynchronous
-		fetch('/customers')
-		.then(res => res.json())
-		.then(customers => {
-			this.setState({customers})
-		})
-		.catch(error => {
-			this.setState({error})
-		})
-	}
-
 	render() {
-		const { error, customers } = this.state
+		const { customers } = this.props
 		return (
 			<div>
-				<h1>ALL CUSTOMERS</h1>
-				{ !!error && <p>{ error.message }</p> }
+				<h1>ALL HAIL CUSTOMERS</h1>
 				{
 					!!customers ? (
 						<CustomersList items={ customers } />

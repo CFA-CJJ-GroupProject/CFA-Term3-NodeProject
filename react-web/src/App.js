@@ -21,6 +21,7 @@ import {setAPIToken} from './api/init'
 import * as authAPI from './api/auth'
 import * as usersAPI from './api/users'
 import * as jobsAPI from './api/jobs'
+import * as customersAPI from './api/customers'
 
 const tokenKey = 'userToken'
 
@@ -37,7 +38,8 @@ class App extends Component {
     redirect: null,
     role: sessionStorage.getItem('role'),
     users: null,
-    jobs: null
+    jobs: null,
+    customer: null
   }
 
   loadPromises = {}
@@ -59,6 +61,17 @@ class App extends Component {
     }
     this.loadPromises.listJobs = jobsAPI.list().then(jobs => {
       this.setState({jobs, error: null})
+    }).catch(error => {
+      this.setState({error})
+    })
+  }
+
+  loadCustomers = () => {
+    if (this.loadPromises.listCustomers) {
+      return
+    }
+    this.loadPromises.listCustomers = customersAPI.list().then(Customers => {
+      this.setState({Customers, error: null})
     }).catch(error => {
       this.setState({error})
     })
@@ -145,7 +158,10 @@ class App extends Component {
             return (<JobsPage jobs={this.state.jobs}/>)
           }}/>
 
-          <Route exact path='/customer' render={() => (<CustomersPage/>)}/>
+          <Route exact path='/customers' render={() => {
+            this.loadJobs()
+            return (<CustomersPage customers={this.state.customers}/>)
+          }}/>
 
           <Footer/>
         </main>
