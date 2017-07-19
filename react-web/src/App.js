@@ -15,26 +15,64 @@ import LoginPage from './pages/LoginPage'
 import LogoutPage from './pages/LogoutPage'
 import Footer from './components/Footer'
 import SignInForm from './components/SignInForm'
+import { setAPIToken } from './api/init'
 
 // Importing everything from auth and calling it authapi
 import * as authAPI from './api/auth'
+import * as usersAPI from './api/users'
 
+const tokenKey = 'userToken'
+
+const savedToken = sessionStorage.getItem(tokenKey)
+setAPIToken(savedToken)
 class App extends Component {
 
   // Initial state
   state = {
     error: null,
-    token: sessionStorage.getItem('token'),
+    token: sessionStorage.getItem(tokenKey),
     // token: savedToken,
     jobs: null, // Null means not loaded yet
     redirect: null,
-    role: sessionStorage.getItem('role')
+    role: sessionStorage.getItem('role'),
+    users: null
   }
+
+loadPromises = {}
+
+loadUsers = () => {
+  if (this.loadPromises.listUsers){
+    return
+  }
+  console.log('911 was a inside job')
+  this.loadPromises.listUsers = usersAPI.list()
+    .then(users =>{
+      this.setState({ users, error: null })
+    })
+    .catch(error => {
+      this.setState({ error })
+    })
+}
+
+
+
+    setToken = (token) => {
+      setAPIToken(token)
+      this.loadPromises = {}
+      if (token) {
+        sessionStorage.setItem(tokenKey, token)
+      }else{
+        sessionStorage.removeItem(tokenKey)
+      }
+      this.setState({
+        token: token
+      })
+    }
 
   handleSignIn = ({username, password}) => {
     authAPI.signIn({username, password}).then(json => {
       const tokenPayload = decodeJWT( json.token )
-      sessionStorage.setItem('token', json.token)
+      this.setToken(json.token)
       sessionStorage.setItem('role', tokenPayload.role)
 
       this.setState({
@@ -46,8 +84,10 @@ class App extends Component {
     })
   }
 
+
   handleRegister = ({username, password, role, customerProfile}) => {
     authAPI.register({username, password, role, customerProfile}).then(json => {
+      this.setToken(json.token)
       this.setState({
         token: json.token,
         redirect: true
@@ -67,13 +107,13 @@ class App extends Component {
   }
 
   handleLogout = () => {
-    sessionStorage.removeItem('token')
-    this.setState({token: null})
+    this.setToken(null)
   }
 
   render() {
     const {error, token, jobs, role, redirect} = this.state
-
+    // const userInfo = !!token ? decodeJWT(token) : null
+    console.log('UserInfo', token)
     return (
 
       <Router>
@@ -97,7 +137,14 @@ class App extends Component {
 
           <Route exact path='/createuser' render={() => (<CreateUserPage handleRedirect={this.handleRedirect} redirect={redirect} onRegister={this.handleRegister}/>)}/>
 
-          <Route exact path='/users' render={() => (<UsersPage/>)}/>
+          <Route exact path='/users' render={() => {
+            this.loadUsers()
+
+            return(
+              <UsersPage users={ this.state.users } />
+              )
+            }
+          }/>
 
           <Route exact path='/customer' render={() => (<CustomersPage/>)}/>
 
