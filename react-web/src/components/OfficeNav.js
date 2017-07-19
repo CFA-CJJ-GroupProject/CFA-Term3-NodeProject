@@ -23,7 +23,7 @@ export default ({
         <li><NavLink to='/createjob'  activeClassName='active'>Create Job</NavLink></li>
         <li><NavLink to='/users'  activeClassName='active'>Users</NavLink></li>
         <li><NavLink to='/createuser'  activeClassName='active'>Create User</NavLink></li>
-        <li><NavLink to='/createcustomer'  activeClassName='active'>Create Customer</NavLink></li>
+        <li><NavLink to='/customer'  activeClassName='active'>Customer</NavLink></li>
       </ul>
     </nav>
 )

@@ -3,6 +3,7 @@ import {BrowserRouter as Router, Route, Switch, Redirect} from 'react-router-dom
 import decodeJWT from 'jwt-decode'
 import CreateJobPage from './pages/CreateJobPage'
 import JobsPage from './pages/JobsPage'
+import CustomersPage from './pages/CustomersPage'
 import JobConfirmationPage from './pages/JobConfirmationPage'
 import JobCard from './pages/JobCard'
 import CreateUserPage from './pages/CreateUserPage'
@@ -98,7 +99,7 @@ class App extends Component {
 
           <Route exact path='/users' render={() => (<UsersPage/>)}/>
 
-          <Route exact path='/createcustomer' render={() => (<CreateCustomerPage/>)}/>
+          <Route exact path='/customer' render={() => (<CustomersPage/>)}/>
 
           <Footer/>
         </main>
