@@ -3,46 +3,11 @@ import JobsList from '../components/JobsList'
 import Footer from '../components/Footer'
 
 class JobsPage extends Component {
-	state = {
-		error: null,
-		jobs: null
-	}
-
-
-	componentDidMount() {
-		// Asynchronous
-		const role = this.props.role
-		const username = this.props.username
-		var string = role.toLowerCase();
-
-	  if ( string === 'office') {
-			fetch("/jobs")
-			.then(res => res.json())
-			.then(jobs => {
-				this.setState({jobs})
-			})
-			.catch(error => {
-				this.setState({error})
-			})
-	  }
-		
-	  else
-			fetch("/driverjobs/"+username)
-			.then(res => res.json())
-			.then(jobs => {
-				this.setState({jobs})
-			})
-			.catch(error => {
-				this.setState({error})
-			})
-		}
-
 	render() {
-		const { error, jobs } = this.state
+		const { jobs } = this.props
 		return (
-			<div className='jobs'>
-				<h1>ALL JOBS</h1>
-				{ !!error && <p>{ error.message }</p> }
+			<div>
+				<h1>ALL HAIL JOBS</h1>
 				{
 					!!jobs ? (
 						<JobsList items={ jobs } />

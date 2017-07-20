@@ -8,7 +8,7 @@ const authMiddleware = require('../middleware/auth')
 
 // READ OF CRUD
 router.get('/users', authMiddleware.authenticateJWT, (req, res) => {
-
+console.log("LAMMA",req.user)
   User.find()
 // What we are wanting to be called
 	.then(user => {
@@ -84,6 +84,25 @@ router.route('/users/:id')
     })
 })
 
+//YEAH MAKE A NEW User
+router.post('/users/create', authMiddleware.authenticateJWT,(req, res) => {
+  if(req.user.role !== 'office') {
+    res.json({message: 'f-off!'})
+  }
+
+  const newUser = req.body
+  const user = new User({
+    username: req.body.username,
+    role: req.body.role
+  })
+
+  User.register(user, req.body.password, (err, user) => {
+    if(err) return res.json({err: err})
+
+    res.json(user)
+
+  })
+})
 
 
 module.exports = router

@@ -32,11 +32,12 @@ passport.use(
   new passportJWT.Strategy(
     {
       secretOrKey: jwtSecret,
+      session: false,
       jwtFromRequest: passportJWT.ExtractJwt.fromAuthHeader(),
-      algorithms: [jwtAlgorithm],
+      algorithms: [jwtAlgorithm]
     }, (jwtPayload, done) => {
       const userID = jwtPayload.sub //User is the subject
-      User.findById(userID) 
+      User.findById(userID)
       .then(user => {
         // Finds the user
         if (user) {
@@ -58,7 +59,7 @@ passport.use(
 function registerMiddleware(req, res, next) {
   const user = new User({
     username: req.body.username,
-    role: req.body.role 
+    role: req.body.role
   })
   User.register(user, req.body.password, (error, user) => {
     if (error) {
@@ -66,7 +67,7 @@ function registerMiddleware(req, res, next) {
       return
     }
 
-    req.user = user 
+    req.user = user
     next()
   })
 }

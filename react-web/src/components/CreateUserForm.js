@@ -9,16 +9,31 @@ function submitCreateUser(event, onRegister) {
   const username = form.elements['username'].value
   const password = form.elements['password'].value
   const role = form.elements['role'].value
-  onRegister({username, password, role})
-}
+  
+  
 
+  if (role === 'Customer') {
+    onRegister({username, password, role})
+    fetch('/customers', {
+  		method: 'POST',
+  		headers: {
+  			'Content-Type': 'application/json'
+  		},
+  		body: JSON.stringify({
+  			username
+  		})
+  	})
+  } else {
+    onRegister({username, password, role})
+  }
+
+}
 export default function CreateUserForm({onRegister}) {
   return (
     <form onSubmit={(event) => submitCreateUser(event, onRegister)}>
       <div className='cu'>
           <Field required='true' type='username' placeholder='Username...' name='username' />
           <Field required='true' type='password' placeholder='Password...' name='password' />
-          <Field required='true' type='password' placeholder='Confirm Password...' name='password' />
           <SelectRoleField required='true' name='role' />
       </div>
 
