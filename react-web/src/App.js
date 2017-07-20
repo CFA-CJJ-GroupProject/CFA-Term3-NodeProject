@@ -33,7 +33,6 @@ class App extends Component {
     // token: savedToken,
     jobs: null, // Null means not loaded yet
     redirect: null,
-    role: sessionStorage.getItem('role'),
     users: null,
     customers: null
   }
@@ -88,9 +87,6 @@ class App extends Component {
     authAPI.signIn({username, password}).then(json => {
       const tokenPayload = decodeJWT(json.token)
       this.setToken(json.token)
-      sessionStorage.setItem('role', tokenPayload.role)
-
-      this.setState({token: json.token, role: tokenPayload.role})
     }).catch(error => {
       this.setState({error})
     })
@@ -118,7 +114,14 @@ class App extends Component {
   }
 
   render() {
-    const {error, token, role, redirect} = this.state
+    const {error, token, redirect} = this.state
+
+    let role;
+    if (!!token) {
+      const tokenPayload = decodeJWT(token)
+      role = tokenPayload.role
+    }
+
     return (
       <Router>
         <main>
