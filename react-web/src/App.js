@@ -114,6 +114,10 @@ class App extends Component {
     this.setToken(null)
   }
 
+  handleCreateUser = (user) => {
+    usersAPI.postUser(user)
+  }
+
   render() {
     const {error, token, redirect} = this.state
     let username, role;
@@ -139,7 +143,7 @@ class App extends Component {
           <Route exact path='/jobcard/:id' render={() => (<JobCard/>)}/>
 
           <Route exact path='/createuser' render={() => (
-            <CreateUserPage handleRedirect={this.handleRedirect} redirect={redirect} onRegister={this.handleRegister}/>
+            <CreateUserPage handleRedirect={this.handleRedirect} redirect={redirect} onRegister={this.handleCreateUser}/>
           )}/>
 
           <Route exact path='/users' render={() => {
