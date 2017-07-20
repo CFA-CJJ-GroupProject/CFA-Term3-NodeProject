@@ -23,8 +23,8 @@ const jobSchema = mongoose.Schema({
   descriptionOfGoods: String,
   deliveryType: String,
 
-  driverId: Number, // must not be empty
-  businessId: Number, // must not be empty
+  driverId: String, // must not be empty
+  businessId: String, // must not be empty
 
   status: String,
 
@@ -42,4 +42,3 @@ const jobSchema = mongoose.Schema({
 const Job = mongoose.model('Job', jobSchema)
 
 module.exports = Job
-
