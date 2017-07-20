@@ -41,6 +41,7 @@ export default function Job({
 
   return (
     <main>
+
       <h2>Job Number: { jobNumber } </h2>
       <h4>Pickup Address: { pickupStreet } </h4>
       <h4>Pickup Suburb: { pickupSuburb } </h4>

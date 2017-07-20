@@ -24,7 +24,7 @@ class JobsPage extends Component {
 				this.setState({error})
 			})
 	  }
-		
+
 	  else
 			fetch("/driverjobs/"+username)
 			.then(res => res.json())
@@ -46,6 +46,7 @@ class JobsPage extends Component {
 				{
 					!!jobs ? (
 						<JobsList items={ jobs } />
+						
 					) : (
 						'Loading Jobs...'
 					)
