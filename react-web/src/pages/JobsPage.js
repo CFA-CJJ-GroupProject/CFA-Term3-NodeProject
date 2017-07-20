@@ -10,16 +10,30 @@ class JobsPage extends Component {
 
 	componentDidMount() {
 		// Asynchronous
+		const role = this.props.role
 		const username = this.props.username
-		console.log(username)
-		fetch("/driverjobs/"+username)
-		.then(res => res.json())
-		.then(jobs => {
-			this.setState({jobs})
-		})
-		.catch(error => {
-			this.setState({error})
-		})
+		console.log(role)
+		var string = role.toLowerCase();
+
+	  if ( string === 'office') {
+			fetch("/jobs")
+			.then(res => res.json())
+			.then(jobs => {
+				this.setState({jobs})
+			})
+			.catch(error => {
+				this.setState({error})
+			})
+	  }
+	  else
+			fetch("/driverjobs/"+username)
+			.then(res => res.json())
+			.then(jobs => {
+				this.setState({jobs})
+			})
+			.catch(error => {
+				this.setState({error})
+			})
 	}
 
 	render() {

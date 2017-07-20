@@ -94,7 +94,7 @@ class App extends Component {
 
           <Route exact path='/createjob' render={() => (<CreateJobPage />)}/>
 
-          <Route exact path='/jobs' render={() => (<JobsPage username={ username }/>)}/>
+          <Route exact path='/jobs' render={() => (<JobsPage username={ username } role={ role }/>)}/>
 
           <Route exact path='/jobconfirmation' render={() => (<JobConfirmationPage/>)}/>
 
