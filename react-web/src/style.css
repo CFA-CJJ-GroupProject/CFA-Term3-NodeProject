@@ -6,6 +6,7 @@
   background-repeat: no-repeat;
   background-position: center;
   position: absolute;
+  width: 100% auto;
 }
 .dashboard {
   background: url(images/dashboard.jpg) no-repeat center center fixed;
@@ -16,13 +17,16 @@
 .create-job {
   background: url(images/createjob.jpg) no-repeat center center fixed;
 }
+.users {
+  background: url(images/users.jpg) no-repeat center center fixed;
+}
 .create-customer {
   background: url(images/picture.jpg) no-repeat center center fixed;
 }
 .jobs {
   background: url(images/picture2.jpg) no-repeat center center fixed;
 }
-.dashboard, .create-job, .create-customer, .jobs, .create-user {
+.dashboard, .create-job, .create-customer, .jobs, .create-user, .users {
   width: 100%;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -61,7 +65,6 @@ nav ul {
   display: table;
   width: 100%;
   margin: 0px;
-
 }
 nav ul li {
   list-style-type: none;
@@ -69,7 +72,6 @@ nav ul li {
   display: table-cell;
   text-align: center;
   padding: 15px;
-
 }
 nav ul li a {
   text-decoration: none;
@@ -81,19 +83,8 @@ nav ul li a:active {
 nav ul li a:hover {
   text-decoration: underline;
 }
-footer {
-  margin-bottom: 0px;
-  background-color: #000033;
-  height: 30px;
-}
-footer p {
-  text-align: right;
-  font-size: 10px;
-  color: white;
-  padding: 7px;
-  font-weight: lighter;
-}
 h1 {
+  text-align: center;
   font-size: 60px;
   color:white;
   font-weight: 400;
@@ -172,6 +163,18 @@ button[type=submit] {
 }
 button[type=submit]:hover {
   box-shadow: 2px 2px 2px grey;
+}
+footer {
+  margin-bottom: 0px;
+  background-color: #000033;
+  height: 30px;
+}
+footer p {
+  text-align: right;
+  font-size: 10px;
+  color: white;
+  padding: 7px;
+  font-weight: lighter;
 }
 /***********************/
 /*Login*/

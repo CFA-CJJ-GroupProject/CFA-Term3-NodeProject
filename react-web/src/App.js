@@ -77,7 +77,7 @@ class App extends Component {
       <Router>
         <main>
           {
-            token ? (<Header handleLogout={this.handleLogout} role={ role }  />) : (<Redirect to='/'/>)
+            token ? (<Header handleLogout={this.handleLogout} role={ role } username={token}  />) : (<Redirect to='/'/>)
           }
           { token ? (
               <Route exact path='/' render={() => (<HomePage />)} />)
