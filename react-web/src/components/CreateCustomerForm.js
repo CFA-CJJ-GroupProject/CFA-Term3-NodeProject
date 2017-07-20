@@ -4,19 +4,19 @@ import TextField from './TextField'
 import readAndClearForm from './readAndClearForm'
 import SelectStateField from './SelectStateField'
 
-function submitCreate(event, onCreate) {
+function submitUpdate(event, onUpdate) {
     event.preventDefault()
 
     const form = event.target
     const userValues = readAndClearForm(form)
-    onCreate(userValues)
+    onUpdate(userValues)
 }
 
 export default function CreateCustomerForm({
-    onCreate
+    onUpdate
 }) {
   return (
-    <form onSubmit={ (event) => submitCreate(event, onCreate) }>
+    <form onSubmit={ (event) => submitUpdate(event, onUpdate) }>
       <div className='cj-left'>
           <Field required='true' type='username' placeholder='Username...' name='username' />
           <Field required='true' type='text' placeholder='Contact department...' name='department' />

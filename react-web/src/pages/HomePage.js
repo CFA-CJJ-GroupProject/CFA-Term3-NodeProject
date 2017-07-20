@@ -1,8 +1,10 @@
 import React from 'react'
+import Footer from '../components/Footer'
 
 const HomePage = () => (
-    <div>
-        <h1>Dashbard</h1>
+    <div className='dashboard'>
+        <h1>Dashboard</h1>
+        <Footer />
     </div>
       )
 
