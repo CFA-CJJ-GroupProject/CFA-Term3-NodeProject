@@ -9,6 +9,8 @@ function submitCreateUser(event, onRegister) {
   const username = form.elements['username'].value
   const password = form.elements['password'].value
   const role = form.elements['role'].value
+  
+  
 
   if (role === 'Customer') {
     onRegister({username, password, role})
@@ -32,7 +34,6 @@ export default function CreateUserForm({onRegister}) {
       <div className='cu'>
           <Field required='true' type='username' placeholder='Username...' name='username' />
           <Field required='true' type='password' placeholder='Password...' name='password' />
-          <Field required='true' type='password' placeholder='Confirm Password...' name='password' />
           <SelectRoleField required='true' name='role' />
       </div>
       <button type='submit' className='cu-button'>Create User</button>
