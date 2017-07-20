@@ -21,7 +21,9 @@ export default function CreateUserForm({onRegister}) {
           <Field required='true' type='password' placeholder='Confirm Password...' name='password' />
           <SelectRoleField required='true' name='role' />
       </div>
+
       <button type='submit' className='cu-button'>Create User</button>
+      
     </form>
   )
 }

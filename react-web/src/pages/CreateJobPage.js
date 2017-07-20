@@ -29,7 +29,8 @@ class CreateJobPage extends Component {
 		weight,
 		height,
 		length,
-		width
+		width,
+		businessId,
 		}) => {
 
 	// Post to /jobsß∂
@@ -56,6 +57,7 @@ class CreateJobPage extends Component {
 			deliveryInstructions,
 			descriptionOfGoods,
 			deliveryType,
+			businessId,
 			dimensions: {
 				weight,
 				height,
@@ -78,12 +80,12 @@ class CreateJobPage extends Component {
 	})
 }
   render () {
-		const { error } = this.state
+		const { error, username } = this.state
 	return (
     <div className='create-job'>
       <h1>Create Job</h1>
 				{ !!error && <p>{ error.message }</p> }
-        <CreateJobForm onCreate={ this.handleCreateJob } />
+        <CreateJobForm onCreate={ this.handleCreateJob } username={ username } />
 				<Footer />
     </div>
       )

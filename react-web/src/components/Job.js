@@ -3,36 +3,38 @@ import React from 'react'
 export default function Job({
   jobNumber,  //Must be unique
 
-  pickupStreet, 
-  pickupSuburb, 
-  pickupPostcode, 
-  pickupState, 
+  pickupStreet,
+  pickupSuburb,
+  pickupPostcode,
+  pickupState,
   pickupTime,
-  pickupDate, 
-  pickupInstructions, 
+  pickupDate,
+  pickupInstructions,
 
-  deliveryStreet, 
-  deliverySuburb, 
-  deliveryPostcode, 
-  deliveryState, 
-  deliveryTime, 
+  deliveryStreet,
+  deliverySuburb,
+  deliveryPostcode,
+  deliveryState,
+  deliveryTime,
   deliveryDate,
-  deliveryInstructions, 
+  deliveryInstructions,
 
-  descriptionOfGoods, 
-  deliveryType, 
+  descriptionOfGoods,
+  deliveryType,
 
-  driverId,  
-  businessId,  
+  driverId,
+  businessId,
 
-  status, 
+  status,
 
-  
-  height,
-  length,
-  weight,
-  width
-  
+  dimensions: {
+    height,
+    length,
+    weight,
+    width
+  } = {}, // Default if dimension is not present
+
+  username,
 
 
 }) {
@@ -62,7 +64,7 @@ export default function Job({
       <h4>Weight: { weight} </h4>
       <h4>DriverID: { driverId } </h4>
       <h4>BusinessID: { businessId } </h4>
-      <h4>Status: { status} </h4>   
+      <h4>Status: { status} </h4>
     </main>
   )
 
