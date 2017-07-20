@@ -1,8 +1,8 @@
 import React from 'react'
 
 const HomePage = () => (
-    <div>
-        <h1>Dashbard</h1>
+    <div className='dashboard'>
+        <h1>Dashboard</h1>
     </div>
       )
 

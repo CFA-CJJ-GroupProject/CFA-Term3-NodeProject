@@ -14,6 +14,8 @@ import LoginPage from './pages/LoginPage'
 import LogoutPage from './pages/LogoutPage'
 import Footer from './components/Footer'
 import SignInForm from './components/SignInForm'
+import './style.css'
+
 
 // Importing everything from auth and calling it authapi
 import * as authAPI from './api/auth'
@@ -96,7 +98,6 @@ class App extends Component {
 
           <Route exact path='/createcustomer' render={() => (<CreateCustomerPage/>)}/>
 
-          <Footer/>
         </main>
 
       </Router>

@@ -3,8 +3,6 @@ import TextField from './TextField'
 import SelectDeliveryField from './SelectDeliveryField'
 import readAndClearForm from './readAndClearForm'
 import ItemForm from './ItemForm'
-import '../style.css'
-import AddItem from './AddItem'
 import Address from './Address'
 import DateTime from './DateTime'
 import Field from './Field'
@@ -94,7 +92,6 @@ export default function CreateJobForm({
         <div id='dimensions' className='dimensions'>
           <label>Item(s) Dimensions:</label>
           <ItemForm />
-          <AddItem />
         </div>
           <div className='delivery-type'>
           <label>Delivery Type:</label>

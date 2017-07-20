@@ -1,5 +1,33 @@
 /*** Default CSS ***/
 @import url('https://fonts.googleapis.com/css?family=Lato:300,300i,400,400i,900');
+/* Background images */
+.login {
+  background: url(images/login.jpg) no-repeat center;
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: absolute;
+}
+.dashboard {
+  background: url(images/dashboard.jpg) no-repeat center center fixed;
+}
+.create-job {
+  background: url(images/createjob.jpg) no-repeat center center fixed;
+}
+.create-customer {
+  background: url(images/picture.jpg) no-repeat center center fixed;
+}
+.dashboard, .create-job, .create-customer {
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  position: absolute;
+}
+div#root, main, .login {
+  min-width: 100vw;
+  min-height: 100vh;
+}
 body {
   font-family: 'Lato', sans-serif;
   margin: 0px;
@@ -13,7 +41,6 @@ div .company-name {
   font-weight: 300;
   padding: 10px;
   color: white;
-
 }
 ul {
   padding: 0px;
@@ -49,7 +76,6 @@ nav ul li a:hover {
   text-decoration: underline;
 }
 footer {
-  margin-top: 70px;
   margin-bottom: 0px;
   background-color: #000033;
   height: 30px;
@@ -63,12 +89,9 @@ footer p {
 }
 h1 {
   font-size: 60px;
-  /*color:white;*/
+  color:white;
   font-weight: 400;
   margin: 40px;
-}
-h2 {
-
 }
 label {
   display: block;
@@ -144,6 +167,9 @@ button[type=submit] {
 button[type=submit]:hover {
   box-shadow: 2px 2px 2px grey;
 }
+/***********************/
+/*Login*/
+
 /***********************/
 /*Create Job*/
 

@@ -6,8 +6,6 @@ export default({handleLogout}) => (
     <h3>ALL<br/>
       NEEDS<br/>
       TRANSPORT</h3>
-    </div>
-      <div className='logout'>
       <NavLink onClick={handleLogout} exact to='/' activeClassName='active'><h3>LOG<br/>OUT<br/>NOW</h3></NavLink>
-      </div>
+  </div>
 )
