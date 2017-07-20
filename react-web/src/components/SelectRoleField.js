@@ -14,7 +14,7 @@ import React from 'react'
 
     render() {
       return (
-            <select value={this.state.value} onChange={this.handleChange}>
+            <select value={this.state.value} name={this.props.name} onChange={this.handleChange}>
               <option value="Driver">Driver</option>
               <option value="Customer">Customer</option>
             </select>

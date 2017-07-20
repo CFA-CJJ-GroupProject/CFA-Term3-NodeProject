@@ -1,5 +1,43 @@
 /*** Default CSS ***/
 @import url('https://fonts.googleapis.com/css?family=Lato:300,300i,400,400i,900');
+/* Background images */
+.login {
+  background: url(images/login.jpg) no-repeat center;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: absolute;
+  width: 100% auto;
+}
+.dashboard {
+  background: url(images/dashboard.jpg) no-repeat center center fixed;
+}
+.create-user {
+  background: url(images/createuser.jpg) no-repeat center center fixed;
+}
+.create-job {
+  background: url(images/createjob.jpg) no-repeat center center fixed;
+}
+.users {
+  background: url(images/users.jpg) no-repeat center center fixed;
+}
+.create-customer {
+  background: url(images/picture.jpg) no-repeat center center fixed;
+}
+.jobs {
+  background: url(images/picture2.jpg) no-repeat center center fixed;
+}
+.dashboard, .create-job, .create-customer, .jobs, .create-user, .users {
+  width: 100%;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  position: absolute;
+}
+div#root, main, .login {
+  min-width: 100vw;
+  min-height: 100vh;
+}
 body {
   font-family: 'Lato', sans-serif;
   margin: 0px;
@@ -13,7 +51,6 @@ div .company-name {
   font-weight: 300;
   padding: 10px;
   color: white;
-
 }
 ul {
   padding: 0px;
@@ -28,7 +65,6 @@ nav ul {
   display: table;
   width: 100%;
   margin: 0px;
-
 }
 nav ul li {
   list-style-type: none;
@@ -36,7 +72,6 @@ nav ul li {
   display: table-cell;
   text-align: center;
   padding: 15px;
-
 }
 nav ul li a {
   text-decoration: none;
@@ -48,27 +83,12 @@ nav ul li a:active {
 nav ul li a:hover {
   text-decoration: underline;
 }
-footer {
-  margin-top: 70px;
-  margin-bottom: 0px;
-  background-color: #000033;
-  height: 30px;
-}
-footer p {
-  text-align: right;
-  font-size: 10px;
-  color: white;
-  padding: 7px;
-  font-weight: lighter;
-}
 h1 {
+  text-align: center;
   font-size: 60px;
-  /*color:white;*/
+  color:white;
   font-weight: 400;
   margin: 40px;
-}
-h2 {
-
 }
 label {
   display: block;
@@ -80,7 +100,7 @@ label {
 form {
   margin-top: 50px;
   max-width: 80%;
-  text-align: center;
+  text-align: -webkit-center;
   padding: 40px;
   padding-top: 20px;
   border-radius: 20px;
@@ -108,7 +128,7 @@ input, textarea, select {
   background-color: white;
 }
 select {
-  max-width: 200px;
+  max-width: 210px;
 }
 input[type='username'], input[type='password'] {
   text-align: left;
@@ -139,11 +159,26 @@ button[type=submit] {
   margin-top: 50px;
   letter-spacing: 2px;
   border-radius: 7px;
-  padding: 20px 15px 20px 15px;
+  padding: 15px 10px 15px 10px;
 }
 button[type=submit]:hover {
   box-shadow: 2px 2px 2px grey;
 }
+footer {
+  margin-bottom: 0px;
+  background-color: #000033;
+  height: 30px;
+}
+footer p {
+  text-align: right;
+  font-size: 10px;
+  color: white;
+  padding: 7px;
+  font-weight: lighter;
+}
+/***********************/
+/*Login*/
+
 /***********************/
 /*Create Job*/
 
@@ -162,11 +197,11 @@ div .cj-right, .cj-left {
   display: inline-block;
   vertical-align: top;
 }
-.cj-button {
+button.cj-button {
   background-color: darkblue;
   color: white;
+  margin-top: 0px;
   float: right;
-  margin-bottom: 100px;
 }
 .measurements, .address, .date-time {
   padding: 0px;
@@ -188,4 +223,8 @@ div .cj-right, .cj-left {
 }
 div .add-item {
   display: inline-block;
+}
+/********** Create User *********/
+.cu select {
+  margin: 0px;
 }

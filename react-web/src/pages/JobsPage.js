@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import JobsList from '../components/JobsList'
+import Footer from '../components/Footer'
 
 class JobsPage extends Component {
 	render() {
@@ -14,6 +15,7 @@ class JobsPage extends Component {
 						'Loading Jobs...'
 					)
 				}
+				<Footer />
 			</div>
 		)
 	}

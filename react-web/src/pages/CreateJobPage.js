@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import CreateJobForm from '../components/CreateJobForm'
-
+import Footer from '../components/Footer'
 
 
 class CreateJobPage extends Component {
@@ -8,7 +8,7 @@ class CreateJobPage extends Component {
 		error: null
 	}
 
-	handleCreateJob = ({ 
+	handleCreateJob = ({
  		jobNumber,
     pickupStreet,
     pickupSuburb,
@@ -29,11 +29,12 @@ class CreateJobPage extends Component {
 		weight,
 		height,
 		length,
-		width
+		width,
+		businessId,
 		}) => {
-		
+
 	// Post to /jobsß∂
-	fetch('/jobs', { 
+	fetch('/jobs', {
 		method: 'POST',
 		headers: {
 			'Content-Type': 'application/json'
@@ -56,6 +57,7 @@ class CreateJobPage extends Component {
 			deliveryInstructions,
 			descriptionOfGoods,
 			deliveryType,
+			businessId,
 			dimensions: {
 				weight,
 				height,
@@ -78,12 +80,13 @@ class CreateJobPage extends Component {
 	})
 }
   render () {
-		const { error } = this.state
+		const { error, username } = this.state
 	return (
-    <div>
+    <div className='create-job'>
       <h1>Create Job</h1>
 				{ !!error && <p>{ error.message }</p> }
-        <CreateJobForm onCreate={ this.handleCreateJob } />
+        <CreateJobForm onCreate={ this.handleCreateJob } username={ username } />
+				<Footer />
     </div>
       )
 		}

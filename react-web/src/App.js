@@ -14,6 +14,7 @@ import LoginPage from './pages/LoginPage'
 import Footer from './components/Footer'
 import {setAPIToken} from './api/init'
 
+
 // Importing everything from auth and calling it authapi
 import * as authAPI from './api/auth'
 import * as usersAPI from './api/users'
@@ -115,30 +116,23 @@ class App extends Component {
 
   render() {
     const {error, token, redirect} = this.state
-
-    let role;
+    let username, role;
     if (!!token) {
       const tokenPayload = decodeJWT(token)
       role = tokenPayload.role
     }
-
     return (
       <Router>
         <main>
-          {token
-            ? (<Header handleLogout={this.handleLogout} role={role}/>)
-            : (<Redirect to='/'/>)
-}
-          {token
-            ? (
-              <Route exact path='/' render={() => (<HomePage/>)}/>
-            )
-            : (
-              <Route exact path='/' render={() => (<LoginPage loginMaybe={this.handleSignIn}/>)}/>
-            )
-}
+          {
+            token ? (<Header handleLogout={this.handleLogout} role={ role } username={token}  />) : (<Redirect to='/'/>)
+          }
+          { token ? (
+              <Route exact path='/' render={() => (<HomePage />)} />)
+            : (<Route exact path='/' render={() => (<LoginPage loginMaybe={this.handleSignIn}/>)} />)
+          }
 
-          <Route exact path='/createjob' render={() => (<CreateJobPage/>)}/>
+          <Route exact path='/createjob' render={() => (<CreateJobPage />)}/>
 
           <Route exact path='/jobconfirmation' render={() => (<JobConfirmationPage/>)}/>
 
@@ -162,7 +156,6 @@ class App extends Component {
             return (<CustomersPage customers={this.state.customers}/>)
           }}/>
 
-          <Footer/>
         </main>
 
       </Router>
