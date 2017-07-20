@@ -3,7 +3,6 @@
 /* Background images */
 .login {
   background: url(images/login.jpg) no-repeat center;
-  background-size: 100% auto;
   background-repeat: no-repeat;
   background-position: center;
   position: absolute;
@@ -11,13 +10,20 @@
 .dashboard {
   background: url(images/dashboard.jpg) no-repeat center center fixed;
 }
+.create-user {
+  background: url(images/createuser.jpg) no-repeat center center fixed;
+}
 .create-job {
   background: url(images/createjob.jpg) no-repeat center center fixed;
 }
 .create-customer {
   background: url(images/picture.jpg) no-repeat center center fixed;
 }
-.dashboard, .create-job, .create-customer {
+.jobs {
+  background: url(images/picture2.jpg) no-repeat center center fixed;
+}
+.dashboard, .create-job, .create-customer, .jobs, .create-user {
+  width: 100%;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -103,7 +109,7 @@ label {
 form {
   margin-top: 50px;
   max-width: 80%;
-  text-align: center;
+  text-align: -webkit-center;
   padding: 40px;
   padding-top: 20px;
   border-radius: 20px;
@@ -131,7 +137,7 @@ input, textarea, select {
   background-color: white;
 }
 select {
-  max-width: 200px;
+  max-width: 210px;
 }
 input[type='username'], input[type='password'] {
   text-align: left;
@@ -162,7 +168,7 @@ button[type=submit] {
   margin-top: 50px;
   letter-spacing: 2px;
   border-radius: 7px;
-  padding: 20px 15px 20px 15px;
+  padding: 15px 10px 15px 10px;
 }
 button[type=submit]:hover {
   box-shadow: 2px 2px 2px grey;
@@ -188,11 +194,11 @@ div .cj-right, .cj-left {
   display: inline-block;
   vertical-align: top;
 }
-.cj-button {
+button.cj-button {
   background-color: darkblue;
   color: white;
+  margin-top: 0px;
   float: right;
-  margin-bottom: 100px;
 }
 .measurements, .address, .date-time {
   padding: 0px;
@@ -214,4 +220,8 @@ div .cj-right, .cj-left {
 }
 div .add-item {
   display: inline-block;
+}
+/********** Create User *********/
+.cu select {
+  margin: 0px;
 }
