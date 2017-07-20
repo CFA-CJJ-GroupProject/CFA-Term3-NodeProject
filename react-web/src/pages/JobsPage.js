@@ -12,7 +12,6 @@ class JobsPage extends Component {
 		// Asynchronous
 		const role = this.props.role
 		const username = this.props.username
-		console.log(role)
 		var string = role.toLowerCase();
 
 	  if ( string === 'office') {
@@ -25,6 +24,7 @@ class JobsPage extends Component {
 				this.setState({error})
 			})
 	  }
+		
 	  else
 			fetch("/driverjobs/"+username)
 			.then(res => res.json())
@@ -34,7 +34,7 @@ class JobsPage extends Component {
 			.catch(error => {
 				this.setState({error})
 			})
-	}
+		}
 
 	render() {
 		const { error, jobs } = this.state
