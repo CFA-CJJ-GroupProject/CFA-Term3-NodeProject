@@ -11,8 +11,8 @@ import UsersPage from './pages/UsersPage'
 import Header from './components/Header'
 import HomePage from './pages/HomePage'
 import LoginPage from './pages/LoginPage'
-import Footer from './components/Footer'
 import {setAPIToken} from './api/init'
+import './style.css'
 
 
 // Importing everything from auth and calling it authapi
