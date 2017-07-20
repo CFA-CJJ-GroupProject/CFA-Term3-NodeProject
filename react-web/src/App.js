@@ -28,7 +28,6 @@ class App extends Component {
     jobs: null, // Null means not loaded yet
     redirect: null,
     role: sessionStorage.getItem('role'),
-    username: sessionStorage.getItem('username')
   }
 
   handleSignIn = ({username, password}) => {
@@ -73,7 +72,15 @@ class App extends Component {
   }
 
   render() {
-    const {error, token, jobs, role, redirect, username} = this.state
+    const {error, token, jobs, redirect} = this.state
+
+    let username, role;
+    if (!!token) {
+      const payload = decodeJWT(token)
+      username = payload.username
+      role = payload.role
+    }
+
     return (
       <Router>
         <main>

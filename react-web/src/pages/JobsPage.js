@@ -4,14 +4,13 @@ import JobsList from '../components/JobsList'
 class JobsPage extends Component {
 	state = {
 		error: null,
-		jobs: null,
-		username: 'Jay'
+		jobs: null
 	}
 
 
-	componentDidMount(username) {
+	componentDidMount() {
 		// Asynchronous
-		var username = this.state.username
+		const username = this.props.username
 		console.log(username)
 		fetch("/driverjobs/"+username)
 		.then(res => res.json())
@@ -24,7 +23,7 @@ class JobsPage extends Component {
 	}
 
 	render() {
-		const { error, jobs, username } = this.state
+		const { error, jobs } = this.state
 		return (
 			<div>
 

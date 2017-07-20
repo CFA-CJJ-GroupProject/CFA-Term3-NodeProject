@@ -2,8 +2,6 @@ const express = require('express')
 const Job = require('../models/job')
 const router = express.Router()
 
-const username = 'Jay'
-
 // READ OF CRUD
 router.get('/jobs', (req, res) => {
     Job.find()
@@ -34,7 +32,7 @@ router.get('/jobs/:id', (req, res) => {
 
 // Find job by username
 router.get('/driverjobs/:username', (req, res) => {
-  const username = 'Jay'
+  const username = req.params.username
   Job.find().or([{ driverId: username}, { businessId: username }])
     .then (job => {
       res.json(job)

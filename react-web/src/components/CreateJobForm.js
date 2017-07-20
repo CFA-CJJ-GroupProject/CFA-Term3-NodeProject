@@ -5,9 +5,8 @@ import readAndClearForm from './readAndClearForm'
 import ItemForm from './ItemForm'
 import '../style.css'
 import AddItem from './AddItem'
-import Address from './Address'
-import DateTime from './DateTime'
 import Field from './Field'
+import SelectStateField from './SelectStateField'
 
 function handleSubmit(event, onCreate) {
     event.preventDefault()
@@ -36,10 +35,8 @@ function handleSubmit(event, onCreate) {
     const width = form.elements['width'].value
     const length = form.elements['lengthField'].value
     const jobValues = readAndClearForm(form)
-
-    console.log('pickupTime', pickupTime)
-    console.log('pickupDate', pickupDate)
-    console.log('length', length)
+    const username = sessionStorage.getItem('username')
+    const businessId = username
 
     onCreate({
       jobNumber,
@@ -62,7 +59,8 @@ function handleSubmit(event, onCreate) {
       weight,
       height,
       width,
-      length
+      length,
+      businessId,
     })
 }
 
@@ -75,8 +73,29 @@ export default function CreateJobForm({
         <div className='pickup'>
           <label>Pickup Infomation:</label>
           <Field required='true' type='text' placeholder='Job ID' name='jobNumber' />
-          <Address />
-          <DateTime />
+          <div>
+            <Field required='true' type='text' placeholder='Street...' name='pickupStreet' />
+            <Field required='true' type='text' placeholder='Suburb...' name='pickupSuburb' />
+              <ul className='measurements'>
+                <li>
+                  <Field required='true' type='text' placeholder='Postcode...' name='pickupPostcode' />
+                </li>
+                <li>
+                  <SelectStateField required='true' name="pickupState"/>
+                </li>
+              </ul>
+        </div>
+        <div>
+          <ul className='measurements'>
+            <li>
+              <Field required='true' type='date' name='pickupDate' />
+            </li>
+
+            <li>
+              <Field required='true' type='time' name='pickupTime' />
+            </li>
+          </ul>
+        </div>
           <TextField required='true' placeholder='Instructions..' name='pickupInstructions' />
         </div>
         <div className='description'>
@@ -87,8 +106,29 @@ export default function CreateJobForm({
       <div className="cj-right">
         <div className='delivery'>
           <label>Delivery Infomation:</label>
-          <Address />
-          <DateTime />
+          <div>
+            <Field required='true' type='text' placeholder='Street...' name='deliveryStreet' />
+            <Field required='true' type='text' placeholder='Suburb...' name='deliverySuburb' />
+              <ul className='measurements'>
+                <li>
+                  <Field required='true' type='text' placeholder='Postcode...' name='deliveryPostcode' />
+                </li>
+                <li>
+                  <SelectStateField required='true' name="deliveryState"/>
+                </li>
+              </ul>
+        </div>
+        <div>
+          <ul className='measurements'>
+            <li>
+              <Field required='true' type='date' name='deliveryDate' />
+            </li>
+
+            <li>
+              <Field required='true' type='time' name='deliveryTime' />
+            </li>
+          </ul>
+        </div>
           <TextField required='true' placeholder='Instructions..' name='deliveryInstructions' type=''/>
         </div>
         <div id='dimensions' className='dimensions'>
@@ -100,6 +140,7 @@ export default function CreateJobForm({
           <label>Delivery Type:</label>
           <SelectDeliveryField required='true' name='deliveryType' />
           </div>
+
     </div>
         <button type='submit' className='cj-button'>Create Job</button>
     </form>
