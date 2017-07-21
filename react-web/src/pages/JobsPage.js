@@ -46,6 +46,7 @@ class JobsPage extends Component {
 				{
 					!!jobs ? (
 						<JobsList items={ jobs } />
+						
 					) : (
 						'Loading Jobs...'
 					)
