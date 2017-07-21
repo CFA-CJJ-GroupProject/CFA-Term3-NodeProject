@@ -223,7 +223,19 @@ footer p {
 }
 /***********************/
 /*Login*/
-
+.cu .company-name h1 {
+  text-align: left;
+  padding: 0px;
+  margin: 0px;
+  width: auto;
+  margin-bottom: 50px;
+  margin-left: -25px;
+  font-size: 20px;
+}
+.cu input[type='username'],.cu input[type='password'] {
+  width: 100%;
+  max-width: 200px;
+}
 /***********************/
 /*Create Job*/
 
@@ -365,5 +377,8 @@ div .add-item {
     color: white;
     vertical-align: top;
     overflow: hidden;
+    }
+    .cu {
+      width: auto;
     }
 }
