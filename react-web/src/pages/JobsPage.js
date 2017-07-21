@@ -25,7 +25,7 @@ class JobsPage extends Component {
 				this.setState({error})
 			})
 	  }
-		
+
 	  else
 			fetch("/driverjobs/"+username)
 			.then(res => res.json())
@@ -41,11 +41,12 @@ class JobsPage extends Component {
 		const { error, jobs } = this.state
 		return (
 			<div className='jobs'>
-				<h1>ALL JOBS</h1>
+				<h1>Jobs</h1>
 				{ !!error && <p>{ error.message }</p> }
 				{
 					!!jobs ? (
 						<JobsList items={ jobs } />
+
 					) : (
 						'Loading Jobs...'
 					)

@@ -22,7 +22,7 @@ export default function CreateUserForm({onRegister}) {
       </div>
 
       <button type='submit' className='cu-button'>Create User</button>
-      
+
     </form>
   )
 }
