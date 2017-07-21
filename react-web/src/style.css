@@ -133,7 +133,6 @@ label {
   font-size: 20px;
   margin-bottom: 15px;
   text-shadow: 2px 2px 2px black;
-
 }
 form {
   margin-top: 50px;
@@ -332,14 +331,25 @@ div .add-item {
 .job-info div {
   border-bottom: 1px solid rgba(78, 77, 77, 0.5);
 }
+.job-info div p, .job-info div h4{
+  vertical-align: top;
+  text-transform: capitalize;
+}
 .job-info h2, .job-info div h4 {
 
   display: inline-block;
   margin-left: 10px;
   font-weight:500;
 }
+.job-info div h4 {
+  margin-top: 17px;
+}
 .job-info div p {
   display: inline-block;
+  text-transform: none;
+}
+.dime {
+  text-transform: none;
 }
 .cc-middle {
   max-width: 450px;
