@@ -6,7 +6,7 @@ import ItemForm from './ItemForm'
 import Field from './Field'
 import SelectStateField from './SelectStateField'
 
-function handleSubmit(event, onCreate) {
+function handleSubmit(event, onRegister) {
     event.preventDefault()
 
     const form = event.target
@@ -36,7 +36,7 @@ function handleSubmit(event, onCreate) {
     const username = sessionStorage.getItem('username')
     const businessId = username
 
-    onCreate({
+    onRegister({
       jobNumber,
       pickupStreet,
       pickupSuburb,
@@ -63,14 +63,17 @@ function handleSubmit(event, onCreate) {
 }
 
 export default function CreateJobForm({
-    onCreate
+    onRegister,
+    job
 }) {
+
+  console.log('job data',job)
   return (
-    <form onSubmit={ (event) => handleSubmit(event, onCreate) }>
+    <form onSubmit={ (event) => handleSubmit(event, onRegister) }>
       <div className='cj-left'>
         <div className='pickup'>
           <label>Pickup Infomation:</label>
-          <Field required='true' type='text' placeholder='Job ID' name='jobNumber' />
+          <Field required='true' type='text' placeholder='Job ID' name='jobNumber'  />
           <div>
             <Field required='true' type='text' placeholder='Street...' name='pickupStreet' />
             <Field required='true' type='text' placeholder='Suburb...' name='pickupSuburb' />
@@ -98,7 +101,7 @@ export default function CreateJobForm({
         </div>
         <div className='description'>
           <label>Description of Item(s):</label>
-          <TextField required='true' placeholder='Description of all items...' name='descriptionOfGoods' />
+          <TextField required='true' placeholder='Description of all items...' name='descriptionOfGoods'/>
           </div>
         </div>
       <div className="cj-right">

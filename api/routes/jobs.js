@@ -1,11 +1,28 @@
 const express = require('express')
 const Job = require('../models/job')
 const router = express.Router()
+const authMiddleware = require('../middleware/auth')
 
 // READ OF CRUD
-router.get('/jobs', (req, res) => {
-    Job.find()
-  // What we are wanting to be called
+router.get('/jobs', authMiddleware.authenticateJWT, (req, res) => {
+  username = req.user.username
+  role = req.user.role.toLowerCase()
+  let query;
+
+  if (role === 'customer') {
+    query = Job.find({ businessId: username }) // Filter down to this customer
+  }
+  else if (role === 'driver') {
+    query = Job.find({driverId: username}) // Filter down to this driver
+  }
+  else if (role === 'office') {
+    query = Job.find() // Filter down to this driver
+  }
+  else {
+    throw `Invalid role '${role}'`
+  }
+
+  query
     .then(job => {
       res.json(job)
     })
@@ -13,7 +30,8 @@ router.get('/jobs', (req, res) => {
     .catch(error => {
       res.status(500).json({ error: error })
     })
-})
+  })
+
 
 
 
@@ -45,11 +63,11 @@ router.get('/driverjobs/:username', (req, res) => {
 
 
 // Creating New Job
-router.post('/jobs', (req, res) => {
+router.post('/jobs/new', (req, res) => {
   const newJob = req.body
   Job.create(newJob)
     .then (job => {
-      res.json(job)
+      res.json({payload: {path: `/jobs/${job.id}/update`, data: job}})
     })
     .catch(error => {
       res.status(500).json({ error: error})
