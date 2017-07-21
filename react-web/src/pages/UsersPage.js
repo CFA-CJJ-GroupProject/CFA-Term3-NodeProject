@@ -1,11 +1,22 @@
-import React from 'react'
-import Footer from '../components/Footer'
+import React, { Component } from 'react'
+import UsersList from '../components/UsersList'
 
-const UsersPage = () => (
-    <div className='users'>
-        <h1>All Users</h1>
-        <Footer />
-    </div>
-      )
+class UsersPage extends Component {
+	render() {
+		const { users } = this.props
+		return (
+			<div>
+				<h1>ALL HAIL USERS</h1>
+				{
+					!!users ? (
+						<UsersList items={ users } />
+					) : (
+						'Loading Users...'
+					)
+				}
+			</div>
+		)
+	}
+}
 
 export default UsersPage
