@@ -40,33 +40,32 @@ export default function Job({
 }) {
 
   return (
-    <main>
-
-      <h2>Job Number: { jobNumber } </h2>
-      <h4>Pickup Address: { pickupStreet } </h4>
-      <h4>Pickup Suburb: { pickupSuburb } </h4>
-      <h4>Pickup Postcode: { pickupPostcode } </h4>
-      <h4>Pickup State: { pickupState } </h4>
-      <h4>Pickup Time: { pickupTime } </h4>
-      <h4>Pickup Date: { pickupDate } </h4>
-      <h4>Pickup Instructions: { pickupInstructions } </h4>
-      <h4>Description of Goods: { descriptionOfGoods } </h4>
-      <h4>Delivery Street: { deliveryStreet } </h4>
-      <h4>Delivery Suburb: { deliverySuburb } </h4>
-      <h4>Delivery Postcode: { deliveryPostcode } </h4>
-      <h4>Delivery State: { deliveryState } </h4>
-      <h4>Delivery Time: { deliveryTime } </h4>
-      <h4>Delivery Date: { deliveryDate } </h4>
-      <h4>Delivery Instructions: { deliveryInstructions } </h4>
-      <h4>Delivery Type: { deliveryType } </h4>
-      <h4>Height: { height } </h4>
-      <h4>Width: { width } </h4>
-      <h4>Length: { length } </h4>
-      <h4>Weight: { weight} </h4>
-      <h4>DriverID: { driverId } </h4>
-      <h4>BusinessID: { businessId } </h4>
-      <h4>Status: { status} </h4>
-    </main>
+    <div className='job-info'>
+       <h2> { jobNumber } </h2>
+      <div> <p>Pickup Address:</p> <h4> {pickupStreet }</h4></div>
+      <div> <p>Pickup Suburb:</p> <h4> {pickupSuburb }</h4></div>
+      <div> <p>Pickup Postcode:</p> <h4> {pickupPostcode }</h4></div>
+      <div> <p>Pickup State:</p> <h4> {pickupState }</h4></div>
+      <div> <p>Pickup Time:</p> <h4> {pickupTime }</h4></div>
+      <div> <p>Pickup Date:</p> <h4> {pickupDate }</h4></div>
+      <div> <p>Pickup Instructions:</p> <h4> {pickupInstructions }</h4></div>
+      <div> <p>Description of Goods:</p> <h4> {descriptionOfGoods }</h4></div>
+      <div> <p>Delivery Street:</p> <h4> {deliveryStreet }</h4></div>
+      <div> <p>Delivery Suburb:</p> <h4> {deliverySuburb }</h4></div>
+      <div> <p>Delivery Postcode:</p> <h4> {deliveryPostcode }</h4></div>
+      <div> <p>Delivery State:</p> <h4> {deliveryState }</h4></div>
+      <div> <p>Delivery Time:</p> <h4> {deliveryTime }</h4></div>
+      <div> <p>Delivery Date:</p> <h4> {deliveryDate }</h4></div>
+      <div> <p>Delivery Instructions:</p> <h4> {deliveryInstructions }</h4></div>
+      <div> <p>Delivery Type:</p> <h4> {deliveryType }</h4></div>
+      <div> <p>Height:</p> <h4> {height }</h4></div>
+      <div> <p>Width:</p> <h4> {width }</h4></div>
+      <div> <p>Length:</p> <h4> {length }</h4></div>
+      <div> <p>Weight:</p> <h4> {weight}</h4></div>
+      <div> <p>DriverID:</p> <h4> {driverId }</h4></div>
+      <div> <p>BusinessID:</p> <h4> {businessId }</h4></div>
+      <div> <p>Status:</p> <h4> {status}</h4></div>
+    </div>
   )
 
 }

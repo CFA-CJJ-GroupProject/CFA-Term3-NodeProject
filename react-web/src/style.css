@@ -29,7 +29,8 @@ html, body {
   background: url(images/picture.jpg) no-repeat center center fixed;
 }
 .jobs {
-  background: url(images/picture2.jpg) no-repeat center center fixed;
+  background: url(images/jobs.jpg) no-repeat center center fixed;
+  text-align: -webkit-center;
 }
 .dashboard, .create-job, .create-customer, .jobs, .create-user, .users {
   width: 100%;
@@ -64,6 +65,9 @@ body {
 }
 .links h4 {
   float: right;
+  cursor: pointer;
+  margin-top: -55px;
+  margin-right: 10px;
 }
 .links p {
   font-weight: 600;
@@ -78,6 +82,9 @@ a {
 .links a h4:hover, a:hover {
   text-decoration: underline;
   color: white;
+}
+button {
+  cursor: pointer;
 }
 ul {
   padding: 0px;
@@ -112,11 +119,20 @@ h1 {
   font-weight: 400;
   margin: 40px;
 }
+h1, h2, h3, h4 {
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 2px black;
+}
+h1, h2, h3, h4, p {
+  cursor: default;
+}
+
 label {
   display: block;
   color: white;
   font-size: 20px;
   margin-bottom: 15px;
+  text-shadow: 2px 2px 2px black;
 
 }
 form {
@@ -131,7 +147,7 @@ form {
   margin-right: auto;
 
 }
-input, textarea, select {
+input, textarea, select, .cc-left input[type='username'] {
   margin: auto;
   font-family: 'Lato', sans-serif;
   font-weight: 300;
@@ -221,7 +237,7 @@ footer p {
 
 
 }
-div .cj-right, .cj-left {
+div .cj-right, div.cj-left{
   width: 50%;
   display: inline-block;
   vertical-align: top;
@@ -239,7 +255,6 @@ button.cj-button {
 .measurements label {
   font-size: 15px;
   margin-bottom: 5px;
-
 }
 .measurements li {
   list-style-type: none;
@@ -267,9 +282,88 @@ div .add-item {
  padding: 40px;
  border-radius: 7px;
 }
-.cu-button, .cj-button {
+.cu-button, .cj-button, .cc-button {
   background-color: #0080FF;
   border: none;
   color: white;
   letter-spacing: 3px;
+}
+/****** Jobs page *****/
+
+.Collapsible {
+  background: rgba(78, 77, 77, 0.5);
+  margin-bottom: 30px;
+  width: 30%;
+  padding: 30px;
+  border-radius: 7px;
+  display: inline-block;
+  text-align: center;
+  margin-left: 50px;
+  margin-right: auto;
+  color: white;
+  vertical-align: top;
+}
+.Collapsible:hover {
+  box-shadow: 2px 2px 2px black;
+}
+.Collapsible span {
+  text-shadow: 1px 1px 1px black;
+  cursor: pointer;
+  letter-spacing: 2px;
+}
+.job-info {
+  text-align: left;
+  border-top: 3px solid rgba(78, 77, 77, 0.5);
+  margin-top: 20px;
+  padding: 15px;
+}
+.job-info div {
+  border-bottom: 1px solid rgba(78, 77, 77, 0.5);
+}
+.job-info h2, .job-info div h4 {
+
+  display: inline-block;
+  margin-left: 10px;
+  font-weight:500;
+}
+.job-info div p {
+  display: inline-block;
+}
+.cc-middle {
+  max-width: 450px;
+}
+/**** Create Customer ****/
+.cc-left, .cc-right {
+  display: inline-block;
+  vertical-align: top;
+  border-radius: 7px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+.cc-form {
+  background: rgba(78, 77, 77, 0.5);
+  width: 50%;
+  padding: 30px;
+  border-radius: 7px;
+}
+
+
+
+/**** Responsive ****/
+/* Portrait and Landscape */
+@media only screen
+  and (min-device-width: 320px)
+  and (max-device-width: 736px)
+  and (-webkit-min-device-pixel-ratio: 2) {
+    .Collapsible {
+    width: 80%;
+    padding: 30px;
+    border-radius: 7px;
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    color: white;
+    vertical-align: top;
+    overflow: hidden;
+    }
 }
