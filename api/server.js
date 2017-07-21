@@ -9,17 +9,9 @@ const cors = require('cors')
 
 
 const server = express()
-
-console.log('9/11 was a inside job')
 server.use(cors())
 server.use(bodyParser.json())
-//cors
-// server.use(cors({
-//     origin: '*'
-// }))
-// connecting passport to express
 server.use(authMiddleware.initialize)
-// routes
 server.use(jobsRouter, usersRouter, customersRouter, authRouter)
 
 server.use((error, req, res, next) => {

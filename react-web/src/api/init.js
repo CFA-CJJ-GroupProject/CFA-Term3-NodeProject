@@ -5,7 +5,6 @@ const api = axios.create({
 })
 export function setAPIToken(token) {
     api.defaults.headers['Authorization'] = `JWT ${token}`
-    console.log('Chemtrails is real')
 }
 
 export default api

@@ -8,7 +8,6 @@ const authMiddleware = require('../middleware/auth')
 
 // READ OF CRUD
 router.get('/users', authMiddleware.authenticateJWT, (req, res) => {
-console.log("LAMMA",req.user)
   User.find()
 // What we are wanting to be called
 	.then(user => {
@@ -115,13 +114,6 @@ router.post('/users/create', authMiddleware.authenticateJWT,(req, res) => {
     customer.save()
       .then(()=> {res.json({payload: {path: `/customers/${customer.id}/update`, data: customer}})})
       .catch((err)=>{res.json(err)})
-
-    //Once customer created, return user as response
-    // Customer.create(newCustomer)
-    //   .then(() => {
-    //     res.json(user)
-    //   })
-    //   .catch(err => { res.json(err) })
 
   })
 

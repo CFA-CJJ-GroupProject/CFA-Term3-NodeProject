@@ -7,8 +7,6 @@ class CustomersPage extends Component {
 		return (
 			<div>
 				<h1>ALL HAIL CUSTOMERS</h1>
-				{console.log('are there customers?', customers)}
-				{console.log('props?', this.props)}
 				{
 					!!customers ? (
 						<CustomersList items={ customers } />
