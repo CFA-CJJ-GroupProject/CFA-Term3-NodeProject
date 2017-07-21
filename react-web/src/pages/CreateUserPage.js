@@ -7,7 +7,7 @@ const CreateUserPage = ({onRegister, redirect, handleRedirect}) => (
 
   redirect ? (<div><Redirect to='/createcustomer' />{handleRedirect()}</div>) :
   (<div className='create-user'>
-    <h1>Create a User</h1>
+    <h1>Create User</h1>
     <CreateUserForm onRegister={onRegister}/>
     <Footer />
   </div>)

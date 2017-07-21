@@ -11,6 +11,9 @@ import CreateCustomerPage from './pages/CreateCustomerPage'
 import Header from './components/Header'
 import HomePage from './pages/HomePage'
 import LoginPage from './pages/LoginPage'
+import LogoutPage from './pages/LogoutPage'
+import Footer from './components/Footer'
+import SignInForm from './components/SignInForm'
 import './style.css'
 
 
