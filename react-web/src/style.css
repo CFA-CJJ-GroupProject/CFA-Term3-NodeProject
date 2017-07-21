@@ -112,6 +112,7 @@ h1 {
   font-weight: 400;
   margin: 40px;
 }
+
 label {
   display: block;
   color: white;
@@ -272,4 +273,38 @@ div .add-item {
   border: none;
   color: white;
   letter-spacing: 3px;
+}
+/****** Jobs page *****/
+
+.Collapsible {
+  background: rgba(78, 77, 77, 0.5);
+  margin-bottom: 10px;
+  width: 30%;
+  padding: 30px;
+  border-radius: 7px;
+  display: inline-block;
+  text-align: center;
+  margin-left: 120px;
+  margin-right: auto;
+  color: white;
+  vertical-align: top;
+}
+.job-info {
+  text-align: left;
+  border-top: 3px solid rgba(78, 77, 77, 0.5);
+  margin-top: 20px;
+  padding: 15px;
+}
+.job-info div {
+  border-bottom: 1px solid rgba(78, 77, 77, 0.5);
+}
+.job-info h2, .job-info div h4 {
+  letter-spacing: 2px;
+  text-shadow: 1px 1px 1px black;
+  display: inline-block;
+  margin-left: 10px;
+  font-weight:500;
+}
+.job-info div p {
+  display: inline-block;
 }

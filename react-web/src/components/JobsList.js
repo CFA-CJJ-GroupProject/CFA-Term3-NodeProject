@@ -11,13 +11,10 @@ items, username
   return (
     <div>
       {
-
         items.map(item => (
-
           <Collapsible trigger={ item.deliveryStreet + item.deliverySuburb + item.deliveryTime + item.businessId }>
             <Job key={item._id} { ...item } username={ username } />
           </Collapsible>
-
         ))
       }
     </div>
