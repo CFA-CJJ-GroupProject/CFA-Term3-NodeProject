@@ -13,9 +13,16 @@ function submitSignIn(event, onSignIn) {
 export default function SignInForm({onSignIn}) {
   return (
     <form onSubmit={(event) => submitSignIn(event, onSignIn)}>
-    <Field required='true' type='username' placeholder='Username...' name='username' />
-    <Field required='true' type='password' placeholder='Password...' name='password' />
-    <button type='submit' className='sign-in'>Sign in</button>
+      <div className='cu'>
+        <div className='company-name'>
+          <h1>ALL<br/>
+            NEEDS<br/>
+            TRANSPORT</h1>
+          </div>
+        <Field required='true' type='username' placeholder='Username...' name='username' />
+        <Field required='true' type='password' placeholder='Password...' name='password' />
+      </div>
+      <button type='submit' className='cu-button'>Sign in</button>
     </form>
   )
 }
