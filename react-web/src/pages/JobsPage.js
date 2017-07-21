@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import JobsList from '../components/JobsList'
+import Footer from '../components/Footer'
 
 class JobsPage extends Component {
 	state = {
@@ -39,9 +40,8 @@ class JobsPage extends Component {
 	render() {
 		const { error, jobs } = this.state
 		return (
-			<div>
-
-				<h1>ALL JOBS</h1>
+			<div className='jobs'>
+				<h1>All jobs</h1>
 				{ !!error && <p>{ error.message }</p> }
 				{
 					!!jobs ? (
@@ -51,8 +51,7 @@ class JobsPage extends Component {
 						'Loading Jobs...'
 					)
 				}
-
-
+				<Footer />
 			</div>
 		)
 	}

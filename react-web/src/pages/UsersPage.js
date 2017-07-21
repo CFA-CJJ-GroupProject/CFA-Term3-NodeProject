@@ -1,8 +1,10 @@
 import React from 'react'
+import Footer from '../components/Footer'
 
 const UsersPage = () => (
-    <div>
-        <h1>ALL USERS</h1>
+    <div className='users'>
+        <h1>All Users</h1>
+        <Footer />
     </div>
       )
 

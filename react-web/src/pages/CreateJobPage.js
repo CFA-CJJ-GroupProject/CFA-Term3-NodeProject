@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import CreateJobForm from '../components/CreateJobForm'
-
+import Footer from '../components/Footer'
 
 
 class CreateJobPage extends Component {
@@ -82,10 +82,11 @@ class CreateJobPage extends Component {
   render () {
 		const { error, username } = this.state
 	return (
-    <div>
-      <h1>Create Job</h1>
+    <div className='create-job'>
+      <h1>Create a Job</h1>
 				{ !!error && <p>{ error.message }</p> }
         <CreateJobForm onCreate={ this.handleCreateJob } username={ username } />
+				<Footer />
     </div>
       )
 		}
