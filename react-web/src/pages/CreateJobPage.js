@@ -83,7 +83,7 @@ class CreateJobPage extends Component {
 		const { error, username } = this.state
 	return (
     <div className='create-job'>
-      <h1>Create a Job</h1>
+      <h1>Create Job</h1>
 				{ !!error && <p>{ error.message }</p> }
         <CreateJobForm onCreate={ this.handleCreateJob } username={ username } />
 				<Footer />
