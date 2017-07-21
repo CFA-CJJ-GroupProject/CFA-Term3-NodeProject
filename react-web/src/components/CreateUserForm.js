@@ -9,23 +9,9 @@ function submitCreateUser(event, onRegister) {
   const username = form.elements['username'].value
   const password = form.elements['password'].value
   const role = form.elements['role'].value
-  
-  
 
-  if (role === 'Customer') {
-    onRegister({username, password, role})
-    fetch('/customers', {
-  		method: 'POST',
-  		headers: {
-  			'Content-Type': 'application/json'
-  		},
-  		body: JSON.stringify({
-  			username
-  		})
-  	})
-  } else {
-    onRegister({username, password, role})
-  }
+  onRegister({username, password, role})
+
 
 }
 export default function CreateUserForm({onRegister}) {
@@ -38,7 +24,7 @@ export default function CreateUserForm({onRegister}) {
       </div>
 
       <button type='submit' className='cu-button'>Create User</button>
-      
+
     </form>
   )
 }

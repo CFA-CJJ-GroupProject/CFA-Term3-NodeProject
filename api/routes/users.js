@@ -1,7 +1,7 @@
 const express = require('express')
 const User = require('../models/user')
+const Customer = require('../models/customer')
 const router = express.Router()
-
 const authMiddleware = require('../middleware/auth')
 
 
@@ -87,7 +87,7 @@ router.route('/users/:id')
 //YEAH MAKE A NEW User
 router.post('/users/create', authMiddleware.authenticateJWT,(req, res) => {
   if(req.user.role !== 'office') {
-    res.json({message: 'f-off!'})
+    res.json({message: 'you need to log in as an office member'})
   }
 
   const newUser = req.body
@@ -96,12 +96,35 @@ router.post('/users/create', authMiddleware.authenticateJWT,(req, res) => {
     role: req.body.role
   })
 
+
   User.register(user, req.body.password, (err, user) => {
     if(err) return res.json({err: err})
 
-    res.json(user)
+    //after user created, check role
+    // if(req.user.role === 'customer') {
+    if(user.role.toLowerCase() !== 'customer') return res.json({payload: {path: '/', data: user}})
+    // if role, create new Customer using the new user
+    const newCustomer = {
+      username: req.body.username,
+      user_id: user._id
+    }
+
+
+    const customer = new Customer(newCustomer)
+
+    customer.save()
+      .then(()=> {res.json({payload: {path: `/customers/${customer.id}/update`, data: customer}})})
+      .catch((err)=>{res.json(err)})
+
+    //Once customer created, return user as response
+    // Customer.create(newCustomer)
+    //   .then(() => {
+    //     res.json(user)
+    //   })
+    //   .catch(err => { res.json(err) })
 
   })
+
 })
 
 

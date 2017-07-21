@@ -7,6 +7,8 @@ import CustomersPage from './pages/CustomersPage'
 import JobConfirmationPage from './pages/JobConfirmationPage'
 import JobCard from './pages/JobCard'
 import CreateUserPage from './pages/CreateUserPage'
+import CreateCustomerPage from './pages/CreateCustomerPage'
+
 import UsersPage from './pages/UsersPage'
 import Header from './components/Header'
 import HomePage from './pages/HomePage'
@@ -35,7 +37,11 @@ class App extends Component {
     jobs: null, // Null means not loaded yet
     redirect: null,
     users: null,
-    customers: null
+    customers: null,
+    payload: {
+      path: null,
+      data: null
+    }
   }
 
   loadPromises = {}
@@ -116,6 +122,18 @@ class App extends Component {
 
   handleCreateUser = (user) => {
     usersAPI.postUser(user)
+      .then(result => {
+          console.log(result)
+        //if customer obj in response give result for the customer page
+            //set state
+        //if user obj in repsonse give result for the user page (or not)
+            //set state
+
+        this.setState({ redirect: true, payload: result.payload})
+      })
+      .catch(error => {
+        this.setState({ error })
+      })
   }
 
   render() {
@@ -124,26 +142,27 @@ class App extends Component {
     if (!!token) {
       const tokenPayload = decodeJWT(token)
       role = tokenPayload.role
+      username = tokenPayload.username
     }
     return (
       <Router>
         <main>
           {
-            token ? (<Header handleLogout={this.handleLogout} role={ role } username={token}  />) : (<Redirect to='/'/>)
+            token ? (<Header handleLogout={this.handleLogout} role={ role } username={username}  />) : (<Redirect to='/'/>)
           }
           { token ? (
               <Route exact path='/' render={() => (<HomePage />)} />)
             : (<Route exact path='/' render={() => (<LoginPage loginMaybe={this.handleSignIn}/>)} />)
           }
 
-          <Route exact path='/createjob' render={() => (<CreateJobPage />)}/>
+          <Route exact path='/jobs/new' render={() => (<CreateJobPage />)}/>
 
           <Route exact path='/jobconfirmation' render={() => (<JobConfirmationPage/>)}/>
 
-          <Route exact path='/jobcard/:id' render={() => (<JobCard/>)}/>
+          <Route exact path='/jobcards/:id' render={() => (<JobCard/>)}/>
 
-          <Route exact path='/createuser' render={() => (
-            <CreateUserPage handleRedirect={this.handleRedirect} redirect={redirect} onRegister={this.handleCreateUser}/>
+          <Route exact path='/users/new' render={() => (
+            <CreateUserPage payload={this.state.payload} handleRedirect={this.handleRedirect} redirect={redirect} onRegister={this.handleCreateUser}/>
           )}/>
 
           <Route exact path='/users' render={() => {
@@ -159,6 +178,9 @@ class App extends Component {
             this.loadCustomers()
             return (<CustomersPage customers={this.state.customers}/>)
           }}/>
+
+          <Route exact path='/customers/:id/update' render={() => (<CreateCustomerPage />)}/>
+
 
         </main>
 
