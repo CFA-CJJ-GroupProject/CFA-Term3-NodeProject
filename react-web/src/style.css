@@ -1,5 +1,10 @@
 /*** Default CSS ***/
 @import url('https://fonts.googleapis.com/css?family=Lato:300,300i,400,400i,900');
+
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
 /* Background images */
 .login {
   background: url(images/login.jpg) no-repeat center;
@@ -24,7 +29,8 @@
   background: url(images/picture.jpg) no-repeat center center fixed;
 }
 .jobs {
-  background: url(images/picture2.jpg) no-repeat center center fixed;
+  background: url(images/jobs.jpg) no-repeat center center fixed;
+  text-align: -webkit-center;
 }
 .dashboard, .create-job, .create-customer, .jobs, .create-user, .users {
   width: 100%;
@@ -42,15 +48,43 @@ body {
   font-family: 'Lato', sans-serif;
   margin: 0px;
 }
-div .company-name {
+.top {
   background-color: #00004d;
   margin: 0px;
 }
-.company-name h3 {
+.company-name, .links {
+  display: inline-block;
+  width: 50%;
+
+}
+.company-name h3, .links h4, .links p {
   margin: 0px;
   font-weight: 300;
   padding: 10px;
   color: white;
+}
+.links h4 {
+  float: right;
+  cursor: pointer;
+  margin-top: -55px;
+  margin-right: 10px;
+}
+.links p {
+  font-weight: 600;
+  padding: 0px;
+  padding-left: 10px;
+  float: right;
+}
+a {
+  text-decoration: none;
+  color: white;
+}
+.links a h4:hover, a:hover {
+  text-decoration: underline;
+  color: white;
+}
+button {
+  cursor: pointer;
 }
 ul {
   padding: 0px;
@@ -73,16 +107,11 @@ nav ul li {
   text-align: center;
   padding: 15px;
 }
-nav ul li a {
-  text-decoration: none;
-  color: white;
-}
+
 nav ul li a:active {
   text-decoration: underline;
 }
-nav ul li a:hover {
-  text-decoration: underline;
-}
+
 h1 {
   text-align: center;
   font-size: 60px;
@@ -90,11 +119,20 @@ h1 {
   font-weight: 400;
   margin: 40px;
 }
+h1, h2, h3, h4 {
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 2px black;
+}
+h1, h2, h3, h4, p {
+  cursor: default;
+}
+
 label {
   display: block;
   color: white;
   font-size: 20px;
   margin-bottom: 15px;
+  text-shadow: 2px 2px 2px black;
 
 }
 form {
@@ -109,7 +147,7 @@ form {
   margin-right: auto;
 
 }
-input, textarea, select {
+input, textarea, select, .cc-left input[type='username'] {
   margin: auto;
   font-family: 'Lato', sans-serif;
   font-weight: 300;
@@ -136,11 +174,17 @@ input[type='username'], input[type='password'] {
   margin: 0px;
   margin-bottom: 20px;
 }
-select, button[type=submit] {
+select {
   border: none;
   box-shadow:
   0 1px 2px #fff, /*bottom external highlight*/
   0 -1px 1px #666, /*top external shadow*/
+  inset 0 -1px 1px rgba(0,0,0,0.5), /*bottom internal shadow*/
+  inset 0 1px 1px rgba(255,255,255,0.8); /*top internal highlight*/
+}
+button[type=submit] {
+  border: none;
+  box-shadow:
   inset 0 -1px 1px rgba(0,0,0,0.5), /*bottom internal shadow*/
   inset 0 1px 1px rgba(255,255,255,0.8); /*top internal highlight*/
 }
@@ -168,6 +212,7 @@ footer {
   margin-bottom: 0px;
   background-color: #000033;
   height: 30px;
+  margin-top: 70px;
 }
 footer p {
   text-align: right;
@@ -183,36 +228,33 @@ footer p {
 /*Create Job*/
 
 .pickup, .delivery, .description, .dimensions, .delivery-type {
-  background-color: grey;
   padding: 20px;
   width: 80%;
   padding-top: 20px;
   border-radius: 20px;
   margin-bottom: 20px;
+  background: rgba(78, 77, 77, 0.5);
 
 
 }
-div .cj-right, .cj-left {
+div .cj-right, div.cj-left{
   width: 50%;
   display: inline-block;
   vertical-align: top;
 }
 button.cj-button {
-  background-color: darkblue;
-  color: white;
-  margin-top: 0px;
+  margin-top: 20px;
   float: right;
 }
 .measurements, .address, .date-time {
   padding: 0px;
   display: table;
-  width: 100%;
+  width: 95%;
   margin: 0px;
 }
 .measurements label {
   font-size: 15px;
   margin-bottom: 5px;
-
 }
 .measurements li {
   list-style-type: none;
@@ -221,10 +263,107 @@ button.cj-button {
   text-align: center;
   padding: 3px;
 }
+.measurements li select {
+  width: 100px;
+}
+.time input, .ps input {
+  width: 60%;
+}
 div .add-item {
   display: inline-block;
 }
 /********** Create User *********/
 .cu select {
   margin: 0px;
+}
+.cu {
+ background: rgba(78, 77, 77, 0.5);
+ width: 30%;
+ padding: 40px;
+ border-radius: 7px;
+}
+.cu-button, .cj-button, .cc-button {
+  background-color: #0080FF;
+  border: none;
+  color: white;
+  letter-spacing: 3px;
+}
+/****** Jobs page *****/
+
+.Collapsible {
+  background: rgba(78, 77, 77, 0.5);
+  margin-bottom: 30px;
+  width: 30%;
+  padding: 30px;
+  border-radius: 7px;
+  display: inline-block;
+  text-align: center;
+  margin-left: 50px;
+  margin-right: auto;
+  color: white;
+  vertical-align: top;
+}
+.Collapsible:hover {
+  box-shadow: 2px 2px 2px black;
+}
+.Collapsible span {
+  text-shadow: 1px 1px 1px black;
+  cursor: pointer;
+  letter-spacing: 2px;
+}
+.job-info {
+  text-align: left;
+  border-top: 3px solid rgba(78, 77, 77, 0.5);
+  margin-top: 20px;
+  padding: 15px;
+}
+.job-info div {
+  border-bottom: 1px solid rgba(78, 77, 77, 0.5);
+}
+.job-info h2, .job-info div h4 {
+
+  display: inline-block;
+  margin-left: 10px;
+  font-weight:500;
+}
+.job-info div p {
+  display: inline-block;
+}
+.cc-middle {
+  max-width: 450px;
+}
+/**** Create Customer ****/
+.cc-left, .cc-right {
+  display: inline-block;
+  vertical-align: top;
+  border-radius: 7px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+.cc-form {
+  background: rgba(78, 77, 77, 0.5);
+  width: 50%;
+  padding: 30px;
+  border-radius: 7px;
+}
+
+
+
+/**** Responsive ****/
+/* Portrait and Landscape */
+@media only screen
+  and (min-device-width: 320px)
+  and (max-device-width: 736px)
+  and (-webkit-min-device-pixel-ratio: 2) {
+    .Collapsible {
+    width: 80%;
+    padding: 30px;
+    border-radius: 7px;
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    color: white;
+    vertical-align: top;
+    overflow: hidden;
+    }
 }

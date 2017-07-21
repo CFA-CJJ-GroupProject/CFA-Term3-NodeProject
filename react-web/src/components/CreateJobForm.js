@@ -89,7 +89,7 @@ export default function CreateJobForm({
               <Field required='true' type='date' name='pickupDate' />
             </li>
 
-            <li>
+            <li className='time'>
               <Field required='true' type='time' name='pickupTime' />
             </li>
           </ul>
@@ -122,12 +122,12 @@ export default function CreateJobForm({
               <Field required='true' type='date' name='deliveryDate' />
             </li>
 
-            <li>
+            <li className='time'>
               <Field required='true' type='time' name='deliveryTime' />
             </li>
           </ul>
         </div>
-          <TextField required='true' placeholder='Instructions..' name='deliveryInstructions' type=''/>
+          <TextField required='true' placeholder='Instructions..' name='deliveryInstructions' />
         </div>
         <div id='dimensions' className='dimensions'>
           <label>Item(s) Dimensions:</label>
