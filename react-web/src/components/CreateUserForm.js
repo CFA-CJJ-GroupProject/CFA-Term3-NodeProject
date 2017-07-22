@@ -9,9 +9,11 @@ function submitCreateUser(event, onRegister) {
   const username = form.elements['username'].value
   const password = form.elements['password'].value
   const role = form.elements['role'].value
-  onRegister({username, password, role})
-}
 
+  onRegister({username, password, role})
+
+
+}
 export default function CreateUserForm({onRegister}) {
   return (
     <form onSubmit={(event) => submitCreateUser(event, onRegister)}>

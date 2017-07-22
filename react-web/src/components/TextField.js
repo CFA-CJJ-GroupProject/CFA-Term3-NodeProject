@@ -4,7 +4,8 @@ export default function TextField({
   label,
   name,
   placeholder,
-  required
+  required,
+  val
 }) {
   return (
     <label>
