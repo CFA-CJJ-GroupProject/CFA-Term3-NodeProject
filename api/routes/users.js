@@ -112,7 +112,7 @@ router.post('/users/create', authMiddleware.authenticateJWT,(req, res) => {
     const customer = new Customer(newCustomer)
 
     customer.save()
-      .then(()=> {res.json({payload: {path: `/customers/${customer.id}/update`, data: customer}})})
+      .then(()=> {res.json({payload: {path: `/customers/${customer.id}`, data: customer}})})
       .catch((err)=>{res.json(err)})
 
   })
