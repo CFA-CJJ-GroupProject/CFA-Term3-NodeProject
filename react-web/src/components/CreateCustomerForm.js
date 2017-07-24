@@ -4,19 +4,23 @@ import TextField from './TextField'
 import readAndClearForm from './readAndClearForm'
 import SelectStateField from './SelectStateField'
 
-function submitUpdate(event, onUpdate) {
-    event.preventDefault()
 
-    const form = event.target
-    const userValues = readAndClearForm(form)
-    onUpdate(userValues)
-}
 
 export default function CreateCustomerForm({
-    onUpdate
+    onUpdate,
+    id
 }) {
+
+  function submitUpdate(event, id) {
+      event.preventDefault()
+
+      const form = event.target
+      const userValues = readAndClearForm(form)
+      onUpdate(userValues, id)
+  }
+
   return (
-    <form onSubmit={ (event) => submitUpdate(event, onUpdate) }>
+    <form onSubmit={ (event) => submitUpdate(event, id) }>
       <div className='cc-form'>
       <div className='cc-left'>
           <label>Company information:</label>

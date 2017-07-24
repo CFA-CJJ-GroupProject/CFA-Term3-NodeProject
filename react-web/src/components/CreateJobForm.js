@@ -67,7 +67,7 @@ export default function CreateJobForm({
     job
 }) {
 
-  console.log('job data',job)
+  
   return (
     <form onSubmit={ (event) => handleSubmit(event, onRegister) }>
       <div className='cj-left'>
@@ -134,7 +134,29 @@ export default function CreateJobForm({
         </div>
         <div id='dimensions' className='dimensions'>
           <label>Item(s) Dimensions:</label>
-          <ItemForm />
+             <div>
+        <ul className='measurements'>
+          <li>
+            <label>L</label>
+            <Field required='true' type='number' placeholder='mm' name='lengthField' />
+          </li>
+
+          <li>
+            <label>W</label>
+            <Field required='true' type='number' placeholder='mm' name='width' />
+          </li>
+
+          <li>
+            <label>H</label>
+            <Field required='true' type='number' placeholder='mm' name='height' />
+            
+          </li>
+          <li>
+            <label>KGS</label>
+            <Field required='true' type='number' placeholder='kgs' name='weight' />
+          </li>
+        </ul>
+      </div>
         </div>
           <div className='delivery-type'>
           <label>Delivery Type:</label>

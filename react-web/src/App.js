@@ -132,6 +132,16 @@ class App extends Component {
       })
   }
 
+    handleCreateCustomer = (customer, id) => {
+    customersAPI.postCustomer(customer, id)
+      .then(result => {
+        this.setState({ redirect: true, payload: result.payload})
+      })
+      .catch(error => {
+        this.setState({ error })
+      })
+  }
+
   handleCreateJob = (job) => {
     jobsAPI.postJob(job)
       .then(result => {
@@ -184,7 +194,10 @@ class App extends Component {
             return (<CustomersPage customers={this.state.customers}/>)
           }}/>
 
-          <Route exact path='/customers/:id/update' render={() => (<CreateCustomerPage />)}/>
+          <Route exact path='/customers/:id' render={({match}) => {
+            console.log(match.params)
+            return <CreateCustomerPage onCreateCustomer={this.handleCreateCustomer} id={match.params.id}/>
+          }}/>
           <Route exact path='/jobs/:id/update' render={() => (<CreateJobPage payload={this.state.payload} handleRedirect={this.handleRedirect} redirect={redirect} onRegister={this.handleCreateJob}/>)}/>
 
 
