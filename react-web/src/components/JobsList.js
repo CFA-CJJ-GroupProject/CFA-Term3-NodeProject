@@ -4,7 +4,8 @@ import Collapsible from 'react-collapsible';
 import JobInfo from './JobInfo' // ?
 
 export default function JobsList({
-items, username
+items,
+username
 }) {
 
 
