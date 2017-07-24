@@ -5,9 +5,9 @@ export default function User({
   role
 }) {
   return (
-    <main>
-      <h2>Username: { username } </h2>
-      <h4>Role: { role } </h4>
-    </main>
+    <div className='job-info'>
+    <div><p>Username:</p><h4>{username}</h4></div>
+    <div><p>Role:</p><h4>{role}</h4></div>
+    </div>
   )
 }

@@ -1,14 +1,17 @@
 import React from 'react'
 import Customer from './Customer'
+import Collapsible from 'react-collapsible';
 
 export default function CustomersList({
 items
 }) {
   return (
-    <div>
+    <div className='c.customers'>
       {
         items.map(item => (
-          <Customer key={item._id} { ...item } />
+          <Collapsible trigger={item.username}>
+            <Customer key={item._id} { ...item } />
+          </Collapsible>
         ))
       }
     </div>

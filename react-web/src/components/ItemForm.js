@@ -16,14 +16,14 @@ class ItemForm extends React.Component {
             <Field required='true' type='number' placeholder='mm' name='width' />
           </li>
 
-              <li>
-                <label>H</label>
-                <Field required='true' type='number' placeholder='mm' name='height' />
-              </li>
-              <li>
-                <label>KGS</label>
-                <Field required='true' type='number' placeholder='kgs' name='weight' />
-              </li>
+          <li>
+            <label>H</label>
+            <Field required='true' type='number' placeholder='mm' name='height' />
+          </li>
+          <li>
+            <label>KGS</label>
+            <Field required='true' type='number' placeholder='kgs' name='weight' />
+          </li>
         </ul>
       </div>
     );

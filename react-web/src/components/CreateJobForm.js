@@ -63,7 +63,7 @@ function handleSubmit(event, onRegister, username) {
 
 export default function CreateJobForm({onRegister, job, username}) {
 
-  console.log('job data', job)
+  
   return (
     <form onSubmit={(event) => handleSubmit(event, onRegister, username)}>
       {console.log("Username1", username)}

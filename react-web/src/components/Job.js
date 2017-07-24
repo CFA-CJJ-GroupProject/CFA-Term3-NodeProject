@@ -2,7 +2,6 @@ import React from 'react'
 
 export default function Job({
   jobNumber,  //Must be unique
-
   pickupStreet,
   pickupSuburb,
   pickupPostcode,
@@ -10,7 +9,6 @@ export default function Job({
   pickupTime,
   pickupDate,
   pickupInstructions,
-
   deliveryStreet,
   deliverySuburb,
   deliveryPostcode,
@@ -18,25 +16,16 @@ export default function Job({
   deliveryTime,
   deliveryDate,
   deliveryInstructions,
-
   descriptionOfGoods,
   deliveryType,
-
   driverId,
   businessId,
-
   status,
-
-
-    height,
-    length,
-    weight,
-    width,
-
-
+  height,
+  length,
+  weight,
+  width,
   username
-
-
 }) {
 
   return (

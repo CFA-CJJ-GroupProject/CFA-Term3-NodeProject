@@ -4,13 +4,14 @@
 html, body {
     max-width: 100%;
     overflow-x: hidden;
+    text-transform: capitalize;
 }
 /* Background images */
 .login {
   background: url(images/login.jpg) no-repeat center;
   background-repeat: no-repeat;
   background-position: center;
-  position: absolute;
+  position: fixed;
   width: 100% auto;
 }
 .dashboard {
@@ -24,6 +25,12 @@ html, body {
 }
 .users {
   background: url(images/users.jpg) no-repeat center center fixed;
+  text-align: -webkit-center;
+}
+.customers {
+  background: url(images/customers.jpg) no-repeat center center fixed;
+  text-align: -webkit-center;
+
 }
 .create-customer {
   background: url(images/picture.jpg) no-repeat center center fixed;
@@ -32,13 +39,15 @@ html, body {
   background: url(images/jobs.jpg) no-repeat center center fixed;
   text-align: -webkit-center;
 }
-.dashboard, .create-job, .create-customer, .jobs, .create-user, .users {
+.dashboard, .customers, .create-job, .create-customer, .jobs, .create-user, .users {
   width: 100%;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
   position: absolute;
+  min-width: 100vw;
+  min-height: 100vh;
 }
 div#root, main, .login {
   min-width: 100vw;
@@ -72,7 +81,8 @@ body {
 .links p {
   font-weight: 600;
   padding: 0px;
-  padding-left: 10px;
+  letter-spacing: 1px;
+  padding-left: 2px;
   float: right;
 }
 a {
@@ -333,10 +343,8 @@ div .add-item {
 }
 .job-info div p, .job-info div h4{
   vertical-align: top;
-  text-transform: capitalize;
 }
 .job-info h2, .job-info div h4 {
-
   display: inline-block;
   margin-left: 10px;
   font-weight:500;

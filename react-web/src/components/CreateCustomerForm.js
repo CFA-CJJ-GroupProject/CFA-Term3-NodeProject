@@ -4,19 +4,23 @@ import TextField from './TextField'
 import readAndClearForm from './readAndClearForm'
 import SelectStateField from './SelectStateField'
 
-function submitUpdate(event, onUpdate) {
-    event.preventDefault()
 
-    const form = event.target
-    const userValues = readAndClearForm(form)
-    onUpdate(userValues)
-}
 
 export default function CreateCustomerForm({
-    onUpdate
+    onUpdate,
+    id
 }) {
+
+  function submitUpdate(event, id) {
+      event.preventDefault()
+
+      const form = event.target
+      const userValues = readAndClearForm(form)
+      onUpdate(userValues, id)
+  }
+
   return (
-    <form onSubmit={ (event) => submitUpdate(event, onUpdate) }>
+    <form onSubmit={ (event) => submitUpdate(event, id) }>
       <div className='cc-form'>
       <div className='cc-left'>
           <label>Company information:</label>
@@ -28,10 +32,10 @@ export default function CreateCustomerForm({
         </div>
 
           <div className='cc-right'>
-          <label>Transport pickups:</label>
-          <Field required='true' type='text' placeholder='Street...' name='pickupStreet' />
-          <Field required='true' type='text' placeholder='Suburb...' name='pickupSuburb' />
-                <Field required='true' type='text' placeholder='Postcode...' name='pickupPostcode' />
+          <label>Address:</label>
+          <Field required='true' type='text' placeholder='Street...' name='customerStreet' />
+          <Field required='true' type='text' placeholder='Suburb...' name='customerSuburb' />
+                <Field required='true' type='text' placeholder='Postcode...' name='customerPostcode' />
                 <SelectStateField required='true' name="pickupState"/>
               </div>
         <div className='cc-middle'>

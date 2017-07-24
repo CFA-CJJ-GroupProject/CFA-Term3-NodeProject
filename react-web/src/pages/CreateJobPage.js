@@ -10,9 +10,8 @@ const CreateJobPage = ({onRegister, redirect, handleRedirect, payload, username}
     <div><Redirect to={payload.path}/>{handleRedirect()}</div>
   )
   : (
-    <div className='create-user'>
-      <h1>Create JOBS!!!!!!!</h1>
-			{console.log("Username CreateJobPage", username)}
+    <div className='create-job'>
+      <h1>Create a Job</h1>
 		{console.log(payload.data)}
       <CreateJobForm job={payload.data} onRegister={onRegister} username={username}/>
       <Footer/>
