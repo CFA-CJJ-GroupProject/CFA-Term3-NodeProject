@@ -10,7 +10,7 @@ html, body {
   background: url(images/login.jpg) no-repeat center;
   background-repeat: no-repeat;
   background-position: center;
-  position: absolute;
+  position: fixed;
   width: 100% auto;
 }
 .dashboard {
@@ -24,6 +24,7 @@ html, body {
 }
 .users {
   background: url(images/users.jpg) no-repeat center center fixed;
+  text-align: -webkit-center;
 }
 .create-customer {
   background: url(images/picture.jpg) no-repeat center center fixed;
