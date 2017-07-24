@@ -7,7 +7,7 @@ items,
 username
 }) {
   return (
-    <div className='c.users'>
+    <div>
       {
         items.map(item => (
           <Collapsible trigger={item.username}>

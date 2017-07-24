@@ -28,10 +28,10 @@ export default function CreateCustomerForm({
         </div>
 
           <div className='cc-right'>
-          <label>Transport pickups:</label>
-          <Field required='true' type='text' placeholder='Street...' name='pickupStreet' />
-          <Field required='true' type='text' placeholder='Suburb...' name='pickupSuburb' />
-                <Field required='true' type='text' placeholder='Postcode...' name='pickupPostcode' />
+          <label>Address:</label>
+          <Field required='true' type='text' placeholder='Street...' name='customerStreet' />
+          <Field required='true' type='text' placeholder='Suburb...' name='customerSuburb' />
+                <Field required='true' type='text' placeholder='Postcode...' name='customerPostcode' />
                 <SelectStateField required='true' name="pickupState"/>
               </div>
         <div className='cc-middle'>

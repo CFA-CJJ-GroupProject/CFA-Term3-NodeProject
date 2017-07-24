@@ -9,22 +9,25 @@ export default function Customer({
     email,
     fax
   } = {},
-  address,
+  customerStreet,
+  customerSuburb,
+  customerState,
+  customerPostcode,
   notes,
 }) {
-
+  
   return (
-    <main>
-      <h2>Username: { username } </h2>
-      <h4>Business Name: { businessName } </h4>
-      <h4>Department: { department } </h4>
-      <h4>Phone Number: { phoneNumber } </h4>
-      <h4>Email: { email } </h4>
-      <h4>Fax: { fax } </h4>
-      <h4>Address: { address } </h4>
-      <h4>Notes: { notes } </h4>
-
-    </main>
+    <div className='job-info'>
+       <h2> { username } </h2>
+      <div> <p>Username:</p> <h4>{ username }</h4></div>
+      <div> <p>Business Name:</p> <h4>{ businessName }</h4></div>
+      <div> <p>Department:</p><h4>{ department }</h4></div>
+      <div> <p>Address:</p> <h4> {customerStreet }<br/>{customerSuburb }<br/>{customerState } {customerPostcode }</h4></div>
+      <div> <p>Phone Number: </p> <h4>{ phoneNumber }</h4></div>
+      <div> <p>Email:</p><h4>{ email }</h4></div>
+      <div> <p>Fax:</p> <h4> { fax }</h4></div>
+      <div> <p>Notes:</p> <h4> { notes }</h4></div>
+    </div>
   )
 
 }

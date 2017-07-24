@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import UsersList from '../components/UsersList'
+import Footer from '../components/Footer'
 
 class UsersPage extends Component {
 	render() {
@@ -14,6 +15,7 @@ class UsersPage extends Component {
 						'Loading Users...'
 					)
 				}
+				<Footer />
 			</div>
 		)
 	}
