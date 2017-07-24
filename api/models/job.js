@@ -28,12 +28,12 @@ const jobSchema = mongoose.Schema({
 
   status: String,
 
-  dimensions: {
+
     height: Number,
     length: Number,
     width: Number,
     weight: Number
-  }
+  
 
 
 

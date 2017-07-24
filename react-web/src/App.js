@@ -174,7 +174,7 @@ class App extends Component {
           <Route exact path='/jobconfirmation' render={() => (<JobConfirmationPage/>)}/>
 
           <Route exact path='/users/new' render={() => (
-            <CreateUserPage payload={this.state.payload} handleRedirect={this.handleRedirect} redirect={redirect} onRegister={this.handleCreateUser}/>
+            <CreateUserPage payload={this.state.payload} handleRedirect={this.handleRedirect} redirect={redirect} onRegister={this.handleCreateUser} />
           )}/>
 
           <Route exact path='/users' render={() => {
@@ -186,7 +186,7 @@ class App extends Component {
             return (<JobsPage jobs={this.state.jobs} role={ role } username={username}/>)
           }}/>
           <Route exact path='/jobs/new' render={() => (
-            <CreateJobPage payload={this.state.payload} handleRedirect={this.handleRedirect} redirect={redirect} onRegister={this.handleCreateJob}/>
+            <CreateJobPage payload={this.state.payload} handleRedirect={this.handleRedirect} redirect={redirect} onRegister={this.handleCreateJob} username={username}/>
           )}/>
 
           <Route exact path='/customers' render={() => {
