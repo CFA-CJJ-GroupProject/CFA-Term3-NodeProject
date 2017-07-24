@@ -4,7 +4,7 @@ import Footer from '../components/Footer'
 import {Redirect} from 'react-router-dom'
 
 
-const CreateJobPage = ({onRegister, redirect, handleRedirect, payload}) => (redirect
+const CreateJobPage = ({onRegister, redirect, handleRedirect, payload, username}) => (redirect
 	? (
 
     <div><Redirect to={payload.path}/>{handleRedirect()}</div>
@@ -12,8 +12,9 @@ const CreateJobPage = ({onRegister, redirect, handleRedirect, payload}) => (redi
   : (
     <div className='create-user'>
       <h1>Create JOBS!!!!!!!</h1>
+			{console.log("Username CreateJobPage", username)}
 		{console.log(payload.data)}
-      <CreateJobForm job={payload.data} onRegister={onRegister}/>
+      <CreateJobForm job={payload.data} onRegister={onRegister} username={username}/>
       <Footer/>
     </div>
   ))
