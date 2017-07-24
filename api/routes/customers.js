@@ -23,7 +23,12 @@ router.get('/customers/:id', (req, res) => {
   const id = req.params.id
   Customer.findById(id)
     .then (customer => {
-      res.json(customer)
+      if (!!customer) {
+        res.json(customer)
+      }
+      else {
+        res.status(404).json({ error: 'Customer not found' })
+      }
     })
     .catch(error => {
       res.status(500).json({ error: error})
@@ -60,8 +65,10 @@ router.route('/customers/:id')
         })
 })
 
-.put((req, res) => {
+.patch((req, res) => {
     const newCustomer = req.body
+    console.log('LLAMA FACE')
+
     req.itemQuery.update(newCustomer)
         .then(() => {
             res.json(newCustomer)

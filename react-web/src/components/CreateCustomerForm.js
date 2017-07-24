@@ -4,44 +4,38 @@ import TextField from './TextField'
 import readAndClearForm from './readAndClearForm'
 import SelectStateField from './SelectStateField'
 
-
-
-export default function CreateCustomerForm({
-    onUpdate,
-    id
-}) {
+export default function CreateCustomerForm({onUpdate, id, customer}) {
 
   function submitUpdate(event, id) {
-      event.preventDefault()
+    event.preventDefault()
 
-      const form = event.target
-      const userValues = readAndClearForm(form)
-      onUpdate(userValues, id)
+    const form = event.target
+    const userValues = readAndClearForm(form)
+    onUpdate(userValues, id)
   }
 
   return (
-    <form onSubmit={ (event) => submitUpdate(event, id) }>
+    <form onSubmit={(event) => submitUpdate(event, id)}>
       <div className='cc-form'>
-      <div className='cc-left'>
+        {console.log("customer from form", customer._id)}
+        <div className='cc-left'>
           <label>Company information:</label>
-          <Field required='true' type='username' placeholder='Username...' name='username' />
-          <Field required='true' type='text' placeholder='Company name' name='department' />
-          <Field required='true' type='tel' placeholder='Phone Number...' name='phoneNumber' />
-          <Field required='true' type='email' placeholder='Email...' name='email' />
-          <Field required='false' type='tel' placeholder='Fax...' name='fax' />
+          <Field required='true' type='username' placeholder='Username...' name='username' defaultValue={customer.username}/>
+          <Field required='true' type='text' placeholder='Company name' name='businessName' defaultValue={customer.businessName}/>
+          <Field required='true' type='text' placeholder='Department' name='department' defaultValue={customer.department}/>
+          <Field required='true' type='tel' placeholder='Phone Number...' name='phoneNumber' defaultValue={customer.phoneNumber}/>
+          <Field required='true' type='email' placeholder='Email...' name='email' defaultValue={customer.email}/>
+          <Field required='false' type='tel' placeholder='Fax...' name='fax' defaultValue={customer.fax}/>
         </div>
 
-          <div className='cc-right'>
+        <div className='cc-right'>
           <label>Address:</label>
-          <Field required='true' type='text' placeholder='Street...' name='customerStreet' />
-          <Field required='true' type='text' placeholder='Suburb...' name='customerSuburb' />
-                <Field required='true' type='text' placeholder='Postcode...' name='customerPostcode' />
-                <SelectStateField required='true' name="pickupState"/>
-              </div>
+          <TextField required='false' placeholder='address' name='address' defaultValue={customer.address}/>
+        </div>
         <div className='cc-middle'>
-          <TextField required='false' placeholder='Notes...' name='notes' />
+          <TextField required='false' placeholder='Notes...' name='notes' defaultValue={customer.notes}/>
         </div>
-        </div>
+      </div>
       <button type='submit' className='cc-button'>Create Customer</button>
     </form>
   )

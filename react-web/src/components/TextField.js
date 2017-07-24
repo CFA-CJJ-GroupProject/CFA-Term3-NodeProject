@@ -5,12 +5,12 @@ export default function TextField({
   name,
   placeholder,
   required,
-  val
+  defaultValue
 }) {
   return (
     <label>
         <span>{ label } </span>
-        <textarea name={ name } placeholder={ placeholder } required={ required }/>
+        <textarea name={ name } placeholder={ placeholder } required={ required } defaultValue={defaultValue}/>
     </label>
   )
 }

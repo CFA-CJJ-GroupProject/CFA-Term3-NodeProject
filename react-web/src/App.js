@@ -38,6 +38,7 @@ class App extends Component {
     redirect: null,
     users: null,
     customers: null,
+    singleCustomer: null,
     payload: {
       path: null,
       data: null
@@ -51,6 +52,7 @@ class App extends Component {
       return
     }
     this.loadPromises.listUsers = usersAPI.list().then(users => {
+      delete this.loadPromises.listCustomers
       this.setState({users, error: null})
     }).catch(error => {
       this.setState({error})
@@ -64,6 +66,7 @@ class App extends Component {
       return
     }
     this.loadPromises.listJobs = jobsAPI.list(username, role).then(jobs => {
+      delete this.loadPromises.listCustomers
       this.setState({jobs, error: null})
     }).catch(error => {
       this.setState({error})
@@ -71,9 +74,11 @@ class App extends Component {
   }
 
   loadCustomers = () => {
+    // Don’t load again if we have already loaded
     if (this.loadPromises.listCustomers) {
       return
     }
+    // Otherwise load from API
     this.loadPromises.listCustomers = customersAPI.list().then(customers => {
       this.setState({customers, error: null})
     }).catch(error => {
@@ -83,6 +88,7 @@ class App extends Component {
 
   setToken = (token) => {
     setAPIToken(token)
+    // Reset everything that’s loaded
     this.loadPromises = {}
     if (token) {
       sessionStorage.setItem(tokenKey, token)
@@ -133,8 +139,9 @@ class App extends Component {
   }
 
     handleCreateCustomer = (customer, id) => {
-    customersAPI.postCustomer(customer, id)
+    customersAPI.updateCustomerDetail(customer, id)
       .then(result => {
+        delete this.loadPromises.listCustomers
         this.setState({ redirect: true, payload: result.payload})
       })
       .catch(error => {
@@ -151,6 +158,20 @@ class App extends Component {
         this.setState({ error })
       })
   }
+
+
+  findCustomer = (id) => {
+    console.log("id", id, this.loadPromises.listCustomers)
+    if (this.loadPromises.listCustomers) {
+      return
+    }
+    this.loadPromises.listCustomers = customersAPI.find(id).then(singleCustomer => {
+      this.setState({singleCustomer, error: null})
+    }).catch(error => {
+      console.log("You broke it ",error)
+    })
+  }
+
 
   render() {
     const {error, token, redirect} = this.state
@@ -196,9 +217,9 @@ class App extends Component {
 
           <Route exact path='/customers/:id' render={({match}) => {
             console.log(match.params)
-            return <CreateCustomerPage onCreateCustomer={this.handleCreateCustomer} id={match.params.id}/>
+            this.findCustomer(match.params.id)
+            return <CreateCustomerPage onCreateCustomer={this.handleCreateCustomer} id={match.params.id} customer={this.state.singleCustomer} />
           }}/>
-          <Route exact path='/jobs/:id/update' render={() => (<CreateJobPage payload={this.state.payload} handleRedirect={this.handleRedirect} redirect={redirect} onRegister={this.handleCreateJob}/>)}/>
 
 
         </main>
