@@ -9,7 +9,6 @@ class ClientNav extends React.Component {
       <ul className='nav'>
         <li><NavLink exact to='/' activeClassName='active'>Dashboard</NavLink></li>
         <li><NavLink to='/Jobs'  activeClassName='active'>Jobs</NavLink></li>
-        <li><NavLink to='/createjob'  activeClassName='active'>Create Job</NavLink></li>
         <li><NavLink to='/jobs/new'  activeClassName='active'>Create Job</NavLink></li>
       </ul>
     </nav>
