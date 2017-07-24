@@ -8,11 +8,10 @@ class DriverNav extends React.Component {
     <nav>
       <ul class='nav'>
         <li><NavLink exact to='/' activeClassName='active'>Dashboard</NavLink></li>
-        <li><NavLink to='/Jobs'  activeClassName='active'>Jobs</NavLink></li>
+        <li><NavLink to='/jobs'  activeClassName='active'>Jobs</NavLink></li>
       </ul>
     </nav>
     );
   }
 }
 export default DriverNav
-

@@ -63,8 +63,12 @@ body {
 }
 .company-name, .links {
   display: inline-block;
-  width: 50%;
-
+}
+.links {
+  width: 100px;
+  float: right;
+  margin-top: 30px;
+  margin-right: 15px;
 }
 .company-name h3, .links h4, .links p {
   margin: 0px;
@@ -76,7 +80,6 @@ body {
   float: right;
   cursor: pointer;
   margin-top: -35px;
-  margin-right: 10px;
 }
 .links p {
   font-weight: 600;
@@ -84,6 +87,7 @@ body {
   letter-spacing: 1px;
   padding-left: 2px;
   float: right;
+  margin-right: 15px;
 }
 a {
   text-decoration: none;
@@ -355,6 +359,9 @@ div .add-item {
 .job-info div p {
   display: inline-block;
   text-transform: none;
+}
+.job-info div p .dime {
+  text-transform: lowercase;
 }
 .dime {
   text-transform: none;
