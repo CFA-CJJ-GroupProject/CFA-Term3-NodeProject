@@ -222,7 +222,10 @@ button[type=submit]:hover {
   box-shadow: 2px 2px 2px grey;
 }
 footer {
-  margin-bottom: 0px;
+  position: fixed;
+  width: 100%;
+  left: 0;
+  bottom: 0;
   background-color: #000033;
   height: 30px;
   margin-top: 70px;
@@ -231,7 +234,8 @@ footer p {
   text-align: right;
   font-size: 10px;
   color: white;
-  padding: 7px;
+  padding-bottom: 10px;
+  padding-right: 5px;
   font-weight: lighter;
 }
 /***********************/
