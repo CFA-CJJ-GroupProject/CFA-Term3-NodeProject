@@ -67,7 +67,7 @@ router.post('/jobs/new', (req, res) => {
   const newJob = req.body
   Job.create(newJob)
     .then (job => {
-      res.json({payload: {path: `/jobs/${job.id}/update`, data: job}})
+      res.json({payload: {path: `/jobs`, data: job}})
     })
     .catch(error => {
       res.status(500).json({ error: error})
