@@ -2,23 +2,25 @@
 Term 3 MERN stack project.<br>
 A transport company job logging application.
 
+# Live Application
+***
+> As the back-end and the front-end are deployed as two separate applications, it may take a few seconds for the back-end to wake up when trying to access the website for the first time after a period of time.
+
+> https://allneedstransport.netlify.com/
+
+> A user can only be created by the administrator. User: admin,  password: guest
+
+> Each kind of user will have different permissions and different home screens depending on their permissions.
+
 
 # Table of Contents
 
 * [Project brief](#project-brief)
 * [Stacks Used](#stacks-used)
-* [Problem](#business-problem)
+* [Problem](#client-problem)
 * [Solution](#solution)
 * [User Stories](#user-stories)
-* [BrainStorm of Ideas](#ideas-and-brainstorm)
-* [Design And Solution](#chosen-designs-and-solution)
-* [User Flow Diagrams](#user-flow-diagram)
-* [Database Design](#database-design)
-
-
-
-
-
+* [Design And Solution](#wireframes)
 
 
 ## Project Brief
@@ -30,23 +32,31 @@ A transport company job logging application.
 
 [Table of Contents](#table-of-contents)
 
-
-## Stacks Used 
+## Client Problem 
 ***
-* MongoDB: noSQL database for flexibility.
-* ExpressJs: back-end API.
-* ReactJs: Component based design, front end development.
-* NodeJs: Server-side application development.
+> Our client, a logistics transport company currently does not have any sort of digital infrastructure, therefore all records and history of transactions are all recorded on paper. As a result, keeping an accurate history of freight pickups and delivieries is a significant problem for them, their current paper system is inaccurate as well as time and labour intensive. 
 
-[Table of Contents](#table-of-contents)
-
-## Business Problem 
-*** 
-[Table of Contents](#table-of-contents)
 
 ## Solution 
 *** 
+> We designed and developed a full stack web application catered specifically for our clients needs. There are three different ki9nds of users, a customer, a driver and an administrator. Each user type has their own specific permissions, e.g a customer can not see a drivers job list. A customer will have their own unique login, created by the administrator that they can use to log on and create new jobs for pickup and delivery. A driver can only see their jobs list, which is assigned to them by the administrator. 
+The administrator has access to all functionality of the application and is responsible for assigned jobs and creating unique logins for both drivers and customers.
 [Table of Contents](#table-of-contents)
+
+## Wireframes
+*** 
+![trello](/lib/wire1.png)
+![trello](/lib/wire2.png)
+![trello](/lib/wire3.png)
+![trello](/lib/login.png)
+[Table of Contents](#table-of-contents)
+
+## Trello Board
+*** 
+> We made heavy use of a trello board to keep track progress and outstanding tasks to be completed.
+![trello](/lib/trello.png)
+[Table of Contents](#table-of-contents)
+
 
 ## User Stories 
 ***
@@ -80,20 +90,55 @@ A transport company job logging application.
 
 [Table of Contents](#table-of-contents)
 
-## Ideas and BrainStorm
-*** 
-[Table of Contents](#table-of-contents)
-
-## Chosen Designs and Solution
-*** 
-[Table of Contents](#table-of-contents)
-
-## User Flow Diagram
+## Stacks Used 
 ***
+* MongoDB: noSQL database for flexibility.
+* ExpressJs: back-end API.
+* ReactJs: Component based design, front end development.
+* NodeJs: Server-side application development.
+
 [Table of Contents](#table-of-contents)
 
-## Database Design 
-*** 
+## Backend, Serverside
+***
+> Our back-end application is using node, express and mongo to store data. All the logic of the application is done in the back-end. 
+
+> Dependencies Used: <br>
+   *  axios<br>
+   *  jwt-decode<br>
+   *  react<br>
+   *  react-collapsible<br>
+   *  react-dom<br>
+   *  react-router<br>
+   *  react-router-dom<br>
+   *  react-scripts<br>
+
+## Front-end Display
+***
+> Our front-end uses react, strictly as a view to display data generated via the back-end. 
+
+> Dependencies Used:<br>
+
+  * body-parser<br>
+  * dotenv<br>
+  * express<br>
+  * jsonwebtoken<br>
+  * cors<br>
+  * mongoose<br>
+  * passport<br>
+  * passport-jwt<br>
+  * passport-local<br>
+  * passport-local-mongoose<br>
+  * nodemon<br>
+
+
+
+
+
+
+
+
+
 
 
 
